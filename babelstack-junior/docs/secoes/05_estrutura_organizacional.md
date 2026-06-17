@@ -1,3 +1,15 @@
 # 5. Estrutura Organizacional
 
-> _Seção a ser preenchida conforme o roteiro (Fases 1–3). Base: esboço da Raquel._
+A BabelStack Júnior opera com duas diretorias, ocupadas pelos dois fundadores, sob a orientação de um conselho de professores. A divisão segue as competências de cada integrante e cobre todas as frentes do portfólio.
+
+| Camada / Cargo | Responsável | Atribuições |
+| --- | --- | --- |
+| Conselho de Orientação | Professores orientadores | Conselho técnico e pedagógico; revisão de código e mentoria. |
+| Diretoria Executiva e de Produto (CPO) | Raquel Pereira | Gestão estratégica e comercial, engenharia de requisitos, design UX/UI (BabelUX) e Business Intelligence (LingoBoard). |
+| Diretoria de Engenharia de Software e Operações (CTO) | Roger Quinelato | Desenvolvimento web (EduLanding e VocabDeck), automação e integrações (IntegraSchool), arquitetura multidiomas e operações de TI/hospedagem. |
+
+## Como as diretorias se conectam
+
+No fluxo de um projeto, a Diretoria Executiva e de Produto levanta os requisitos com o cliente e desenha os protótipos; após aprovação, a Diretoria de Engenharia codifica, testa e hospeda a solução. O conselho de orientação realiza o code review pedagógico antes da entrega. Esse encadeamento garante que necessidade pedagógica e execução técnica permaneçam alinhadas.
+
+> _[Anexo: organograma visual (Draw.io) — a produzir na Fase 2]_

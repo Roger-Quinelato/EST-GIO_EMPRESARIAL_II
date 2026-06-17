@@ -1,0 +1,10 @@
+# Build temporário e dependências
+_build/
+node_modules/
+
+# Config local do Claude Code
+.claude/
+
+# Arquivos de sistema
+Thumbs.db
+.DS_Store
