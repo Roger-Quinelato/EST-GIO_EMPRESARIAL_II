@@ -62,3 +62,13 @@ _Alternativa mais "suave" (se a banca preferir): **Poppins** nos títulos + **In
 
 Os valores acima estão centralizados em [`assets/identidade/tokens.css`](../assets/identidade/tokens.css)
 como variáveis CSS (`--cor-primaria`, `--fonte-titulo`, etc.), para o site e os produtos reutilizarem sem repetir HEX.
+
+---
+
+## 5. Arquivo no Figma
+
+Guia visual interativo (paleta como estilos de cor, estilos de texto e quadro da marca) — base para o logo e os mockups do BabelUX:
+
+**https://www.figma.com/design/BwHP5UWR51JXmtGOW9cfS1/**
+
+Já contém: 5 estilos de cor (`Marca/1…5`), 3 estilos de texto (Título/Subtítulo/Corpo) e um board com paleta, tipografia e prévia da marca aplicada.
