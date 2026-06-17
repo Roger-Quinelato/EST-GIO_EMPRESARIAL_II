@@ -2,15 +2,15 @@
 
 - **Nome:** BabelStack Júnior – Soluções em EdTech
 - **Slogan:** "Codificando fluência, estruturando conexões globais."
-- **Área de atuação:** Soluções tecnológicas para educação de idiomas (EdTech), com foco em Engenharia de Software, Business Intelligence e Design de Experiência do Usuário (UX/UI).
+- **Área de atuação:** soluções tecnológicas para a educação de idiomas (EdTech), com foco em Engenharia de Software, Business Intelligence e Design de Experiência do Usuário (UX/UI).
 
 ## Descrição da empresa
 
-A BabelStack Júnior é uma associação civil sem fins lucrativos gerida exclusivamente por estudantes de Sistemas de Informação. Especializada no desenvolvimento de tecnologias para o ensino e aprendizado de línguas estrangeiras, atua como uma ponte entre a pedagogia e a engenharia de software. O portfólio engloba desde plataformas web interativas e aplicações voltadas à imersão no idioma (com ênfase inicial no inglês e arquitetura escalável para outras línguas) até painéis de análise de dados (dashboards) que auxiliam escolas e professores a monitorar o engajamento e a retenção de seus alunos.
+A BabelStack Júnior é uma associação civil sem fins lucrativos, gerida exclusivamente por estudantes de Sistemas de Informação e regida pela Lei Federal nº 13.267/2016. Especializada no desenvolvimento de tecnologias para o ensino e o aprendizado de línguas estrangeiras, atua como uma ponte entre a pedagogia e a engenharia de software. Seu portfólio vai de plataformas web interativas voltadas à imersão no idioma — com ênfase inicial no inglês e arquitetura escalável para outras línguas — até painéis de análise de dados (dashboards) que ajudam escolas e professores a monitorar o engajamento e a retenção dos alunos. O que distingue a empresa é a hiper-especialização no nicho de idiomas: em vez de software genérico, cada solução nasce de uma dor concreta da sala de aula.
 
 ## História da criação
 
-Fundada por graduandos em Sistemas de Informação no Distrito Federal, a empresa nasceu da intersecção entre o desenvolvimento de software e a proficiência avançada em línguas estrangeiras de seus idealizadores. Durante a jornada acadêmica, o grupo percebeu que, embora o domínio do inglês fosse uma ferramenta crucial para profissionais de tecnologia, as plataformas de ensino tradicionais frequentemente careciam de interfaces intuitivas e ferramentas de apoio focadas em metodologias ativas. A ideia ganhou força com o desenvolvimento de protótipos experimentais — de sistemas de anotações visuais a lógicas de banco de dados para gestão de alunos. Compreendendo o potencial comercial e social dessas ferramentas, os estudantes decidiram formalizar o projeto, dando origem à BabelStack Júnior.
+A BabelStack Júnior nasceu no Distrito Federal, da intersecção entre o desenvolvimento de software e a proficiência avançada em línguas estrangeiras de seus fundadores. Ao longo da graduação, a dupla percebeu um descompasso: embora o inglês seja hoje um pré-requisito para a carreira em tecnologia, as plataformas tradicionais de ensino costumam falhar justamente onde mais importa — interfaces pouco intuitivas, ausência de metodologias ativas e nenhuma visão de dados sobre o progresso do aluno. A ideia ganhou corpo durante o desenvolvimento de protótipos experimentais, de sistemas de anotação visual a bancos de dados para gestão de turmas. Compreendendo o potencial social e comercial dessas ferramentas, os fundadores decidiram formalizar o projeto como Empresa Júnior, transformando conhecimento técnico avançado em soluções acessíveis para educadores e instituições.
 
 ## Missão
 
@@ -23,9 +23,9 @@ Consolidar-se, até o final de 2027, como a Empresa Júnior de referência no de
 ## Valores
 
 - **Design centrado no aluno (UX/UI):** a tecnologia deve facilitar o aprendizado, reduzindo a carga cognitiva por meio de interfaces intuitivas e limpas.
-- **Excelência orientada a dados:** uso de métricas e Business Intelligence para gerar resultados educacionais concretos.
+- **Excelência orientada a dados:** uso de métricas e Business Intelligence para gerar resultados educacionais concretos, em vez de decisões baseadas em "achismo".
 - **Escalabilidade e visão global:** arquiteturas preparadas não apenas para o inglês, mas estruturadas para abraçar qualquer outro idioma.
-- **Compromisso acadêmico e inovação:** transformar a pesquisa de sala de aula e as linguagens de programação atuais em soluções práticas.
+- **Compromisso acadêmico e inovação:** transformar a pesquisa de sala de aula e as linguagens de programação atuais em soluções práticas para a sociedade.
 - **Colaboração integrada:** trabalho em equipe unindo diferentes competências de TI para arquitetar soluções completas e robustas.
 
 > _[Anexo: logotipo e identidade visual — ver assets/logo e docs/identidade_visual.md]_
