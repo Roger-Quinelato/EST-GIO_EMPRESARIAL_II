@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80" role="img" aria-label="BabelStack Júnior — EdTech">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;display=swap');</style>
+  <g transform="translate(8,15)">
+    <rect x="18" y="14" width="28" height="11" rx="5" fill="#F59E0B"/>
+    <rect x="14" y="27" width="36" height="11" rx="5" fill="#0EA5A4"/>
+    <rect x="14" y="40" width="36" height="11" rx="5" fill="#4338CA"/>
+  </g>
+  <text x="74" y="42" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="700" font-size="30" fill="#1E293B">Babel<tspan fill="#4338CA">Stack</tspan></text>
+  <text x="75" y="60" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="500" font-size="13" letter-spacing="1.5" fill="#0EA5A4">JÚNIOR · EDTECH</text>
+</svg>
