@@ -32,7 +32,7 @@ A BabelStack Júnior é uma Empresa Júnior fictícia de EdTech cujo portfólio 
 ## Escopo
 
 ### ✅ Em escopo (MVPs acadêmicos)
-- 5 produtos demonstráveis (ver PRDs em `docs/produto/prd_*.md`).
+- 5 produtos demonstráveis (ver PRDs em `docs/produtos/prd_*.md`).
 - Site institucional estático que apresenta empresa + portfólio.
 - **Modelo de dados PostgreSQL** de referência (ERD) — base conceitual do domínio escolar.
 - Dados de exemplo (CSV) para demonstração.
@@ -199,4 +199,4 @@ Caminho crítico: ERD/modelo → CSVs → LingoBoard/IntegraSchool.
 | 3 | Escopo do estudo de caso BabelUX (qual interface-alvo)? | Raquel | 🔴 Aberto |
 
 ## Roadmap
-Ver `docs/produto/roadmap.md` (alinhado às Sprints 1–5 + visão pós-curso).
+Ver `docs/produtos/roadmap.md` (alinhado às Sprints 1–5 + visão pós-curso).

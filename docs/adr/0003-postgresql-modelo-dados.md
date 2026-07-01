@@ -36,5 +36,5 @@ Escolhida a opção **A (PostgreSQL como referência)**: o paradigma relacional 
 - Operar PostgreSQL em produção exigiria infra/processo adicionais `[estimativa]`.
 
 ## Links
-- ERD e entidades: `docs/produto/tdd_arquitetura.md`
+- ERD e entidades: `docs/produtos/tdd_arquitetura.md`
 - Usado por `prd_lingoboard.md` e `prd_integraschool.md`.

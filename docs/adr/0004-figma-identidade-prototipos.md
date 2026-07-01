@@ -36,5 +36,5 @@ Escolhida a opção **A (Figma)**: padrão de mercado para UX/UI, plano gratuito
 - Dependência de conta/serviço externo para abrir os arquivos-fonte.
 
 ## Links
-- PRD: `docs/produto/prd_babelux.md`
+- PRD: `docs/produtos/prd_babelux.md`
 - Identidade: `docs/identidade_visual.md`, `assets/identidade/tokens.css`.

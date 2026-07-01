@@ -319,7 +319,7 @@ const sections = [
     '**Inovações propostas:** aplicação de Business Intelligence e análise preditiva de dados — práticas do mercado corporativo — adaptadas à rotina de professores da rede pública.',
   ),
   note('[Anexo: diagrama ERD do banco PostgreSQL (alunos, turmas, notas, presenças) — bônus da Fase 3]'),
-  p('Documentação técnica de apoio: arquitetura dos 5 produtos e modelo de dados (ERD) em docs/produto/tdd_arquitetura.md; especificações em docs/produto/prd_*.md; e as decisões de stack registradas como ADRs em docs/adr/ (0001–0005).'),
+  p('Documentação técnica de apoio: arquitetura dos 5 produtos e modelo de dados (ERD) em docs/produtos/tdd_arquitetura.md; especificações em docs/produtos/prd_*.md; e as decisões de stack registradas como ADRs em docs/adr/ (0001–0005).'),
 ]},
 
 { n:17, slug:'17_resultados_esperados', title:'Resultados Esperados', body:[

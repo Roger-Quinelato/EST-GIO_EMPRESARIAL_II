@@ -38,5 +38,5 @@ Escolhida a opção **A (Streamlit + Pandas)**: entrega um dashboard interativo 
 - Menos controle fino de layout que Dash/React.
 
 ## Links
-- PRD: `docs/produto/prd_lingoboard.md`
+- PRD: `docs/produtos/prd_lingoboard.md`
 - Decorre de [[0001-stack-open-source-custo-zero]].

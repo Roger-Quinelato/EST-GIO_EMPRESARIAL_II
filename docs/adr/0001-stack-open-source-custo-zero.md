@@ -37,6 +37,6 @@ Escolhida a opção **A (open-source/custo-zero)**, por eliminar custo, maximiza
 - Escalabilidade real exigiria infra paga no futuro `[estimativa]`.
 
 ## Links
-- TDD: `docs/produto/tdd_arquitetura.md`
+- TDD: `docs/produtos/tdd_arquitetura.md`
 - Seção 16 do documento (Tecnologia e Inovação).
 - Detalha-se em [[0002-streamlit-pandas-lingoboard]] e [[0003-postgresql-modelo-dados]].

@@ -6,4 +6,4 @@
 
 > _[Anexo: diagrama ERD do banco PostgreSQL (alunos, turmas, notas, presenças) — bônus da Fase 3]_
 
-Documentação técnica de apoio: arquitetura dos 5 produtos e modelo de dados (ERD) em docs/produto/tdd_arquitetura.md; especificações em docs/produto/prd_*.md; e as decisões de stack registradas como ADRs em docs/adr/ (0001–0005).
+Documentação técnica de apoio: arquitetura dos 5 produtos e modelo de dados (ERD) em docs/produtos/tdd_arquitetura.md; especificações em docs/produtos/prd_*.md; e as decisões de stack registradas como ADRs em docs/adr/ (0001–0005).

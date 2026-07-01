@@ -32,14 +32,14 @@ Guia para agentes que trabalham neste repositório. Leia antes de editar qualque
 
 ## Estrutura do repositório
 
-> **Repo reorganizado para a RAIZ.** A antiga pasta `babelstack-junior/` está sendo removida (aparece como `D` no git) — **não usar**.
+> **Repo organizado na RAIZ.** A antiga pasta `babelstack-junior/` (usada antes da reorg) foi removida do filesystem.
 
 ```
 docs/
   secoes/            # FONTE DE VERDADE do texto — as 18 seções (01_….md … 18_….md). Editar AQUI (raiz).
   identidade_visual.md
   analise_repositorio.md   # gap analysis vs. diretrizes
-  produto/           # 5 PRDs (prd_*.md) + TDD (tdd_arquitetura.md, com ERD) + roadmap.md
+  produtos/          # 5 PRDs (prd_*.md) + TDD (tdd_arquitetura.md, com ERD) + roadmap.md
   adr/               # 5 ADRs (0001–0005) + README
   sprints/           # plano_sprints.md + jira_backlog.csv/.pdf
 assets/

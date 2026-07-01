@@ -34,13 +34,12 @@ Sistemas de Informação. Associação civil sem fins lucrativos / Empresa Júni
 ## Estrutura do repositório
 
 ```
-babelstack-junior/
-├── docs/secoes/      # Um .md por seção (18 seções do enunciado)
-├── site/             # Site institucional (HTML/CSS/JS)
-├── produtos/         # Os 5 produtos demonstráveis
-├── assets/           # Logo, identidade visual, mockups
-├── diagramas/        # Organograma, fluxograma, Gantt, ERD
-└── apresentacao/     # Slides (24/07 e 31/07)
+docs/secoes/        # 18 seções do documento final
+site/                # Site institucional (HTML/CSS/JS)
+produtos/            # Os 5 produtos demonstráveis
+assets/              # Logo, identidade visual, mockups
+diagramas/           # Organograma, fluxograma, Gantt, ERD
+apresentacao/        # Slides (24/07 e 31/07)
 ```
 
 ## Status

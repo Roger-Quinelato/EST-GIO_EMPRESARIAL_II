@@ -81,7 +81,7 @@ Build do documento: `_build/build.js` (Node + lib `docx`) regenera os 18 `.md` e
 ## 6. Conexão com os entregáveis deste pacote
 
 Esta análise embasa os artefatos de produto/engenharia gerados na sequência:
-- **PRDs** (`docs/produto/prd_*.md`) — especificam o que cada um dos 5 produtos stub deve se tornar.
-- **TDD + ERD** (`docs/produto/tdd_arquitetura.md`) — fecha a lacuna #7 e fundamenta a Seção 16.
+- **PRDs** (`docs/produtos/prd_*.md`) — especificam o que cada um dos 5 produtos stub deve se tornar.
+- **TDD + ERD** (`docs/produtos/tdd_arquitetura.md`) — fecha a lacuna #7 e fundamenta a Seção 16.
 - **ADRs** (`docs/adr/`) — registram as decisões de stack já tomadas.
 - **Plano de sprints** (`docs/sprints/plano_sprints.md`) e **Jira (projeto EST)** — organizam as lacunas #1–#10 em execução até 31/07.
