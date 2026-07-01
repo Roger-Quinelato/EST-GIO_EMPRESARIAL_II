@@ -1,7 +1,112 @@
 <!doctype html>
 <html lang="pt-BR">
-<head><meta charset="utf-8"><title>VocabDeck</title></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VocabDeck — Flashcards com repetição espaçada</title>
+  <meta name="description" content="VocabDeck: flashcards de vocabulário com repetição espaçada (caixas de Leitner), offline-first, sem cadastro. Produto BabelStack Júnior.">
+  <link rel="stylesheet" href="../../assets/identidade/tokens.css">
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-  <!-- App de flashcards (Leitner + localStorage) — Fase 4 (Prompt 4.2) -->
+  <header class="app-header">
+    <div class="app-header__brand">
+      <span class="app-header__logo" aria-hidden="true">&lt;/&gt;</span>
+      <div>
+        <h1>VocabDeck</h1>
+        <p class="app-header__tagline">Flashcards com repetição espaçada · BabelStack Júnior</p>
+      </div>
+    </div>
+    <nav class="tabs" aria-label="Navegação principal">
+      <button type="button" class="tabs__btn is-active" data-tab="estudo" id="tab-btn-estudo" aria-pressed="true">Estudar</button>
+      <button type="button" class="tabs__btn" data-tab="baralho" id="tab-btn-baralho" aria-pressed="false">Gerenciar Baralho</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== TELA DE ESTUDO (Leitner) ===================== -->
+    <section id="tab-estudo" class="tab-panel is-active" aria-labelledby="tab-btn-estudo">
+
+      <div id="study-progress" class="study-progress" aria-live="polite"></div>
+
+      <div id="study-no-cards" class="study-empty" hidden>
+        <p>Seu baralho está vazio.</p>
+        <p>Adicione cards na aba <strong>Gerenciar Baralho</strong> para começar a estudar.</p>
+        <button type="button" class="btn btn--primario" data-goto-tab="baralho">Ir para Gerenciar Baralho</button>
+      </div>
+
+      <div id="study-empty" class="study-empty" hidden>
+        <p>Nenhum card para revisar agora — tudo em dia! 🎉</p>
+        <button type="button" id="btn-estudar-tudo" class="btn btn--secundario">Estudar todos mesmo assim</button>
+      </div>
+
+      <div id="study-round-end" class="study-empty" hidden>
+        <p>Rodada concluída.</p>
+        <button type="button" id="btn-nova-rodada" class="btn btn--secundario">Começar nova rodada</button>
+      </div>
+
+      <article id="study-card" class="flashcard" hidden aria-live="polite">
+        <p class="flashcard__label">Termo</p>
+        <p id="study-term" class="flashcard__term"></p>
+
+        <div id="study-back" class="flashcard__back" hidden>
+          <p class="flashcard__label">Definição</p>
+          <p id="study-definition" class="flashcard__definition"></p>
+        </div>
+
+        <div class="flashcard__actions">
+          <button type="button" id="btn-revelar" class="btn btn--primario">Revelar resposta</button>
+
+          <div id="study-answer-actions" class="study-answer-actions" hidden>
+            <button type="button" id="btn-errei" class="btn btn--errei">✗ Errei</button>
+            <button type="button" id="btn-acertei" class="btn btn--acertei">✓ Acertei</button>
+          </div>
+        </div>
+
+        <p class="flashcard__meta">Caixa <span id="study-box"></span> de 5</p>
+      </article>
+    </section>
+
+    <!-- ===================== GERENCIAR BARALHO (CRUD) ===================== -->
+    <section id="tab-baralho" class="tab-panel" aria-labelledby="tab-btn-baralho" hidden>
+
+      <div class="baralho-layout">
+        <div class="baralho-form-col">
+          <h2 id="form-titulo">Adicionar card</h2>
+          <form id="card-form" novalidate>
+            <input type="hidden" id="input-id" value="">
+
+            <label for="input-termo">Termo (frente)</label>
+            <input type="text" id="input-termo" name="termo" maxlength="80" required autocomplete="off">
+
+            <label for="input-definicao">Definição (verso)</label>
+            <textarea id="input-definicao" name="definicao" maxlength="240" rows="3" required></textarea>
+
+            <p id="form-erro" class="form-erro" role="alert" hidden></p>
+
+            <div class="form-acoes">
+              <button type="submit" id="btn-salvar-card" class="btn btn--primario">Adicionar card</button>
+              <button type="button" id="btn-cancelar-edicao" class="btn btn--secundario" hidden>Cancelar edição</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="baralho-lista-col">
+          <div class="baralho-lista-header">
+            <h2>Baralho</h2>
+            <p id="deck-count" class="deck-count"></p>
+          </div>
+          <ul id="deck-list" class="deck-list"></ul>
+          <p id="deck-list-vazio" class="deck-list-vazio" hidden>Nenhum card cadastrado ainda. Use o formulário ao lado para adicionar o primeiro.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>VocabDeck — MVP acadêmico BabelStack Júnior. Progresso salvo apenas neste navegador (localStorage), sem backend.</p>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>

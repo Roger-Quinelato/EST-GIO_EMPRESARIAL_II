@@ -11,12 +11,15 @@ Guia para agentes que trabalham neste repositório. Leia antes de editar qualque
 - **Documento regente:** `DocumentosIniciais/DiretrizesProjetoFinal.pdf` (18 seções obrigatórias).
 - **Roteiro de execução:** `DocumentosIniciais/Roteiro_BabelStack_Junior.md` (é um PDF apesar da extensão `.md`).
 
-## Estado atual (30/06/2026)
+## Estado atual (01/07/2026)
 
-- **Sprint 1 CONCLUÍDA / Sprint 2 ATIVA** (board Jira EST). Ver `docs/sprints/plano_sprints.md`.
+- **Sprint 1 CONCLUÍDA / Sprint 2 em andamento** (board Jira EST). Ver `docs/sprints/plano_sprints.md`.
 - **Entregue na Sprint 1:** anexos em `diagramas/` (ERD, fluxograma, organograma — `.mmd` + `.svg`), referenciados nas Seções 5/10/16; **esqueleto do site** em `site/` (index/portfólio/contato com tokens); revisão das seções 9–16. Também: `analise_repositorio.md`, 5 PRDs + TDD, 5 ADRs, roadmap.
-- **Sprint 2 (07–13/07):** LingoBoard MVP (Streamlit), VocabDeck MVP (Leitner/localStorage), publicar site no GitHub Pages.
-- **Pendências conhecidas:** (1) `jira_backlog.pdf` desatualizado (só o `.csv` está em 1–5); (2) fluxograma/organograma entregues em Mermaid/SVG, não nos nativos Bizagi/Draw.io; (3) reorg da raiz (saída de `babelstack-junior/`) ainda não commitada — ver `git status`.
+- **Entregue na Sprint 2 (parcial):**
+  - **LingoBoard MVP** (`produtos/lingoboard/app.py`): upload de CSV (com validação e fallback para `dados_exemplo.csv`, agora populado com 25 alunos fictícios em 3 turmas), 4 visualizações (média por turma, evolução por avaliação, ranking de risco, distribuição de faltas), indicador de risco (limiar fixo: média < 6.0 ou faltas > 8) e filtros por turma/avaliação.
+  - **VocabDeck MVP** (`produtos/vocabdeck/index.html` + `app.js` + `style.css`): CRUD de cards, motor Leitner de 5 caixas (intervalos 0/1/3/7/14 dias), persistência em `localStorage`, layout responsivo com os tokens de identidade.
+  - **GitHub Pages ativado** (build via GitHub Actions, workflow em `.github/workflows/pages.yml`, dispara em push a `main` tocando `site/`) — publica em `https://roger-quinelato.github.io/EST-GIO_EMPRESARIAL_II/`. Só entra no ar após o próximo push.
+- **Pendências conhecidas:** (1) `jira_backlog.pdf`/`.csv` desatualizados (não refletem os itens da Sprint 2); (2) fluxograma/organograma entregues em Mermaid/SVG, não nos nativos Bizagi/Draw.io; (3) tema visual (tokens BabelStack) não aplicado aos gráficos nativos do Streamlit no LingoBoard (P1); (4) limiar de risco do LingoBoard ainda fixo, não configurável pela UI (P1); (5) commits recentes (fix do build.js + Sprint 2) estão **locais, ainda não enviados a origin/main** — fazer `git push` quando autorizado.
 
 ## Regras fixas (NUNCA violar)
 
