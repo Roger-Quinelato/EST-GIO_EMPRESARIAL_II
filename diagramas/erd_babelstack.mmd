@@ -1,0 +1,49 @@
+%% ERD — BabelStack Júnior (modelo de dados de referência, PostgreSQL)
+%% Origem: docs/produto/tdd_arquitetura.md. Anexo da Seção 16.
+%% Renderize em https://mermaid.live ou na extensão Mermaid do VS Code.
+erDiagram
+    ALUNO ||--o{ MATRICULA : possui
+    TURMA ||--o{ MATRICULA : contem
+    MATRICULA ||--o{ NOTA : gera
+    MATRICULA ||--o{ PRESENCA : registra
+    PROFESSOR ||--o{ TURMA : leciona
+
+    ALUNO {
+        int id PK
+        string nome
+        string email
+        string responsavel_contato
+        date data_nascimento
+    }
+    PROFESSOR {
+        int id PK
+        string nome
+        string idioma
+    }
+    TURMA {
+        int id PK
+        int professor_id FK
+        string idioma
+        string nivel
+        string periodo
+    }
+    MATRICULA {
+        int id PK
+        int aluno_id FK
+        int turma_id FK
+        date data_matricula
+        string status
+    }
+    NOTA {
+        int id PK
+        int matricula_id FK
+        string avaliacao
+        decimal valor
+        date data
+    }
+    PRESENCA {
+        int id PK
+        int matricula_id FK
+        date data
+        boolean presente
+    }

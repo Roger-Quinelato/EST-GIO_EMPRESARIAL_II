@@ -1,0 +1,17 @@
+%% Organograma — BabelStack Júnior. Anexo da Seção 5 (Estrutura Organizacional).
+%% Dupla fundadora (2 diretorias) sob conselho de orientação. Renderize em https://mermaid.live ou Draw.io.
+flowchart TD
+    E[BabelStack Júnior<br/>Empresa Júnior de EdTech]
+    C[Conselho de Orientação<br/>Professores orientadores<br/><i>mentoria e code review pedagógico</i>]
+    P[Diretoria Executiva e de Produto — CPO<br/>Raquel Pereira<br/><i>estratégia, requisitos, UX/UI, BI</i>]
+    T[Diretoria de Engenharia e Operações — CTO<br/>Roger Quinelato<br/><i>desenvolvimento, automação, infra</i>]
+
+    E --- C
+    E --> P
+    E --> T
+
+    P -.-> BX[BabelUX]
+    P -.-> LB[LingoBoard]
+    T -.-> ED[EduLanding]
+    T -.-> VD[VocabDeck]
+    T -.-> IS[IntegraSchool]

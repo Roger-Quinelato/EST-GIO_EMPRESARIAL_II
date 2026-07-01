@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 780" font-family="'Space Grotesk','Inter',system-ui,sans-serif">
+  <defs>
+    <style>
+      .ename { font-size:14px; font-weight:700; fill:#FFFFFF; }
+      .fld   { font-family:'Inter',system-ui,sans-serif; font-size:12px; fill:#1E293B; }
+      .badge { font-family:'Inter',system-ui,sans-serif; font-size:10px; font-weight:700; }
+      .rel   { stroke:#4338CA; stroke-width:2; fill:none; }
+      .relv  { font-family:'Inter',system-ui,sans-serif; font-size:11px; fill:#4338CA; font-style:italic; }
+      .card  { font-family:'Inter',system-ui,sans-serif; font-size:11px; font-weight:700; fill:#0EA5A4; }
+      .body  { fill:#FFFFFF; stroke:#CBD5E1; stroke-width:1.4; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1020" height="780" fill="#F8FAFC"/>
+  <text x="40" y="44" font-size="24" font-weight="700" fill="#1E293B">ERD — BabelStack Júnior (modelo PostgreSQL)</text>
+  <text x="40" y="68" font-family="'Inter',sans-serif" font-size="14" fill="#64748B">Tecnologia e Inovação (Seção 16) — domínio escolar de idiomas · base dos CSVs do LingoBoard e IntegraSchool</text>
+
+  <!-- ===================== RELATIONSHIPS (draw first, under boxes) ===================== -->
+  <!-- PROFESSOR leciona TURMA -->
+  <path class="rel" d="M170 204 V300"/>
+  <text x="178" y="256" class="relv">leciona</text>
+  <text x="158" y="220" class="card">1</text>
+  <text x="158" y="292" class="card">N</text>
+
+  <!-- TURMA contém MATRICULA -->
+  <path class="rel" d="M280 369 H390"/>
+  <text x="300" y="362" class="relv">contém</text>
+  <text x="286" y="384" class="card">1</text>
+  <text x="372" y="384" class="card">N</text>
+
+  <!-- ALUNO possui MATRICULA -->
+  <path class="rel" d="M850 248 V290 H500 V330"/>
+  <text x="600" y="284" class="relv">possui</text>
+  <text x="856" y="266" class="card">1</text>
+  <text x="480" y="324" class="card">N</text>
+
+  <!-- MATRICULA gera NOTA -->
+  <path class="rel" d="M610 399 H740"/>
+  <text x="632" y="392" class="relv">gera</text>
+  <text x="616" y="414" class="card">1</text>
+  <text x="722" y="414" class="card">N</text>
+
+  <!-- MATRICULA registra PRESENCA -->
+  <path class="rel" d="M500 468 V620 H740"/>
+  <text x="512" y="560" class="relv">registra</text>
+  <text x="484" y="486" class="card">1</text>
+  <text x="722" y="614" class="card">N</text>
+
+  <!-- ===================== ENTITIES ===================== -->
+  <!-- PROFESSOR (60,110) 3 fields -->
+  <rect class="body" x="60" y="138" width="220" height="66"/>
+  <rect x="60" y="110" width="220" height="28" rx="6" fill="#4338CA"/>
+  <text x="72" y="129" class="ename">PROFESSOR</text>
+  <text x="74" y="155" class="fld">id : int</text><text x="268" y="155" class="badge" fill="#F59E0B" text-anchor="end">PK</text>
+  <text x="74" y="177" class="fld">nome : string</text>
+  <text x="74" y="199" class="fld">idioma : string</text>
+
+  <!-- TURMA (60,300) 5 fields -->
+  <rect class="body" x="60" y="328" width="220" height="110"/>
+  <rect x="60" y="300" width="220" height="28" rx="6" fill="#4338CA"/>
+  <text x="72" y="319" class="ename">TURMA</text>
+  <text x="74" y="345" class="fld">id : int</text><text x="268" y="345" class="badge" fill="#F59E0B" text-anchor="end">PK</text>
+  <text x="74" y="367" class="fld">professor_id : int</text><text x="268" y="367" class="badge" fill="#0EA5A4" text-anchor="end">FK</text>
+  <text x="74" y="389" class="fld">idioma : string</text>
+  <text x="74" y="411" class="fld">nivel : string</text>
+  <text x="74" y="433" class="fld">periodo : string</text>
+
+  <!-- ALUNO (740,110) 5 fields -->
+  <rect class="body" x="740" y="138" width="220" height="110"/>
+  <rect x="740" y="110" width="220" height="28" rx="6" fill="#4338CA"/>
+  <text x="752" y="129" class="ename">ALUNO</text>
+  <text x="754" y="155" class="fld">id : int</text><text x="948" y="155" class="badge" fill="#F59E0B" text-anchor="end">PK</text>
+  <text x="754" y="177" class="fld">nome : string</text>
+  <text x="754" y="199" class="fld">email : string</text>
+  <text x="754" y="221" class="fld">responsavel_contato : string</text>
+  <text x="754" y="243" class="fld">data_nascimento : date</text>
+
+  <!-- MATRICULA (390,330) 5 fields -->
+  <rect class="body" x="390" y="358" width="220" height="110"/>
+  <rect x="390" y="330" width="220" height="28" rx="6" fill="#0EA5A4"/>
+  <text x="402" y="349" class="ename">MATRICULA</text>
+  <text x="404" y="375" class="fld">id : int</text><text x="598" y="375" class="badge" fill="#F59E0B" text-anchor="end">PK</text>
+  <text x="404" y="397" class="fld">aluno_id : int</text><text x="598" y="397" class="badge" fill="#0EA5A4" text-anchor="end">FK</text>
+  <text x="404" y="419" class="fld">turma_id : int</text><text x="598" y="419" class="badge" fill="#0EA5A4" text-anchor="end">FK</text>
+  <text x="404" y="441" class="fld">data_matricula : date</text>
+  <text x="404" y="463" class="fld">status : string</text>
+
+  <!-- NOTA (740,330) 5 fields -->
+  <rect class="body" x="740" y="358" width="220" height="110"/>
+  <rect x="740" y="330" width="220" height="28" rx="6" fill="#4338CA"/>
+  <text x="752" y="349" class="ename">NOTA</text>
+  <text x="754" y="375" class="fld">id : int</text><text x="948" y="375" class="badge" fill="#F59E0B" text-anchor="end">PK</text>
+  <text x="754" y="397" class="fld">matricula_id : int</text><text x="948" y="397" class="badge" fill="#0EA5A4" text-anchor="end">FK</text>
+  <text x="754" y="419" class="fld">avaliacao : string</text>
+  <text x="754" y="441" class="fld">valor : decimal</text>
+  <text x="754" y="463" class="fld">data : date</text>
+
+  <!-- PRESENCA (740,560) 4 fields -->
+  <rect class="body" x="740" y="588" width="220" height="88"/>
+  <rect x="740" y="560" width="220" height="28" rx="6" fill="#4338CA"/>
+  <text x="752" y="579" class="ename">PRESENCA</text>
+  <text x="754" y="605" class="fld">id : int</text><text x="948" y="605" class="badge" fill="#F59E0B" text-anchor="end">PK</text>
+  <text x="754" y="627" class="fld">matricula_id : int</text><text x="948" y="627" class="badge" fill="#0EA5A4" text-anchor="end">FK</text>
+  <text x="754" y="649" class="fld">data : date</text>
+  <text x="754" y="671" class="fld">presente : boolean</text>
+
+  <!-- Legend -->
+  <rect x="60" y="700" width="14" height="14" rx="3" fill="#F59E0B"/>
+  <text x="82" y="712" class="fld">PK — chave primária</text>
+  <rect x="240" y="700" width="14" height="14" rx="3" fill="#0EA5A4"/>
+  <text x="262" y="712" class="fld">FK — chave estrangeira</text>
+  <text x="440" y="712" class="card">1 · N</text>
+  <text x="490" y="712" class="fld">cardinalidade (um-para-muitos)</text>
+</svg>

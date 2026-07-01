@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" font-family="'Space Grotesk','Inter',system-ui,sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#1E293B"/>
+    </marker>
+    <style>
+      .ln { stroke:#1E293B; stroke-width:2; fill:none; }
+      .lbl { font-family:'Inter',system-ui,sans-serif; font-size:12px; fill:#475569; }
+      .step { font-family:'Inter',system-ui,sans-serif; font-size:13.5px; fill:#1E293B; }
+      .actor { font-family:'Inter',system-ui,sans-serif; font-size:11px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="900" fill="#F8FAFC"/>
+  <text x="40" y="44" font-size="24" font-weight="700" fill="#1E293B">Fluxograma de Atendimento — BabelStack Júnior</text>
+  <text x="40" y="68" class="lbl">Plano Operacional (Seção 10) — do contato inicial à hospedagem e suporte</text>
+
+  <!-- Start -->
+  <rect x="300" y="92" width="300" height="46" rx="23" fill="#4338CA"/>
+  <text x="450" y="120" font-size="13.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">Início: escola/professor procura a BabelStack</text>
+  <path class="ln" d="M450 138 V166" marker-end="url(#arrow)"/>
+
+  <!-- Levantamento -->
+  <rect x="315" y="168" width="270" height="52" rx="10" fill="#FFFFFF" stroke="#0EA5A4" stroke-width="2"/>
+  <text x="450" y="190" class="step" text-anchor="middle">Levantamento de requisitos</text>
+  <text x="450" y="208" class="actor" fill="#0EA5A4" text-anchor="middle">CPO — Raquel</text>
+  <path class="ln" d="M450 220 V248" marker-end="url(#arrow)"/>
+
+  <!-- Prototipo -->
+  <rect x="315" y="250" width="270" height="52" rx="10" fill="#FFFFFF" stroke="#0EA5A4" stroke-width="2"/>
+  <text x="450" y="272" class="step" text-anchor="middle">Protótipo no Figma</text>
+  <text x="450" y="290" class="actor" fill="#0EA5A4" text-anchor="middle">CPO — Raquel</text>
+  <path class="ln" d="M450 302 V330" marker-end="url(#arrow)"/>
+
+  <!-- Decisao 1: aprova prototipo -->
+  <polygon points="450,332 585,388 450,444 315,388" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="450" y="384" class="step" text-anchor="middle">Cliente aprova</text>
+  <text x="450" y="402" class="step" text-anchor="middle">o protótipo?</text>
+  <!-- Não: volta ao prototipo -->
+  <path class="ln" d="M315 388 H250 V276 H315" marker-end="url(#arrow)"/>
+  <text x="238" y="336" class="lbl" text-anchor="end">Não</text>
+  <!-- Sim -->
+  <path class="ln" d="M450 444 V472" marker-end="url(#arrow)"/>
+  <text x="462" y="462" class="lbl">Sim</text>
+
+  <!-- Desenvolve -->
+  <rect x="315" y="474" width="270" height="52" rx="10" fill="#FFFFFF" stroke="#6366F1" stroke-width="2"/>
+  <text x="450" y="496" class="step" text-anchor="middle">Desenvolvimento da solução</text>
+  <text x="450" y="514" class="actor" fill="#6366F1" text-anchor="middle">CTO — Roger</text>
+  <path class="ln" d="M450 526 V554" marker-end="url(#arrow)"/>
+
+  <!-- Testes -->
+  <rect x="315" y="556" width="270" height="52" rx="10" fill="#FFFFFF" stroke="#6366F1" stroke-width="2"/>
+  <text x="450" y="578" class="step" text-anchor="middle">Testes técnicos</text>
+  <text x="450" y="596" class="actor" fill="#6366F1" text-anchor="middle">CTO — Roger</text>
+  <path class="ln" d="M450 608 V636" marker-end="url(#arrow)"/>
+
+  <!-- Code review -->
+  <rect x="315" y="638" width="270" height="52" rx="10" fill="#FFFFFF" stroke="#4338CA" stroke-width="2"/>
+  <text x="450" y="660" class="step" text-anchor="middle">Code review pedagógico</text>
+  <text x="450" y="678" class="actor" fill="#4338CA" text-anchor="middle">Conselho de Orientação</text>
+  <path class="ln" d="M450 690 V718" marker-end="url(#arrow)"/>
+
+  <!-- Decisao 2: aprovado revisao -->
+  <polygon points="450,720 585,772 450,824 315,772" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="450" y="768" class="step" text-anchor="middle">Aprovado na</text>
+  <text x="450" y="786" class="step" text-anchor="middle">revisão?</text>
+  <path class="ln" d="M585 772 H650 V500 H585" marker-end="url(#arrow)"/>
+  <text x="662" y="640" class="lbl">Não</text>
+
+  <!-- Sim -> deploy (to the left column) -->
+  <path class="ln" d="M315 772 H150 V520" marker-end="url(#arrow)"/>
+  <text x="300" y="762" class="lbl" text-anchor="end">Sim</text>
+
+  <!-- Deploy -->
+  <rect x="35" y="468" width="230" height="52" rx="10" fill="#FFFFFF" stroke="#0EA5A4" stroke-width="2"/>
+  <text x="150" y="490" class="step" text-anchor="middle">Deploy em nuvem</text>
+  <text x="150" y="508" class="actor" fill="#0EA5A4" text-anchor="middle">hospedagem open-source</text>
+  <path class="ln" d="M150 468 V400" marker-end="url(#arrow)"/>
+
+  <!-- Entrega -->
+  <rect x="35" y="348" width="230" height="52" rx="10" fill="#FFFFFF" stroke="#0EA5A4" stroke-width="2"/>
+  <text x="150" y="370" class="step" text-anchor="middle">Entrega + treinamento</text>
+  <text x="150" y="388" class="actor" fill="#64748B" text-anchor="middle">do professor</text>
+  <path class="ln" d="M150 348 V300" marker-end="url(#arrow)"/>
+
+  <!-- Fim -->
+  <rect x="35" y="252" width="230" height="46" rx="23" fill="#4338CA"/>
+  <text x="150" y="280" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">Fim: suporte e feedback</text>
+</svg>

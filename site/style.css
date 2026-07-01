@@ -1,0 +1,119 @@
+/* ============================================================
+   BabelStack Júnior — Site institucional (esqueleto Sprint 1)
+   Consome os tokens de identidade em ../assets/identidade/tokens.css
+   Páginas: index.html (Início) · portfolio.html · contato.html
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--fonte-texto);
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+  line-height: 1.6;
+}
+
+h1, h2, h3 { font-family: var(--fonte-titulo); line-height: 1.2; color: var(--cor-escura); }
+
+a { color: var(--cor-link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { width: min(1100px, 92%); margin-inline: auto; }
+
+/* ---------- Cabeçalho / navegação ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(248, 250, 252, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #E2E8F0;
+}
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.9rem 0;
+}
+.brand { display: flex; align-items: center; gap: 0.5rem; font-family: var(--fonte-titulo); font-weight: 700; font-size: 1.15rem; color: var(--cor-escura); }
+.brand:hover { text-decoration: none; }
+.brand .mark {
+  display: inline-grid; place-items: center;
+  width: 32px; height: 32px; border-radius: var(--raio-pequeno);
+  background: var(--gradiente-marca); color: #fff; font-size: 0.85rem; font-weight: 700;
+}
+.nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+.nav-links a { color: var(--cor-escura); font-weight: 500; }
+.nav-links a.active { color: var(--cor-primaria); }
+.nav-toggle { display: none; background: none; border: 0; cursor: pointer; font-size: 1.5rem; color: var(--cor-escura); }
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-block; padding: 0.7rem 1.3rem; border-radius: var(--raio-pequeno);
+  font-weight: 600; font-family: var(--fonte-texto); cursor: pointer; border: 2px solid transparent;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+.btn-primary { background: var(--cor-primaria); color: #fff; box-shadow: var(--sombra-forte); }
+.btn-ghost { background: transparent; color: var(--cor-primaria); border-color: var(--cor-primaria); }
+.btn-acao { background: var(--cor-acao); color: var(--cor-escura); }
+
+/* ---------- Hero ---------- */
+.hero { padding: 4.5rem 0 3.5rem; text-align: center; }
+.hero .eyebrow { color: var(--cor-secundaria); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; font-size: .8rem; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.1rem); margin: 0.6rem 0; }
+.hero .slogan { font-size: 1.25rem; color: #475569; max-width: 620px; margin: 0 auto 1.8rem; }
+.hero-actions { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
+.gradient-text { background: var(--gradiente-marca); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* ---------- Seções ---------- */
+.section { padding: 3.2rem 0; }
+.section h2 { font-size: 1.9rem; margin-bottom: .4rem; }
+.section .lead { color: #475569; margin-bottom: 2rem; max-width: 640px; }
+
+.grid { display: grid; gap: 1.4rem; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.card {
+  background: #fff; border: 1px solid #E2E8F0; border-radius: var(--raio-grande);
+  padding: 1.5rem; box-shadow: var(--sombra-card);
+}
+.card h3 { font-size: 1.2rem; margin-bottom: .4rem; }
+.card .tag {
+  display: inline-block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em;
+  padding: .2rem .6rem; border-radius: 999px; margin-bottom: .7rem;
+  background: #EEF2FF; color: var(--cor-primaria);
+}
+.card .tech { margin-top: .8rem; font-size: .82rem; color: #64748B; }
+
+.pillar { text-align: left; }
+.pillar .ico { font-size: 1.7rem; }
+
+/* ---------- Formulário de contato ---------- */
+.form { display: grid; gap: 1rem; max-width: 520px; }
+.form label { font-weight: 600; font-size: .9rem; display: block; margin-bottom: .3rem; }
+.form input, .form textarea {
+  width: 100%; padding: .7rem .9rem; border: 1px solid #CBD5E1; border-radius: var(--raio-pequeno);
+  font-family: var(--fonte-texto); font-size: 1rem;
+}
+.form input:focus, .form textarea:focus { outline: 2px solid var(--cor-primaria-clara); border-color: transparent; }
+.form-note { font-size: .85rem; color: #64748B; }
+.info-list { list-style: none; display: grid; gap: .8rem; }
+.info-list li { display: flex; gap: .6rem; align-items: center; }
+
+/* ---------- Rodapé ---------- */
+.site-footer { background: var(--cor-escura); color: #CBD5E1; padding: 2.5rem 0; margin-top: 2rem; }
+.site-footer .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; align-items: center; }
+.site-footer a { color: #fff; }
+.site-footer .slogan-foot { font-family: var(--fonte-titulo); color: #fff; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 760px) {
+  .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; gap: 0; background: var(--cor-fundo); border-bottom: 1px solid #E2E8F0; padding: .5rem 0;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 92%; margin-inline: auto; padding: .6rem 0; border-bottom: 1px solid #E2E8F0; }
+}

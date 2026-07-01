@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="'Space Grotesk','Inter',system-ui,sans-serif">
+  <defs>
+    <style>
+      .box  { rx:12; }
+      .t-title { font-weight:700; }
+      .t-sub   { font-family:'Inter',system-ui,sans-serif; font-weight:400; }
+      .ln  { stroke:#1E293B; stroke-width:2; fill:none; }
+      .lnd { stroke:#64748B; stroke-width:1.6; stroke-dasharray:5 4; fill:none; }
+      .chip { fill:#FFFFFF; stroke:#F59E0B; stroke-width:1.6; rx:9; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="600" fill="#F8FAFC"/>
+  <text x="40" y="46" font-size="24" font-weight="700" fill="#1E293B">Organograma — BabelStack Júnior</text>
+  <text x="40" y="70" font-size="14" class="t-sub" fill="#64748B">Estrutura Organizacional (Seção 5) — dupla fundadora sob conselho de orientação</text>
+
+  <!-- Empresa -->
+  <rect class="box" x="340" y="100" width="220" height="60" rx="12" fill="#4338CA"/>
+  <text x="450" y="128" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">BabelStack Júnior</text>
+  <text x="450" y="148" font-size="12" class="t-sub" fill="#E0E7FF" text-anchor="middle">Empresa Júnior de EdTech</text>
+
+  <!-- Conselho (advisory, dashed) -->
+  <rect class="box" x="640" y="96" width="230" height="68" rx="12" fill="#FFFFFF" stroke="#4338CA" stroke-width="2"/>
+  <text x="755" y="122" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle">Conselho de Orientação</text>
+  <text x="755" y="140" font-size="11.5" class="t-sub" fill="#475569" text-anchor="middle">Professores orientadores</text>
+  <text x="755" y="156" font-size="11" class="t-sub" fill="#64748B" text-anchor="middle" font-style="italic">mentoria e code review pedagógico</text>
+  <path class="lnd" d="M560 130 H640"/>
+
+  <!-- Directorates -->
+  <path class="ln" d="M450 160 V196 M270 196 H630 M270 196 V228 M630 196 V228"/>
+
+  <rect class="box" x="140" y="228" width="260" height="94" rx="12" fill="#0EA5A4"/>
+  <text x="270" y="256" font-size="14.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">Diretoria Executiva e de Produto</text>
+  <text x="270" y="276" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">CPO — Raquel Pereira</text>
+  <text x="270" y="298" font-size="11.5" class="t-sub" fill="#CCFBF1" text-anchor="middle">estratégia · requisitos · UX/UI · BI</text>
+
+  <rect class="box" x="500" y="228" width="260" height="94" rx="12" fill="#6366F1"/>
+  <text x="630" y="256" font-size="14.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">Diretoria de Engenharia e Operações</text>
+  <text x="630" y="276" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">CTO — Roger Quinelato</text>
+  <text x="630" y="298" font-size="11.5" class="t-sub" fill="#E0E7FF" text-anchor="middle">desenvolvimento · automação · infra</text>
+
+  <!-- Product chips -->
+  <path class="lnd" d="M270 322 V352"/>
+  <path class="lnd" d="M630 322 V352"/>
+
+  <rect class="chip" x="150" y="352" width="112" height="36" rx="9"/>
+  <text x="206" y="375" font-size="13" font-weight="600" fill="#B45309" text-anchor="middle">BabelUX</text>
+  <rect class="chip" x="278" y="352" width="122" height="36" rx="9"/>
+  <text x="339" y="375" font-size="13" font-weight="600" fill="#B45309" text-anchor="middle">LingoBoard</text>
+
+  <rect class="chip" x="498" y="352" width="118" height="36" rx="9"/>
+  <text x="557" y="375" font-size="13" font-weight="600" fill="#B45309" text-anchor="middle">EduLanding</text>
+  <rect class="chip" x="626" y="352" width="118" height="36" rx="9"/>
+  <text x="685" y="375" font-size="13" font-weight="600" fill="#B45309" text-anchor="middle">VocabDeck</text>
+  <rect class="chip" x="560" y="398" width="140" height="36" rx="9"/>
+  <text x="630" y="421" font-size="13" font-weight="600" fill="#B45309" text-anchor="middle">IntegraSchool</text>
+
+  <!-- Legend -->
+  <text x="40" y="470" font-size="12" class="t-sub" fill="#64748B">— hierarquia · - - - relação de apoio/orientação e produtos sob cada diretoria</text>
+</svg>

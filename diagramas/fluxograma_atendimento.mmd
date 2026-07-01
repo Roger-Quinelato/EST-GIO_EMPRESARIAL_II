@@ -1,0 +1,16 @@
+%% Fluxograma de atendimento — BabelStack Júnior. Anexo da Seção 10 (Plano Operacional).
+%% Fluxo ponta-a-ponta de um projeto, do contato inicial à hospedagem e suporte.
+%% Renderize em https://mermaid.live ou importe no Bizagi/Draw.io.
+flowchart TD
+    A([Início: escola/professor procura a BabelStack]) --> B[CPO faz o levantamento de requisitos]
+    B --> C[CPO desenha protótipo no Figma]
+    C --> D{Cliente aprova o protótipo?}
+    D -- Não --> C
+    D -- Sim --> E[CTO desenvolve a solução]
+    E --> F[CTO executa os testes técnicos]
+    F --> G[Conselho faz o code review pedagógico]
+    G --> H{Aprovado na revisão?}
+    H -- Não --> E
+    H -- Sim --> I[Deploy: hospedagem em nuvem open-source]
+    I --> J[Entrega + treinamento do professor]
+    J --> K([Fim: suporte e coleta de feedback])

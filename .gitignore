@@ -1,10 +1,21 @@
-# Build temporário e dependências
-_build/
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.streamlit/secrets.toml
+
+# Node
 node_modules/
 
-# Config local do Claude Code
-.claude/
-
-# Arquivos de sistema
-Thumbs.db
+# OS / editor
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Saídas geradas
+*.log
+produtos/integraschool/saida/
+*.tmp
