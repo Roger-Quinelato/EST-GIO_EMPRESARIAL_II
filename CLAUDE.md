@@ -13,13 +13,15 @@ Guia para agentes que trabalham neste repositório. Leia antes de editar qualque
 
 ## Estado atual (01/07/2026)
 
-- **Sprint 1 CONCLUÍDA / Sprint 2 em andamento** (board Jira EST). Ver `docs/sprints/plano_sprints.md`.
+- **Sprint 1 e Sprint 2 CONCLUÍDAS (adiantadas) / Sprint 3 em andamento** (board Jira EST). Ver `docs/sprints/plano_sprints.md`.
 - **Entregue na Sprint 1:** anexos em `diagramas/` (ERD, fluxograma, organograma — `.mmd` + `.svg`), referenciados nas Seções 5/10/16; **esqueleto do site** em `site/` (index/portfólio/contato com tokens); revisão das seções 9–16. Também: `analise_repositorio.md`, 5 PRDs + TDD, 5 ADRs, roadmap.
-- **Entregue na Sprint 2 (parcial):**
-  - **LingoBoard MVP** (`produtos/lingoboard/app.py`): upload de CSV (com validação e fallback para `dados_exemplo.csv`, agora populado com 25 alunos fictícios em 3 turmas), 4 visualizações (média por turma, evolução por avaliação, ranking de risco, distribuição de faltas), indicador de risco (limiar fixo: média < 6.0 ou faltas > 8) e filtros por turma/avaliação.
+- **Entregue na Sprint 2:**
+  - **LingoBoard MVP** (`produtos/lingoboard/app.py`): upload de CSV (com validação e fallback para `dados_exemplo.csv`, populado com 25 alunos fictícios em 3 turmas), 4 visualizações (média por turma, evolução por avaliação, ranking de risco, distribuição de faltas) com as cores da marca (`PALETA`/`.streamlit/config.toml`), indicador de risco com **limiares ajustáveis pela sidebar** (sliders, default média < 6.0 / faltas > 8) e filtros por turma/avaliação. P1 do PRD (tema visual + limiar configurável) fechados.
   - **VocabDeck MVP** (`produtos/vocabdeck/index.html` + `app.js` + `style.css`): CRUD de cards, motor Leitner de 5 caixas (intervalos 0/1/3/7/14 dias), persistência em `localStorage`, layout responsivo com os tokens de identidade.
   - **GitHub Pages ativado** (build via GitHub Actions, workflow em `.github/workflows/pages.yml`, dispara em push a `main` tocando `site/`) — publica em `https://roger-quinelato.github.io/EST-GIO_EMPRESARIAL_II/`. Só entra no ar após o próximo push.
-- **Pendências conhecidas:** (1) `jira_backlog.pdf`/`.csv` desatualizados (não refletem os itens da Sprint 2); (2) fluxograma/organograma entregues em Mermaid/SVG, não nos nativos Bizagi/Draw.io; (3) tema visual (tokens BabelStack) não aplicado aos gráficos nativos do Streamlit no LingoBoard (P1); (4) limiar de risco do LingoBoard ainda fixo, não configurável pela UI (P1); (5) commits recentes (fix do build.js + Sprint 2) estão **locais, ainda não enviados a origin/main** — fazer `git push` quando autorizado.
+- **Entregue na Sprint 3 (parcial, adiantado):**
+  - **IntegraSchool MVP P0** (`produtos/integraschool/integraschool.py`): script Python stdlib-only, modo simulação (sem envio real); lê `alunos_exemplo.csv` (~20 alunos fictícios em 4 turmas + 2 linhas inválidas de teste), gera resumo + lembrete por aluno, organiza saída em `saida/AAAA-MM-DD_Turma/` (gitignorado) e grava log de execução. Ver `produtos/integraschool/README.md`.
+- **Pendências conhecidas:** (1) `jira_backlog.pdf`/`.csv` desatualizados (não refletem os itens da Sprint 2/3); (2) fluxograma/organograma entregues em Mermaid/SVG, não nos nativos Bizagi/Draw.io; (3) commits recentes estão **locais, ainda não enviados a origin/main** — fazer `git push` quando autorizado.
 
 ## Regras fixas (NUNCA violar)
 
