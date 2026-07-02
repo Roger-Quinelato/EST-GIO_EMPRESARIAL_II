@@ -62,8 +62,9 @@ Cada sprint ≈ 1 semana. Dupla acadêmica (tempo parcial). Planejamento a **~75
 | S2-3 | EP-VOCAB | VocabDeck MVP: CRUD de cards + motor Leitner + localStorage | História | P0 | 5 | Roger | Cria baralho, estuda, "acertei/errei" reagenda; progresso persiste |
 | S2-4 | EP-VOCAB | Layout responsivo + tokens de identidade | Tarefa | P1 | 2 | Raquel | Funciona em desktop e mobile com a identidade BabelStack |
 | S2-5 | EP-PLAT | Publicar site (GitHub Pages) com portfólio | História | P0 | 3 | Roger | Site acessível por URL pública com os 5 produtos listados |
+| S2-6 | EP-LINGO | LingoBoard: limiares de risco ajustáveis (sidebar) | Tarefa | P1 | 2 | Roger | Limiares de risco configuráveis via sliders na sidebar (default média < 6.0 / faltas > 8), com filtros por turma e avaliação |
 
-**Carga:** 17 pts (P0=15).
+**Carga:** 19 pts (P0=15).
 
 ---
 

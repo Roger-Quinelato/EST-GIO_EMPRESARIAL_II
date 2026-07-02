@@ -1,0 +1,116 @@
+<mxfile host="app.diagrams.net" modified="2026-07-02T00:00:00.000Z" agent="BabelStack Junior" version="24.0.0" type="device">
+  <diagram id="fluxograma-atendimento" name="Fluxo de Atendimento">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Início -->
+        <mxCell id="n_a" value="Início: escola/professor procura a BabelStack" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0EA5A4;strokeColor=#1E293B;strokeWidth=2;fontColor=#F8FAFC;fontFamily=Inter;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="280" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- B -->
+        <mxCell id="n_b" value="CPO faz o levantamento de requisitos" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4338CA;strokeColor=#1E293B;strokeWidth=2;fontColor=#F8FAFC;fontFamily=Inter;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="290" y="180" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- C -->
+        <mxCell id="n_c" value="CPO desenha protótipo no Figma" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4338CA;strokeColor=#1E293B;strokeWidth=2;fontColor=#F8FAFC;fontFamily=Inter;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="290" y="320" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- D -->
+        <mxCell id="n_d" value="Cliente aprova o protótipo?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F59E0B;strokeColor=#1E293B;strokeWidth=2;fontColor=#1E293B;fontFamily=Inter;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="460" width="300" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- E -->
+        <mxCell id="n_e" value="CTO desenvolve a solução" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4338CA;strokeColor=#1E293B;strokeWidth=2;fontColor=#F8FAFC;fontFamily=Inter;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="290" y="660" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- F -->
+        <mxCell id="n_f" value="CTO executa os testes técnicos" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4338CA;strokeColor=#1E293B;strokeWidth=2;fontColor=#F8FAFC;fontFamily=Inter;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="290" y="800" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- G -->
+        <mxCell id="n_g" value="Conselho faz o code review pedagógico" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4338CA;strokeColor=#1E293B;strokeWidth=2;fontColor=#F8FAFC;fontFamily=Inter;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="290" y="940" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- H -->
+        <mxCell id="n_h" value="Aprovado na revisão?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F59E0B;strokeColor=#1E293B;strokeWidth=2;fontColor=#1E293B;fontFamily=Inter;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="1080" width="300" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- I -->
+        <mxCell id="n_i" value="Deploy: hospedagem em nuvem open-source" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4338CA;strokeColor=#1E293B;strokeWidth=2;fontColor=#F8FAFC;fontFamily=Inter;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="280" y="1280" width="280" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- J -->
+        <mxCell id="n_j" value="Entrega + treinamento do professor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4338CA;strokeColor=#1E293B;strokeWidth=2;fontColor=#F8FAFC;fontFamily=Inter;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="280" y="1420" width="280" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- K -->
+        <mxCell id="n_k" value="Fim: suporte e coleta de feedback" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0EA5A4;strokeColor=#1E293B;strokeWidth=2;fontColor=#F8FAFC;fontFamily=Inter;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="1560" width="280" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Edges sequenciais -->
+        <mxCell id="e_ab" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1E293B;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="n_a" target="n_b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_bc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1E293B;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="n_b" target="n_c">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cd" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1E293B;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="n_c" target="n_d">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_de" value="Sim" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1E293B;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1E293B;fontFamily=Inter;fontSize=12;fontStyle=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="n_d" target="n_e">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ef" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1E293B;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="n_e" target="n_f">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_fg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1E293B;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="n_f" target="n_g">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_gh" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1E293B;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="n_g" target="n_h">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_hi" value="Sim" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1E293B;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1E293B;fontFamily=Inter;fontSize=12;fontStyle=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="n_h" target="n_i">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ij" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1E293B;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="n_i" target="n_j">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_jk" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1E293B;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="n_j" target="n_k">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Edges de retorno (loops de reprovação), roteadas pela esquerda -->
+        <mxCell id="e_dc" value="Não" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1E293B;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1E293B;fontFamily=Inter;fontSize=12;fontStyle=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="n_d" target="n_c">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="525" />
+              <mxPoint x="140" y="355" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_he" value="Não" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1E293B;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1E293B;fontFamily=Inter;fontSize=12;fontStyle=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="n_h" target="n_e">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="1145" />
+              <mxPoint x="140" y="695" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

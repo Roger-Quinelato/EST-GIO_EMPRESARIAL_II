@@ -11,7 +11,7 @@ Guia para agentes que trabalham neste repositório. Leia antes de editar qualque
 - **Documento regente:** `DocumentosIniciais/DiretrizesProjetoFinal.pdf` (18 seções obrigatórias).
 - **Roteiro de execução:** `DocumentosIniciais/Roteiro_BabelStack_Junior.md` (é um PDF apesar da extensão `.md`).
 
-## Estado atual (01/07/2026)
+## Estado atual (02/07/2026)
 
 - **Sprint 1 e Sprint 2 CONCLUÍDAS (adiantadas) / Sprint 3 em andamento** (board Jira EST). Ver `docs/sprints/plano_sprints.md`.
 - **Entregue na Sprint 1:** anexos em `diagramas/` (ERD, fluxograma, organograma — `.mmd` + `.svg`), referenciados nas Seções 5/10/16; **esqueleto do site** em `site/` (index/portfólio/contato com tokens); revisão das seções 9–16. Também: `analise_repositorio.md`, 5 PRDs + TDD, 5 ADRs, roadmap.
@@ -21,7 +21,7 @@ Guia para agentes que trabalham neste repositório. Leia antes de editar qualque
   - **GitHub Pages ativado** (build via GitHub Actions, workflow em `.github/workflows/pages.yml`, dispara em push a `main` tocando `site/`) — publica em `https://roger-quinelato.github.io/EST-GIO_EMPRESARIAL_II/`. Só entra no ar após o próximo push.
 - **Entregue na Sprint 3 (parcial, adiantado):**
   - **IntegraSchool MVP P0** (`produtos/integraschool/integraschool.py`): script Python stdlib-only, modo simulação (sem envio real); lê `alunos_exemplo.csv` (~20 alunos fictícios em 4 turmas + 2 linhas inválidas de teste), gera resumo + lembrete por aluno, organiza saída em `saida/AAAA-MM-DD_Turma/` (gitignorado) e grava log de execução. Ver `produtos/integraschool/README.md`.
-- **Pendências conhecidas:** (1) `jira_backlog.pdf`/`.csv` desatualizados (não refletem os itens da Sprint 2/3); (2) fluxograma/organograma entregues em Mermaid/SVG, não nos nativos Bizagi/Draw.io; (3) commits recentes estão **locais, ainda não enviados a origin/main** — fazer `git push` quando autorizado.
+- **Pendências resolvidas em 02/07:** (1) `jira_backlog.csv`/`.pdf` atualizados com os itens das Sprints 2/3 (status via labels `status-concluido`/`status-a-fazer`; novo item S2-6 espelhado também em `plano_sprints.md`); PDF agora regenerável via `_build/build_jira_pdf.py`; (2) fluxograma e organograma ganharam versões nativas Draw.io (`diagramas/*.drawio`, XML não-comprimido, paleta da marca); (3) commits sincronizados com origin/main. Soluções revisadas e aprovadas em code review interno.
 
 ## Regras fixas (NUNCA violar)
 
@@ -67,6 +67,8 @@ _build/              # gerador do .docx (Node + lib `docx`) — ⚠️ desalinha
 ```bash
 cd _build && node build.js   # regenera os 18 .md + o .docx
 ```
+
+**Regenerar o `jira_backlog.pdf`:** `py -3 _build/build_jira_pdf.py` (lê `docs/sprints/jira_backlog.csv` e escreve o PDF ao lado; requer `fpdf2`, instalado via `py -3 -m pip install fpdf2` — o `python` puro não o tem).
 
 **Validar o `.docx`** (skill `docx`) — no Windows, sempre com `PYTHONUTF8=1` (o validador quebra em cp1252 sem isso).
 
