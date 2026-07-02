@@ -29,10 +29,12 @@ st.set_page_config(
 COLUNAS_OBRIGATORIAS = ["aluno", "turma", "nota1", "nota2", "nota3", "faltas", "status"]
 COLUNAS_NOTAS = ["nota1", "nota2", "nota3"]
 
-# Limiares de risco (P0: fixos no código; ajuste pela UI fica para uma
-# iteração futura — P1 no PRD). Um aluno é sinalizado como "em risco" se a
-# média das notas cair abaixo do limiar OU se o número de faltas ultrapassar
-# o limite considerado seguro de frequência.
+# Limiares de risco padrão (P1: ajustáveis pela UI via sliders na sidebar —
+# ver seção "Limiar de risco" abaixo). Estes valores continuam servindo como
+# default inicial dos sliders e como referência do PRD. Um aluno é
+# sinalizado como "em risco" se a média das notas cair abaixo do limiar OU
+# se o número de faltas ultrapassar o limite considerado seguro de
+# frequência.
 LIMIAR_MEDIA_RISCO = 6.0
 LIMIAR_FALTAS_RISCO = 8
 
@@ -41,6 +43,11 @@ PALETA = {
     "secundaria": "#0EA5A4",  # teal LingoTeal
     "acao": "#F59E0B",       # âmbar Energia
 }
+
+# Sequência de cores da marca usada para ciclar entre séries (ex.: uma linha
+# por turma no gráfico de evolução). Repete do início se houver mais séries
+# do que cores.
+CORES_SERIE = [PALETA["primaria"], PALETA["secundaria"], PALETA["acao"]]
 
 DIR_APP = Path(__file__).resolve().parent
 CSV_EXEMPLO = DIR_APP / "dados_exemplo.csv"
@@ -99,16 +106,20 @@ def carregar_dados(arquivo) -> pd.DataFrame:
     return df
 
 
-def calcular_indicadores(df: pd.DataFrame) -> pd.DataFrame:
-    """Adiciona média de notas e sinalização de risco por aluno."""
+def calcular_indicadores(
+    df: pd.DataFrame, limiar_media: float, limiar_faltas: int
+) -> pd.DataFrame:
+    """Adiciona média de notas e sinalização de risco por aluno.
+
+    `limiar_media`/`limiar_faltas` vêm dos controles da sidebar (P1: ajustáveis
+    pela UI); os defaults ficam em LIMIAR_MEDIA_RISCO/LIMIAR_FALTAS_RISCO.
+    """
     df = df.copy()
     df["media_notas"] = df[COLUNAS_NOTAS].mean(axis=1).round(2)
-    df["em_risco"] = (df["media_notas"] < LIMIAR_MEDIA_RISCO) | (
-        df["faltas"] > LIMIAR_FALTAS_RISCO
-    )
+    df["em_risco"] = (df["media_notas"] < limiar_media) | (df["faltas"] > limiar_faltas)
 
     def nivel_risco(row):
-        if row["media_notas"] < LIMIAR_MEDIA_RISCO and row["faltas"] > LIMIAR_FALTAS_RISCO:
+        if row["media_notas"] < limiar_media and row["faltas"] > limiar_faltas:
             return "🔴 Crítico"
         if row["em_risco"]:
             return "🟠 Atenção"
@@ -117,8 +128,8 @@ def calcular_indicadores(df: pd.DataFrame) -> pd.DataFrame:
     df["nivel_risco"] = df.apply(nivel_risco, axis=1)
 
     # Score simples só para ordenar o ranking de risco (quanto maior, pior).
-    df["score_risco"] = (LIMIAR_MEDIA_RISCO - df["media_notas"]).clip(lower=0) * 2 + (
-        df["faltas"] - LIMIAR_FALTAS_RISCO
+    df["score_risco"] = (limiar_media - df["media_notas"]).clip(lower=0) * 2 + (
+        df["faltas"] - limiar_faltas
     ).clip(lower=0)
 
     return df
@@ -164,7 +175,26 @@ except Exception as erro:  # noqa: BLE001 - último recorte de segurança para n
     st.error(f"Ocorreu um erro inesperado ao ler o arquivo: {erro}")
     st.stop()
 
-dados = calcular_indicadores(dados_brutos)
+with st.sidebar:
+    st.header("Limiar de risco")
+    limiar_media = st.slider(
+        "Média mínima considerada segura",
+        min_value=0.0,
+        max_value=10.0,
+        value=LIMIAR_MEDIA_RISCO,
+        step=0.5,
+        help="Alunos com média abaixo deste valor são sinalizados como em risco.",
+    )
+    limiar_faltas = st.slider(
+        "Faltas máximas consideradas seguras",
+        min_value=0,
+        max_value=30,
+        value=LIMIAR_FALTAS_RISCO,
+        step=1,
+        help="Alunos com mais faltas que este valor são sinalizados como em risco.",
+    )
+
+dados = calcular_indicadores(dados_brutos, limiar_media, limiar_faltas)
 
 # ---------------------------------------------------------------------------
 # Filtros (turma e avaliação/período)
@@ -220,7 +250,7 @@ st.subheader("1. Média por turma")
 media_por_turma = (
     dados_filtrados.groupby("turma")[coluna_avaliacao].mean().round(2).sort_values(ascending=False)
 )
-st.bar_chart(media_por_turma)
+st.bar_chart(media_por_turma, color=PALETA["secundaria"])
 
 # ---------------------------------------------------------------------------
 # Gráfico 2 — Evolução temporal (nota1 -> nota2 -> nota3) por turma
@@ -229,7 +259,9 @@ st.bar_chart(media_por_turma)
 st.subheader("2. Evolução das médias ao longo das avaliações")
 evolucao = dados_filtrados.groupby("turma")[COLUNAS_NOTAS].mean().round(2).T
 evolucao.index = ["1ª avaliação", "2ª avaliação", "3ª avaliação"]
-st.line_chart(evolucao)
+# Cicla pela paleta da marca caso haja mais turmas do que cores definidas.
+cores_evolucao = [CORES_SERIE[i % len(CORES_SERIE)] for i in range(len(evolucao.columns))]
+st.line_chart(evolucao, color=cores_evolucao)
 
 # ---------------------------------------------------------------------------
 # Gráfico 3 — Ranking de risco
@@ -237,7 +269,7 @@ st.line_chart(evolucao)
 
 st.subheader("3. Ranking de risco (top 10 alunos)")
 ranking_risco = dados_filtrados.sort_values("score_risco", ascending=False).head(10)
-st.bar_chart(ranking_risco.set_index("aluno")["score_risco"])
+st.bar_chart(ranking_risco.set_index("aluno")["score_risco"], color=PALETA["acao"])
 
 # ---------------------------------------------------------------------------
 # Gráfico 4 — Distribuição de faltas
@@ -250,7 +282,7 @@ faixas_faltas = pd.cut(
     labels=["0–2", "3–5", "6–8", "9–12", "13+"],
 )
 distribuicao_faltas = faixas_faltas.value_counts().sort_index()
-st.bar_chart(distribuicao_faltas)
+st.bar_chart(distribuicao_faltas, color=PALETA["primaria"])
 
 st.divider()
 
@@ -260,8 +292,8 @@ st.divider()
 
 st.subheader("Alunos em risco de evasão")
 st.caption(
-    f"Regra aplicada: média de notas abaixo de {LIMIAR_MEDIA_RISCO:.1f} "
-    f"e/ou mais de {LIMIAR_FALTAS_RISCO} faltas."
+    f"Regra aplicada: média de notas abaixo de {limiar_media:.1f} "
+    f"e/ou mais de {limiar_faltas} faltas. Ajuste os limiares na barra lateral."
 )
 
 tabela_risco = (
