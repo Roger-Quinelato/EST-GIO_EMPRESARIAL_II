@@ -76,7 +76,7 @@ Cada sprint ≈ 1 semana. Dupla acadêmica (tempo parcial). Planejamento a **~75
 | S3-1 | EP-EDU | EduLanding: template + exemplo "Feira Cultural de Idiomas" | História | P0 | 3 | Raquel | Template responsivo com pontos editáveis + exemplo preenchido |
 | S3-2 | EP-INTEGRA | IntegraSchool: automação em modo simulação (CSV) | História | P0 | 5 | Roger | Lê CSV, gera resumos/lembretes em arquivo + organiza pastas + log |
 | S3-3 | EP-BABELUX | Diagnóstico heurístico da interface-alvo | História | P0 | 2 | Raquel | ≥5 problemas com severidade e princípio violado |
-| S3-4 | EP-BABELUX | Protótipo "Antes/Depois" no Figma (2 telas) | História | P0 | 3 | Raquel | 2 telas redesenhadas com tokens + comparativo exportado |
+| S3-4 | EP-BABELUX | Protótipo "Antes/Depois" (2 telas) | História | P0 | 3 | Raquel | 2 telas redesenhadas com tokens + comparativo exportado. Entregue como mockup HTML/PNG custo-zero (`produtos/babelux/antes_depois.html`), base para o Figma |
 | S3-5 | EP-DOCS | Gerar Gantt do cronograma (Seção 18) | Tarefa | P0 | 2 | Roger | Gantt com datas reais exportado e inserido na Seção 18 |
 | S3-6 | EP-PLAT | Criar redes sociais (opcional) | Tarefa | P2 | 1 | Raquel | Perfil criado com identidade (se houver tempo) |
 

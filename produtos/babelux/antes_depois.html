@@ -22,7 +22,7 @@
 
   <style>
     :root {
-      --indigo:#4338CA; --teal:#0EA5A4; --ambar:#F59E0B;
+      --indigo:#4338CA; --teal:#0EA5A4;
       --grafite:#1E293B; --gelo:#F8FAFC; --borda:#E2E8F0;
       --suave:#475569; --branco:#FFFFFF; --erro:#DC2626;
       --gradiente: linear-gradient(135deg,#4338CA,#0EA5A4);
@@ -112,7 +112,6 @@
     .nota-ok { color:var(--teal); font-weight:700; }
     .nota-baixa { color:var(--erro); font-weight:700; }
     .pill-faltas { font-size:.8rem; background:#FEF3C7; color:#92400E; padding:.15rem .55rem; border-radius:999px; font-weight:600; }
-    .skeleton-hint { font-size:.78rem; color:var(--suave); margin-top:.75rem; }
     .legenda-siglas { font-size:.78rem; color:var(--suave); margin-top:.6rem; }
 
     /* ---- anotações de correção ---- */
@@ -186,7 +185,7 @@
                     <label>Senha</label>
                     <input class="invalido" type="password" value="••••••">
                   </div>
-                  <button class="btn carregando">Entrando…</button>
+                  <button class="btn">Entrar</button>
                   <div class="links"><a href="#">Esqueci minha senha</a> · <a href="#">Preciso de ajuda</a></div>
                 </div>
               </div>
@@ -200,7 +199,7 @@
         <h4>O que mudou nesta tela</h4>
         <ul>
           <li><b>P1 (H9/H5, sev. 4):</b> "ERRO 403" → mensagem em linguagem humana, campo inválido destacado e link <b>"Esqueci minha senha"</b> visível.</li>
-          <li><b>P3 (H1, sev. 3):</b> botão passa a mostrar estado <b>"Entrando…"</b> — o usuário vê que o sistema respondeu.</li>
+          <li><b>P3 (H1, sev. 3):</b> ao enviar, o botão entra em estado de carregamento (<b>"Entrando…"</b>, desabilitado) — o usuário vê que o sistema respondeu.</li>
           <li><b>P5 (H4, sev. 3):</b> cabeçalho e marca consistentes; sem menus e avisos irrelevantes competindo com o login.</li>
           <li><b>P7 (H8, sev. 2):</b> fim do banner piscante e das bordas 3D; foco no formulário, contraste adequado.</li>
         </ul>
@@ -282,7 +281,7 @@
           <li><b>P4 (H2/H6, sev. 3):</b> siglas "AV1/MF/FJ" → rótulos por extenso ("Média final", "Faltas") com legenda explícita.</li>
           <li><b>P5 (H4/H1, sev. 3):</b> navegação única com a aba atual destacada; vocabulário consistente ("Sair" em vez de "Logoff").</li>
           <li><b>P6 (H3, sev. 2):</b> ações separadas e claras; sem "Imprimir/Logoff" colados convidando ao clique acidental.</li>
-          <li><b>P7 (H8, sev. 2):</b> remoção do banner piscante e das 12 colunas; foco no que o aluno busca — nota e faltas.</li>
+          <li><b>P7 (H8, sev. 2):</b> remoção do banner piscante e das 10 colunas; foco no que o aluno busca — nota e faltas.</li>
         </ul>
       </div>
     </div>

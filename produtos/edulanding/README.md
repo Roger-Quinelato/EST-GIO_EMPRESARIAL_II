@@ -26,4 +26,4 @@ Navegação fixa · Hero (título/data/local + CTA) · Sobre (3 destaques) · Pr
 
 ## Identidade
 
-Cores Índigo `#4338CA` / Teal `#0EA5A4` / Âmbar `#F59E0B`, fontes Space Grotesk + Inter — alinhado a [`docs/identidade_visual.md`](../../docs/identidade_visual.md). Referenciado na **Seção 7** (portfólio) do documento.
+Cores Índigo `#4338CA` / Teal `#0EA5A4` / Âmbar `#F59E0B`, fontes Space Grotesk + Inter — alinhado a [`docs/identidade_visual.md`](../../docs/identidade_visual.md). Referenciado na **Seção 8** (Portfólio de Produtos e Serviços) do documento.

@@ -60,11 +60,6 @@
   <!-- eixo base -->
   <line x1="262" y1="112" x2="262" y2="558" class="axis"/>
 
-  <!-- ===== marcador HOJE (06/07 = x562) ===== -->
-  <line x1="562" y1="112" x2="562" y2="558" stroke="#F59E0B" stroke-width="1.6" stroke-dasharray="5 4"/>
-  <rect x="529" y="86" width="66" height="18" rx="9" fill="#F59E0B"/>
-  <text x="562" y="99" text-anchor="middle" font-family="'Inter',sans-serif" font-size="10.5" font-weight="700" fill="#1E293B">hoje 06/07</text>
-
   <!-- ===== barras + rótulos ===== -->
   <!-- Preparação (slate) -->
   <text x="16" y="135" class="task">Fundação e identidade visual</text>
@@ -126,8 +121,5 @@
 
     <path d="M478 -3 L487 6 L478 15 L469 6 Z" fill="#F59E0B" stroke="#1E293B" stroke-width="1"/>
     <text x="494" y="1" class="leg">Marco / apresentação</text>
-
-    <line x1="640" y1="-10" x2="640" y2="6" stroke="#F59E0B" stroke-width="1.6" stroke-dasharray="5 4"/>
-    <text x="650" y="1" class="leg">Hoje (06/07)</text>
   </g>
 </svg>

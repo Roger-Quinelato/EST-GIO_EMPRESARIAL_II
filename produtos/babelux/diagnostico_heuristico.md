@@ -39,7 +39,7 @@ H1 Visibilidade do status do sistema · H2 Correspondência com o mundo real · 
 - **Tela:** Boletim
 - **Heurística violada:** **H8** (estética/minimalismo) e acessibilidade (contraste WCAG AA)
 - **Severidade:** **4 — Catastrófico**
-- **Descrição:** notas em cinza-claro (#AAA) sobre branco, fonte ~11px, numa tabela densa com 12 colunas. No celular exige zoom e rolagem horizontal. Falha o critério de contraste WCAG AA (mínimo 4.5:1).
+- **Descrição:** notas em cinza-claro (#AAA) sobre branco, fonte ~11px, numa tabela densa com 10 colunas. No celular exige zoom e rolagem horizontal. Falha o critério de contraste WCAG AA (mínimo 4.5:1).
 - **Recomendação:** tipografia ≥14px, contraste AA (texto grafite sobre branco-gelo), tabela responsiva que vira cartões no mobile, destaque visual para nota abaixo da média.
 
 ### P3 — Ausência de feedback de carregamento
