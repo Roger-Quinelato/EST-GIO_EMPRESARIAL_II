@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" font-family="'Space Grotesk','Inter',system-ui,sans-serif">
+  <defs>
+    <style>
+      .title { font-size:22px; font-weight:700; fill:#1E293B; }
+      .sub   { font-family:'Inter',system-ui,sans-serif; font-size:13px; fill:#64748B; }
+      .task  { font-family:'Inter',system-ui,sans-serif; font-size:12.5px; fill:#1E293B; }
+      .date  { font-family:'Inter',system-ui,sans-serif; font-size:11px; fill:#64748B; }
+      .leg   { font-family:'Inter',system-ui,sans-serif; font-size:11px; fill:#334155; }
+      .mstxt { font-family:'Inter',system-ui,sans-serif; font-size:10.5px; font-weight:700; fill:#92400E; }
+      .grid  { stroke:#E2E8F0; stroke-width:1; }
+      .axis  { stroke:#CBD5E1; stroke-width:1.4; }
+    </style>
+  </defs>
+
+  <!-- fundo -->
+  <rect x="0" y="0" width="1000" height="620" fill="#F8FAFC"/>
+
+  <!-- título -->
+  <text x="20" y="40" class="title">Cronograma de Criação — BabelStack Júnior</text>
+  <text x="20" y="62" class="sub">Seção 18 · 16/06 a 31/07/2026 · Sprints 1–5 = Semanas 3–7 (Semanas 1–2 = preparação)</text>
+
+  <!-- ===== bandas de linha (alternadas) ===== -->
+  <g>
+    <rect x="0" y="116" width="950" height="30" fill="#FFFFFF"/>
+    <rect x="0" y="150" width="950" height="30" fill="#F1F5F9"/>
+    <rect x="0" y="184" width="950" height="30" fill="#FFFFFF"/>
+    <rect x="0" y="218" width="950" height="30" fill="#F1F5F9"/>
+    <rect x="0" y="252" width="950" height="30" fill="#FFFFFF"/>
+    <rect x="0" y="286" width="950" height="30" fill="#F1F5F9"/>
+    <rect x="0" y="320" width="950" height="30" fill="#FFFFFF"/>
+    <rect x="0" y="354" width="950" height="30" fill="#F1F5F9"/>
+    <rect x="0" y="388" width="950" height="30" fill="#FFFFFF"/>
+    <rect x="0" y="422" width="950" height="30" fill="#F1F5F9"/>
+    <rect x="0" y="456" width="950" height="30" fill="#FFFFFF"/>
+    <rect x="0" y="490" width="950" height="30" fill="#F1F5F9"/>
+    <rect x="0" y="524" width="950" height="30" fill="#FFFFFF"/>
+  </g>
+
+  <!-- ===== gridlines semanais + datas ===== -->
+  <g>
+    <!-- day 0 (16/06) x=262 -->
+    <line x1="262" y1="112" x2="262" y2="558" class="grid"/>
+    <text x="262" y="104" text-anchor="middle" class="date">16/06</text>
+    <line x1="367" y1="112" x2="367" y2="558" class="grid"/>
+    <text x="367" y="104" text-anchor="middle" class="date">23/06</text>
+    <line x1="472" y1="112" x2="472" y2="558" class="grid"/>
+    <text x="472" y="104" text-anchor="middle" class="date">30/06</text>
+    <line x1="577" y1="112" x2="577" y2="558" class="grid"/>
+    <text x="577" y="104" text-anchor="middle" class="date">07/07</text>
+    <line x1="682" y1="112" x2="682" y2="558" class="grid"/>
+    <text x="682" y="104" text-anchor="middle" class="date">14/07</text>
+    <line x1="787" y1="112" x2="787" y2="558" class="grid"/>
+    <text x="787" y="104" text-anchor="middle" class="date">21/07</text>
+    <line x1="892" y1="112" x2="892" y2="558" class="grid"/>
+    <text x="892" y="104" text-anchor="middle" class="date">28/07</text>
+    <line x1="937" y1="112" x2="937" y2="558" class="axis"/>
+    <text x="937" y="104" text-anchor="middle" class="date">31/07</text>
+  </g>
+
+  <!-- eixo base -->
+  <line x1="262" y1="112" x2="262" y2="558" class="axis"/>
+
+  <!-- ===== marcador HOJE (06/07 = x562) ===== -->
+  <line x1="562" y1="112" x2="562" y2="558" stroke="#F59E0B" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <rect x="529" y="86" width="66" height="18" rx="9" fill="#F59E0B"/>
+  <text x="562" y="99" text-anchor="middle" font-family="'Inter',sans-serif" font-size="10.5" font-weight="700" fill="#1E293B">hoje 06/07</text>
+
+  <!-- ===== barras + rótulos ===== -->
+  <!-- Preparação (slate) -->
+  <text x="16" y="135" class="task">Fundação e identidade visual</text>
+  <rect x="262" y="122" width="105" height="18" rx="4" fill="#94A3B8"/>
+
+  <text x="16" y="169" class="task">Mercado, estrutura e portfólio</text>
+  <rect x="367" y="156" width="105" height="18" rx="4" fill="#94A3B8"/>
+
+  <!-- Sprint 1 (indigo) -->
+  <text x="16" y="203" class="task">ERD · fluxograma · organograma</text>
+  <rect x="472" y="190" width="60" height="18" rx="4" fill="#4338CA"/>
+
+  <text x="16" y="237" class="task">Esqueleto do site + seções 9–16</text>
+  <rect x="472" y="224" width="105" height="18" rx="4" fill="#4338CA"/>
+
+  <!-- Sprint 2 (teal) -->
+  <text x="16" y="271" class="task">LingoBoard + VocabDeck (MVP)</text>
+  <rect x="577" y="258" width="75" height="18" rx="4" fill="#0EA5A4"/>
+
+  <text x="16" y="305" class="task">Publicar site (GitHub Pages)</text>
+  <rect x="622" y="292" width="45" height="18" rx="4" fill="#0EA5A4"/>
+
+  <!-- Sprint 3 (indigo) -->
+  <text x="16" y="339" class="task">EduLanding + IntegraSchool</text>
+  <rect x="682" y="326" width="60" height="18" rx="4" fill="#4338CA"/>
+
+  <text x="16" y="373" class="task">BabelUX (diagnóstico + Antes/Depois)</text>
+  <rect x="712" y="360" width="45" height="18" rx="4" fill="#4338CA"/>
+
+  <text x="16" y="407" class="task">Gantt + marketing</text>
+  <rect x="742" y="394" width="30" height="18" rx="4" fill="#4338CA"/>
+
+  <!-- Sprint 4 (teal) -->
+  <text x="16" y="441" class="task">Documento 20+ págs. + deck</text>
+  <rect x="787" y="428" width="45" height="18" rx="4" fill="#0EA5A4"/>
+
+  <!-- Marco 1: 1ª apresentação (24/07 = x832) -->
+  <text x="16" y="475" class="task">1ª apresentação</text>
+  <path d="M832 465 L843 476 L832 487 L821 476 Z" fill="#F59E0B" stroke="#1E293B" stroke-width="1.2"/>
+  <text x="852" y="480" class="mstxt">24/07</text>
+
+  <!-- Sprint 5 (indigo) -->
+  <text x="16" y="509" class="task">Ajustes pós-feedback + revisão final</text>
+  <rect x="847" y="496" width="90" height="18" rx="4" fill="#4338CA"/>
+
+  <!-- Marco 2: apresentação final (31/07 = x937) -->
+  <text x="16" y="543" class="task">Apresentação final / entrega</text>
+  <path d="M937 533 L948 544 L937 555 L926 544 Z" fill="#F59E0B" stroke="#1E293B" stroke-width="1.2"/>
+  <text x="915" y="548" text-anchor="end" class="mstxt">31/07</text>
+
+  <!-- ===== legenda ===== -->
+  <g transform="translate(20,588)">
+    <rect x="0" y="-10" width="14" height="14" rx="3" fill="#94A3B8"/>
+    <text x="20" y="1" class="leg">Preparação (Sem. 1–2)</text>
+
+    <rect x="170" y="-10" width="14" height="14" rx="3" fill="#4338CA"/>
+    <rect x="188" y="-10" width="14" height="14" rx="3" fill="#0EA5A4"/>
+    <text x="208" y="1" class="leg">Pacotes de trabalho (cor alterna por sprint)</text>
+
+    <path d="M478 -3 L487 6 L478 15 L469 6 Z" fill="#F59E0B" stroke="#1E293B" stroke-width="1"/>
+    <text x="494" y="1" class="leg">Marco / apresentação</text>
+
+    <line x1="640" y1="-10" x2="640" y2="6" stroke="#F59E0B" stroke-width="1.6" stroke-dasharray="5 4"/>
+    <text x="650" y="1" class="leg">Hoje (06/07)</text>
+  </g>
+</svg>

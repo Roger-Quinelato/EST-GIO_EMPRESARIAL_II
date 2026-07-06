@@ -11,4 +11,4 @@ O serviço segue a metodologia ágil Scrum. A Diretoria Executiva e de Produto l
 - **Equipamentos necessários:** notebooks pessoais dos estudantes e conexão à internet.
 - **Tecnologia utilizada:** ambientes Linux, Git/GitHub, VS Code, Figma e Discord/Notion para comunicação e documentação.
 
-> _[Anexo: fluxograma de atendimento (Bizagi) — a produzir na Fase 3]_
+> _[Anexo: fluxograma de atendimento ponta-a-ponta — ver diagramas/fluxograma_atendimento.svg (fontes .mmd e .drawio)]_

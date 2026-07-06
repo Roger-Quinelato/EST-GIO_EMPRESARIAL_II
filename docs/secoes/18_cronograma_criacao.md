@@ -14,4 +14,4 @@
 
 Data final: 31/07/2026 — conclusão de todos os entregáveis, site online com no mínimo 5 soluções e apresentações nos dias 24/07 e 31/07.
 
-> _[Anexo: gráfico de Gantt com as datas reais — a produzir na Fase 5]_
+> _[Anexo: gráfico de Gantt do cronograma, com as datas reais (16/06–31/07/2026) e os marcos das apresentações (24/07 e 31/07) — ver diagramas/gantt_cronograma.svg (fonte .mmd)]_

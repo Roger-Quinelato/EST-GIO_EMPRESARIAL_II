@@ -119,7 +119,7 @@ const sections = [
   ]),
   h2('Como as diretorias se conectam'),
   p('No fluxo de um projeto, a Diretoria Executiva e de Produto levanta os requisitos com o cliente e desenha os protótipos; após aprovação, a Diretoria de Engenharia codifica, testa e hospeda a solução. O conselho de orientação realiza o code review pedagógico antes da entrega. Esse encadeamento garante que necessidade pedagógica e execução técnica permaneçam alinhadas.'),
-  note('[Anexo: organograma visual (Draw.io) — a produzir na Fase 2]'),
+  note('[Anexo: organograma da estrutura organizacional — ver diagramas/organograma.svg (fontes .mmd e .drawio)]'),
 ]},
 
 { n:6, slug:'06_recursos_humanos', title:'Recursos Humanos', body:[
@@ -263,7 +263,7 @@ const sections = [
     '**Equipamentos necessários:** notebooks pessoais dos estudantes e conexão à internet.',
     '**Tecnologia utilizada:** ambientes Linux, Git/GitHub, VS Code, Figma e Discord/Notion para comunicação e documentação.',
   ),
-  note('[Anexo: fluxograma de atendimento (Bizagi) — a produzir na Fase 3]'),
+  note('[Anexo: fluxograma de atendimento ponta-a-ponta — ver diagramas/fluxograma_atendimento.svg (fontes .mmd e .drawio)]'),
 ]},
 
 { n:11, slug:'11_plano_financeiro', title:'Plano Financeiro', body:[
@@ -318,7 +318,7 @@ const sections = [
     '**Sistema de gestão:** Trello ou Notion com quadros Kanban para visibilidade das tarefas entre alunos e orientadores.',
     '**Inovações propostas:** aplicação de Business Intelligence e análise preditiva de dados — práticas do mercado corporativo — adaptadas à rotina de professores da rede pública.',
   ),
-  note('[Anexo: diagrama ERD do banco PostgreSQL (alunos, turmas, notas, presenças) — bônus da Fase 3]'),
+  note('[Anexo: diagrama ERD do banco PostgreSQL (aluno, professor, turma, matrícula, nota, presença) — ver diagramas/erd_babelstack.svg (fonte .mmd)]'),
   p('Documentação técnica de apoio: arquitetura dos 5 produtos e modelo de dados (ERD) em docs/produtos/tdd_arquitetura.md; especificações em docs/produtos/prd_*.md; e as decisões de stack registradas como ADRs em docs/adr/ (0001–0005).'),
 ]},
 
@@ -343,7 +343,7 @@ const sections = [
     ['7 (25–31/07)','Ajustes e entrega final','Correções pós-feedback, apresentação final 31/07.'],
   ]),
   p('Data final: 31/07/2026 — conclusão de todos os entregáveis, site online com no mínimo 5 soluções e apresentações nos dias 24/07 e 31/07.'),
-  note('[Anexo: gráfico de Gantt com as datas reais — a produzir na Fase 5]'),
+  note('[Anexo: gráfico de Gantt do cronograma, com as datas reais (16/06–31/07/2026) e os marcos das apresentações (24/07 e 31/07) — ver diagramas/gantt_cronograma.svg (fonte .mmd)]'),
 ]},
 ];
 

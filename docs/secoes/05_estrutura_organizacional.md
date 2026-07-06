@@ -12,4 +12,4 @@ A BabelStack Júnior opera com duas diretorias, ocupadas pelos dois fundadores, 
 
 No fluxo de um projeto, a Diretoria Executiva e de Produto levanta os requisitos com o cliente e desenha os protótipos; após aprovação, a Diretoria de Engenharia codifica, testa e hospeda a solução. O conselho de orientação realiza o code review pedagógico antes da entrega. Esse encadeamento garante que necessidade pedagógica e execução técnica permaneçam alinhadas.
 
-> _[Anexo: organograma visual (Draw.io) — a produzir na Fase 2]_
+> _[Anexo: organograma da estrutura organizacional — ver diagramas/organograma.svg (fontes .mmd e .drawio)]_

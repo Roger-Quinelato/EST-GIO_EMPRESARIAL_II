@@ -7,6 +7,7 @@ Anexos visuais do documento. Cada diagrama tem a **fonte editável** (`.mmd`, Me
 | `organograma.svg` / `.mmd` / `.drawio` | Seção 5 — Estrutura Organizacional | Dupla fundadora (CPO/CTO) sob o Conselho de Orientação, com os 5 produtos sob cada diretoria. |
 | `fluxograma_atendimento.svg` / `.mmd` / `.drawio` | Seção 10 — Plano Operacional | Fluxo ponta-a-ponta de um projeto: requisitos → protótipo → desenvolvimento → testes → code review → deploy → suporte. |
 | `erd_babelstack.svg` / `.mmd` | Seção 16 — Tecnologia e Inovação | Modelo de dados PostgreSQL (6 entidades: aluno, professor, turma, matrícula, nota, presença). Base dos CSVs do LingoBoard/IntegraSchool. |
+| `gantt_cronograma.svg` / `.mmd` | Seção 18 — Cronograma de Criação | Gantt com datas reais (16/06–31/07/2026), pacotes de trabalho por sprint e marcos das apresentações (24/07 e 31/07). |
 
 ## Como reexportar
 
