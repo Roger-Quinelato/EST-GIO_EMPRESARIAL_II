@@ -5,7 +5,7 @@ const path = require('path');
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, AlignmentType,
   HeadingLevel, LevelFormat, BorderStyle, WidthType, ShadingType, TableOfContents,
-  PageBreak, PageNumber, Header, Footer
+  PageBreak, PageNumber, Header, Footer, ImageRun
 } = require('docx');
 
 const REPO = path.resolve(__dirname, '..');
@@ -21,6 +21,25 @@ const p  = (x) => ({ t: 'p',  x });
 const ul = (...x) => ({ t: 'ul', x });
 const note = (x) => ({ t: 'note', x });
 const tbl = (head, rows) => ({ t: 'tbl', head, rows });
+// bloco de imagem: renderiza um Paragraph centralizado com imgRun(...) + legenda opcional em itálico.
+// w/h já devem preservar a proporção original do arquivo (ver assets/mockups/README.md).
+const img = (relPath, w, h, caption) => ({ t: 'img', relPath, w, h, caption });
+
+// ---------- imagem helper (reutilizável — Seções 8/9, mockups, capa, etc.) ----------
+// imgRun(relPath, widthPx, heightPx) -> ImageRun pronto para entrar em `children` de um Paragraph.
+// relPath é relativo à raiz do repo (REPO); o tipo é inferido da extensão do arquivo
+// (suporta png/jpg/jpeg/gif/bmp — a lib `docx` não aceita svg diretamente em ImageRun).
+const IMG_TYPE_BY_EXT = { '.png':'png', '.jpg':'jpg', '.jpeg':'jpg', '.gif':'gif', '.bmp':'bmp' };
+function imgRun(relPath, widthPx, heightPx) {
+  const ext = path.extname(relPath).toLowerCase();
+  const type = IMG_TYPE_BY_EXT[ext];
+  if (!type) throw new Error(`imgRun: extensão não suportada em "${relPath}" (use png/jpg/gif/bmp — converta o SVG antes)`);
+  return new ImageRun({
+    type,
+    data: fs.readFileSync(path.join(REPO, relPath)),
+    transformation: { width: widthPx, height: heightPx },
+  });
+}
 
 // ======================================================================
 // CONTEÚDO DAS 18 SEÇÕES
@@ -204,7 +223,7 @@ const sections = [
     '**Problema que resolve:** dificuldade dos gestores em identificar padrões de evasão e baixo desempenho de forma ágil.',
     '**Benefícios:** decisão baseada em dados, identificação rápida de alunos em risco e modernização da gestão.',
   ),
-  note('[Imagem ilustrativa: mockups dos gráficos e painéis]'),
+  img('assets/mockups/lingoboard_dashboard.png', 360, 850, 'LingoBoard — dashboard com os 4 gráficos (média por turma, evolução por avaliação, ranking de risco e distribuição de faltas) e a tabela de alunos em risco.'),
   h2('2. VocabDeck — Plataforma web de flashcards'),
   ul(
     '**Descrição:** aplicação web responsiva para revisão espaçada de vocabulário (caixas de Leitner), com arquitetura preparada para múltiplos idiomas.',
@@ -212,7 +231,7 @@ const sections = [
     '**Problema que resolve:** passividade do aluno no estudo fora da sala e falta de ferramentas gamificadas de baixo custo.',
     '**Benefícios:** aumento da retenção de vocabulário por metodologias ativas e gamificação.',
   ),
-  note('[Imagem ilustrativa: telas de interface mobile e web]'),
+  img('assets/mockups/vocabdeck_estudo.png', 500, 409, 'VocabDeck — tela de estudo do baralho, com o card revelado e o motor de revisão espaçada (Leitner) de 5 caixas.'),
   h2('3. EduLanding — Criação de páginas/sites educacionais'),
   ul(
     '**Descrição:** template de landing page educacional reutilizável em HTML/CSS/JS, responsivo (ex.: "Feira Cultural de Idiomas").',
@@ -220,7 +239,7 @@ const sections = [
     '**Problema que resolve:** ausência de páginas próprias para eventos, simulados e materiais didáticos.',
     '**Benefícios:** presença digital de baixo custo, responsiva e fácil de editar pela própria escola.',
   ),
-  note('[Imagem ilustrativa: página do evento em desktop e celular]'),
+  img('assets/mockups/edulanding_feira_cultural.png', 300, 862, 'EduLanding — landing page responsiva do exemplo "Feira Cultural de Idiomas" (hero, sobre, programação, galeria, FAQ e CTA).'),
   h2('4. BabelUX — Consultoria de redesign UX/UI'),
   ul(
     '**Descrição:** redesenho da usabilidade de portais educacionais existentes, com entregáveis "antes/depois" em alta fidelidade no Figma.',
@@ -228,7 +247,7 @@ const sections = [
     '**Problema que resolve:** interfaces confusas que frustram os alunos e elevam a carga cognitiva.',
     '**Benefícios:** ambiente de estudo mais acessível, intuitivo e agradável.',
   ),
-  note('[Imagem ilustrativa: comparações de telas "Antes e Depois"]'),
+  img('assets/mockups/babelux_antes_depois.png', 440, 804, 'BabelUX — comparativo Antes/Depois do Portal Acadêmico (telas de Login e Boletim), aplicando os tokens de identidade da marca.'),
   h2('5. IntegraSchool — Automação de rotinas administrativas'),
   ul(
     '**Descrição:** scripts em Python (modo simulação) que automatizam envio de resumos de aula e lembretes, e organizam arquivos.',
@@ -236,7 +255,7 @@ const sections = [
     '**Problema que resolve:** tempo perdido com tarefas administrativas repetitivas.',
     '**Benefícios:** ganho de horas semanais e padronização da comunicação com alunos/responsáveis.',
   ),
-  note('[Imagem ilustrativa: exemplo de e-mail gerado em modo simulação]'),
+  img('assets/mockups/integraschool_simulacao.png', 480, 643, 'IntegraSchool — prévia formatada de um resumo e um lembrete gerados em modo simulação (conteúdo real da saída do script).'),
 ]},
 
 { n:9, slug:'09_plano_marketing', title:'Plano de Marketing', body:[
@@ -250,6 +269,7 @@ const sections = [
   ),
   h2('Site'),
   p('O site institucional é a vitrine do portfólio e o principal canal de contato. Página única e responsiva, com seções de apresentação, problema e solução, portfólio dos 5 produtos (com links para os demos), impacto social ("Código Fluente") e contato. Serve de "prova viva" das soluções, permitindo que escolas testem os produtos antes de contratar.'),
+  img('assets/mockups/site_home.png', 500, 565, 'Site institucional — home publicada no GitHub Pages, com a identidade visual da marca e o portfólio dos 5 produtos.'),
   note('[Anexo: prints do site publicado e calendário de posts — Fases 4 e 5]'),
 ]},
 
@@ -355,6 +375,11 @@ function blockToMd(b){
   if (b.t==='h2') return `## ${b.x}\n`;
   if (b.t==='p') return `${b.x}\n`;
   if (b.t==='note') return `> _${b.x}_\n`;
+  if (b.t==='img'){
+    const rel = path.relative(SECDIR, path.join(REPO, b.relPath)).replace(/\\/g,'/');
+    const alt = b.caption ? b.caption.replace(/[[\]]/g,'') : '';
+    return b.caption ? `![${alt}](${rel})\n\n_${b.caption}_\n` : `![${alt}](${rel})\n`;
+  }
   if (b.t==='ul') return b.x.map(i=>`- ${i}`).join('\n')+'\n';
   if (b.t==='tbl'){
     const head = `| ${b.head.join(' | ')} |`;
@@ -416,6 +441,11 @@ function blockToDocx(b){
   if (b.t==='h2') return [h2Node(b.x)];
   if (b.t==='p') return [paraNode(b.x)];
   if (b.t==='note') return [noteNode(b.x)];
+  if (b.t==='img'){
+    const nodes = [ new Paragraph({ spacing:{before:120,after:b.caption?60:160}, alignment:AlignmentType.CENTER, children:[ imgRun(b.relPath, b.w, b.h) ] }) ];
+    if (b.caption) nodes.push(new Paragraph({ spacing:{after:160}, alignment:AlignmentType.CENTER, children:[ new TextRun({ text:b.caption, italics:true, color:SLATE, size:18 }) ] }));
+    return nodes;
+  }
   if (b.t==='ul') return b.x.map(bulletNode);
   if (b.t==='tbl') return [tableNode(b.head,b.rows), new Paragraph({spacing:{after:120},children:[]})];
   return [];
@@ -423,6 +453,7 @@ function blockToDocx(b){
 
 // Capa
 const cover = [
+  new Paragraph({ spacing:{before:400,after:280}, alignment:AlignmentType.CENTER, children:[ imgRun('assets/logo/lockup.png', 360, 96) ] }),
   new Paragraph({ spacing:{after:80}, alignment:AlignmentType.CENTER, children:[ new TextRun({text:'Estágio Empresarial II — Sistemas de Informação', color:SLATE, size:22}) ] }),
   new Paragraph({ spacing:{before:2400,after:0}, alignment:AlignmentType.CENTER, children:[ new TextRun({text:'BabelStack Júnior', bold:true, color:INDIGO, size:64, font:'Arial'}) ] }),
   new Paragraph({ spacing:{after:120}, alignment:AlignmentType.CENTER, children:[ new TextRun({text:'Soluções em EdTech', color:GRAFITE, size:30}) ] }),

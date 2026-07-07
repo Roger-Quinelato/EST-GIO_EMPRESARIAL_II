@@ -14,4 +14,8 @@ A marca une "tecnologia/confiança" e "educação/crescimento". A paleta tem cin
 
 O site institucional é a vitrine do portfólio e o principal canal de contato. Página única e responsiva, com seções de apresentação, problema e solução, portfólio dos 5 produtos (com links para os demos), impacto social ("Código Fluente") e contato. Serve de "prova viva" das soluções, permitindo que escolas testem os produtos antes de contratar.
 
+![Site institucional — home publicada no GitHub Pages, com a identidade visual da marca e o portfólio dos 5 produtos.](../../assets/mockups/site_home.png)
+
+_Site institucional — home publicada no GitHub Pages, com a identidade visual da marca e o portfólio dos 5 produtos._
+
 > _[Anexo: prints do site publicado e calendário de posts — Fases 4 e 5]_

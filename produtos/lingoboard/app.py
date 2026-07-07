@@ -320,10 +320,10 @@ else:
 
 with st.expander("Ver todos os alunos (dados completos, incluindo os que não estão em risco)"):
     st.dataframe(
-        dados_filtrados[
+        dados_filtrados
+        .sort_values("score_risco", ascending=False)[
             ["aluno", "turma", "nota1", "nota2", "nota3", "media_notas", "faltas", "status", "nivel_risco"]
         ]
-        .sort_values("score_risco", ascending=False)
         .rename(columns={"aluno": "Aluno", "turma": "Turma", "media_notas": "Média", "faltas": "Faltas", "status": "Status", "nivel_risco": "Nível de risco"}),
         use_container_width=True,
         hide_index=True,

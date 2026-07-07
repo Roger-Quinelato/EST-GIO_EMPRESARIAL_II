@@ -17,7 +17,9 @@ O portfólio reúne cinco produtos distintos, cobrindo Business Intelligence, de
 - **Problema que resolve:** dificuldade dos gestores em identificar padrões de evasão e baixo desempenho de forma ágil.
 - **Benefícios:** decisão baseada em dados, identificação rápida de alunos em risco e modernização da gestão.
 
-> _[Imagem ilustrativa: mockups dos gráficos e painéis]_
+![LingoBoard — dashboard com os 4 gráficos (média por turma, evolução por avaliação, ranking de risco e distribuição de faltas) e a tabela de alunos em risco.](../../assets/mockups/lingoboard_dashboard.png)
+
+_LingoBoard — dashboard com os 4 gráficos (média por turma, evolução por avaliação, ranking de risco e distribuição de faltas) e a tabela de alunos em risco._
 
 ## 2. VocabDeck — Plataforma web de flashcards
 
@@ -26,7 +28,9 @@ O portfólio reúne cinco produtos distintos, cobrindo Business Intelligence, de
 - **Problema que resolve:** passividade do aluno no estudo fora da sala e falta de ferramentas gamificadas de baixo custo.
 - **Benefícios:** aumento da retenção de vocabulário por metodologias ativas e gamificação.
 
-> _[Imagem ilustrativa: telas de interface mobile e web]_
+![VocabDeck — tela de estudo do baralho, com o card revelado e o motor de revisão espaçada (Leitner) de 5 caixas.](../../assets/mockups/vocabdeck_estudo.png)
+
+_VocabDeck — tela de estudo do baralho, com o card revelado e o motor de revisão espaçada (Leitner) de 5 caixas._
 
 ## 3. EduLanding — Criação de páginas/sites educacionais
 
@@ -35,7 +39,9 @@ O portfólio reúne cinco produtos distintos, cobrindo Business Intelligence, de
 - **Problema que resolve:** ausência de páginas próprias para eventos, simulados e materiais didáticos.
 - **Benefícios:** presença digital de baixo custo, responsiva e fácil de editar pela própria escola.
 
-> _[Imagem ilustrativa: página do evento em desktop e celular]_
+![EduLanding — landing page responsiva do exemplo "Feira Cultural de Idiomas" (hero, sobre, programação, galeria, FAQ e CTA).](../../assets/mockups/edulanding_feira_cultural.png)
+
+_EduLanding — landing page responsiva do exemplo "Feira Cultural de Idiomas" (hero, sobre, programação, galeria, FAQ e CTA)._
 
 ## 4. BabelUX — Consultoria de redesign UX/UI
 
@@ -44,7 +50,9 @@ O portfólio reúne cinco produtos distintos, cobrindo Business Intelligence, de
 - **Problema que resolve:** interfaces confusas que frustram os alunos e elevam a carga cognitiva.
 - **Benefícios:** ambiente de estudo mais acessível, intuitivo e agradável.
 
-> _[Imagem ilustrativa: comparações de telas "Antes e Depois"]_
+![BabelUX — comparativo Antes/Depois do Portal Acadêmico (telas de Login e Boletim), aplicando os tokens de identidade da marca.](../../assets/mockups/babelux_antes_depois.png)
+
+_BabelUX — comparativo Antes/Depois do Portal Acadêmico (telas de Login e Boletim), aplicando os tokens de identidade da marca._
 
 ## 5. IntegraSchool — Automação de rotinas administrativas
 
@@ -53,4 +61,6 @@ O portfólio reúne cinco produtos distintos, cobrindo Business Intelligence, de
 - **Problema que resolve:** tempo perdido com tarefas administrativas repetitivas.
 - **Benefícios:** ganho de horas semanais e padronização da comunicação com alunos/responsáveis.
 
-> _[Imagem ilustrativa: exemplo de e-mail gerado em modo simulação]_
+![IntegraSchool — prévia formatada de um resumo e um lembrete gerados em modo simulação (conteúdo real da saída do script).](../../assets/mockups/integraschool_simulacao.png)
+
+_IntegraSchool — prévia formatada de um resumo e um lembrete gerados em modo simulação (conteúdo real da saída do script)._

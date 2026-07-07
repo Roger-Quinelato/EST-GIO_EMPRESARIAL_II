@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BabelStack Júnior — Deck de Apresentação</title>
+<meta name="description" content="Deck de apresentação do plano de negócios BabelStack Júnior — Empresa Júnior fictícia de EdTech.">
+
+<!-- ============================================================
+     BabelStack Júnior — Deck de Apresentação (Sprint 4, item S4-4)
+     Arquivo autocontido: CSS/JS embutidos, sem dependências externas
+     (exceto Google Fonts, custo-zero, mesmo padrão de produtos/edulanding).
+     Navegação: setas do teclado (←/→), barra de espaço, botões prev/next,
+     clique nos pontos de progresso, ou ainda Home/End.
+     Fonte do conteúdo das seções: _build/build.js (array `sections`),
+     sintetizado slide a slide — não copiado literalmente.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+
+<style>
+  :root {
+    --cor-primaria:   #4338CA;
+    --cor-secundaria: #0EA5A4;
+    --cor-acao:       #F59E0B;
+    --cor-escura:     #1E293B;
+    --cor-clara:      #F8FAFC;
+    --cor-borda:      #E2E8F0;
+    --cor-texto-suave:#475569;
+    --branco:         #FFFFFF;
+    --gradiente-marca: linear-gradient(135deg, #4338CA, #0EA5A4);
+    --fonte-titulo: 'Space Grotesk', system-ui, sans-serif;
+    --fonte-texto:  'Inter', system-ui, -apple-system, sans-serif;
+    --raio-p: 8px;
+    --raio-g: 18px;
+    --sombra: 0 4px 16px rgba(30, 41, 59, 0.08);
+    --sombra-forte: 0 12px 32px rgba(67, 56, 202, 0.20);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    font-family: var(--fonte-texto);
+    background: var(--cor-escura);
+    color: var(--cor-escura);
+  }
+
+  h1, h2, h3 { font-family: var(--fonte-titulo); line-height: 1.15; margin: 0 0 .5rem; }
+  p { margin: 0 0 .8rem; }
+  ul { margin: 0; padding-left: 1.2rem; }
+  li { margin-bottom: .5rem; }
+  strong { color: var(--cor-primaria); }
+
+  /* ---------------- Stage (viewport 16:9) ---------------- */
+  .stage {
+    width: 100%; height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    background: var(--cor-escura);
+  }
+
+  .deck {
+    position: relative;
+    width: min(100vw, 177.78vh);
+    height: min(100vh, 56.25vw);
+    background: var(--cor-clara);
+    box-shadow: 0 0 60px rgba(0,0,0,.5);
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: none;
+    flex-direction: column;
+    padding: 5.5% 6.5% 4.5%;
+    background: var(--cor-clara);
+  }
+  .slide.ativo { display: flex; }
+
+  .slide__eyebrow {
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    font-size: clamp(.7rem, 1.1vw, .95rem);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--cor-secundaria);
+    margin-bottom: .4rem;
+  }
+  .slide__title {
+    font-size: clamp(1.4rem, 3vw, 2.4rem);
+    color: var(--cor-primaria);
+    margin-bottom: .8rem;
+  }
+  .slide__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: clamp(.85rem, 1.5vw, 1.25rem);
+    color: var(--cor-escura);
+    overflow: hidden;
+  }
+  .slide__body p, .slide__body li { line-height: 1.45; }
+  .slide__foot {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: clamp(.6rem, 1vw, .8rem);
+    color: var(--cor-texto-suave);
+    border-top: 1px solid var(--cor-borda);
+    padding-top: .5rem;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    font-size: .75em;
+    background: var(--cor-primaria);
+    color: #fff;
+    border-radius: 999px;
+    padding: .15em .8em;
+    margin-right: .4em;
+  }
+  .nota {
+    font-style: italic;
+    color: var(--cor-texto-suave);
+    font-size: .85em;
+    margin-top: .4rem;
+  }
+
+  /* ---------------- Grid helpers ---------------- */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2.5rem; align-items: start; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .cols { columns: 2; column-gap: 2.5rem; }
+
+  .card {
+    background: var(--branco);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-p);
+    padding: .9rem 1.1rem;
+    box-shadow: var(--sombra);
+  }
+  .card h3 { font-size: 1em; color: var(--cor-primaria); margin-bottom: .3rem; }
+  .card p, .card ul { font-size: .85em; margin-bottom: 0; }
+
+  table.tbl { width: 100%; border-collapse: collapse; font-size: .82em; }
+  table.tbl th, table.tbl td { border: 1px solid var(--cor-borda); padding: .4em .6em; text-align: left; }
+  table.tbl th { background: #E6F1FB; font-family: var(--fonte-titulo); color: var(--cor-escura); }
+
+  /* ---------------- Capa ---------------- */
+  .slide--capa {
+    background: var(--gradiente-marca);
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .slide--capa .logo-wrap { margin-bottom: 1.5rem; }
+  .slide--capa .logo-wrap svg { width: min(38vw, 300px); height: auto; }
+  .slide--capa h1 { color: #fff; font-size: clamp(1.8rem, 4.4vw, 3.6rem); margin-bottom: .3rem; }
+  .slide--capa .subtitulo { font-size: clamp(.9rem, 1.8vw, 1.4rem); opacity: .95; margin-bottom: .3rem; }
+  .slide--capa .slogan { font-style: italic; color: #E6F1FB; font-size: clamp(.8rem, 1.4vw, 1.1rem); margin-bottom: 2rem; }
+  .slide--capa .equipe { font-size: clamp(.75rem, 1.3vw, 1rem); opacity: .92; }
+  .slide--capa .equipe strong { color: #fff; }
+  .slide--capa .rodape-capa { position: absolute; bottom: 4%; font-size: .75rem; opacity: .8; }
+
+  /* ---------------- Encerramento ---------------- */
+  .slide--fim {
+    background: var(--gradiente-marca);
+    color: #fff;
+    align-items: center; justify-content: center; text-align: center;
+  }
+  .slide--fim h2 { color: #fff; font-size: clamp(1.6rem, 3.6vw, 3rem); }
+  .slide--fim p { opacity: .95; }
+
+  /* ---------------- Demo produtos ---------------- */
+  .produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: .8rem;
+    height: 100%;
+  }
+  .produto-card {
+    background: var(--branco);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-p);
+    padding: .6rem;
+    display: flex; flex-direction: column;
+    box-shadow: var(--sombra);
+  }
+  .produto-card h3 { font-size: .85em; color: var(--cor-primaria); margin-bottom: .25rem; }
+  .produto-card .img-wrap {
+    flex: 1; border-radius: 6px; overflow: hidden;
+    background: #EEF2FF;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: .35rem;
+  }
+  .produto-card img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .produto-card .placeholder-txt {
+    font-size: .72em; color: var(--cor-texto-suave); text-align: center; padding: .5rem;
+  }
+  .produto-card p { font-size: .68em; margin-bottom: 0; color: var(--cor-texto-suave); }
+
+  /* ---------------- Navegação / UI ---------------- */
+  .nav-ui {
+    position: absolute; bottom: 10px; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: center; gap: .6rem;
+    z-index: 20; pointer-events: none;
+  }
+  .nav-ui * { pointer-events: auto; }
+  .nav-btn {
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    background: rgba(30,41,59,.55);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    width: 34px; height: 34px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .nav-btn:hover { background: var(--cor-primaria); transform: scale(1.08); }
+  .nav-count {
+    font-family: var(--fonte-titulo);
+    font-size: .75rem;
+    color: #fff;
+    background: rgba(30,41,59,.55);
+    border-radius: 999px;
+    padding: .3rem .8rem;
+    min-width: 3.4rem;
+    text-align: center;
+  }
+
+  .progress {
+    position: absolute; top: 0; left: 0; height: 4px;
+    background: var(--cor-acao);
+    transition: width .25s ease;
+    z-index: 20;
+  }
+
+  .help-hint {
+    position: fixed; bottom: 6px; right: 12px;
+    font-family: var(--fonte-texto);
+    font-size: .68rem;
+    color: rgba(255,255,255,.55);
+    z-index: 5;
+  }
+
+  @media print {
+    .nav-ui, .help-hint, .progress { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="deck" id="deck">
+    <div class="progress" id="progress"></div>
+
+    <!-- ===================================================== -->
+    <!-- 1. CAPA -->
+    <!-- ===================================================== -->
+    <section class="slide slide--capa ativo">
+      <div class="logo-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" role="img" aria-label="BabelStack Júnior — EdTech">
+          <g transform="translate(10,16) scale(0.72)">
+            <rect x="6" y="10" width="52" height="36" rx="11" fill="#FFFFFF"/>
+            <path d="M16 43 L16 56 L29 44 Z" fill="#FFFFFF"/>
+            <path d="M27 22 L21 28 L27 34" fill="none" stroke="#4338CA" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M37 21 L30 35" fill="none" stroke="#F59E0B" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M40 22 L46 28 L40 34" fill="none" stroke="#0EA5A4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <text x="64" y="42" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="700" font-size="30" fill="#FFFFFF">Babel<tspan fill="#F8FAFC" opacity="0.85">Stack</tspan></text>
+          <text x="65" y="60" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="500" font-size="13" letter-spacing="1.5" fill="#F8FAFC">JÚNIOR · EDTECH</text>
+        </svg>
+      </div>
+      <h1>BabelStack Júnior</h1>
+      <p class="subtitulo">Soluções em EdTech — Plano de Negócios</p>
+      <p class="slogan">"Codificando fluência, estruturando conexões globais."</p>
+      <p class="equipe"><strong>Raquel Pereira</strong> — CPO · Diretoria Executiva e de Produto&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Roger Quinelato</strong> — CTO · Diretoria de Engenharia</p>
+      <div class="rodape-capa">Estágio Empresarial II — Sistemas de Informação · 1ª apresentação · 24/07/2026</div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 2. AGENDA -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Agenda</div>
+      <h2 class="slide__title">O que vamos cobrir</h2>
+      <div class="slide__body">
+        <div class="cols">
+          <ul>
+            <li>Identificação da empresa</li>
+            <li>Problema da comunidade</li>
+            <li>Solução proposta</li>
+            <li>Planejamento estratégico</li>
+            <li>Estrutura organizacional</li>
+            <li>Recursos humanos</li>
+            <li>Análise de mercado</li>
+            <li>Portfólio de produtos e serviços</li>
+            <li>Plano de marketing</li>
+          </ul>
+          <ul>
+            <li>Plano operacional</li>
+            <li>Plano financeiro</li>
+            <li>Aspectos legais</li>
+            <li>Sustentabilidade e responsabilidade social</li>
+            <li>Gestão da qualidade</li>
+            <li>Gestão de riscos</li>
+            <li>Tecnologia e inovação</li>
+            <li>Resultados esperados</li>
+            <li>Cronograma de criação</li>
+          </ul>
+        </div>
+        <p class="nota">+ Demo dos 5 produtos e encerramento/perguntas.</p>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 3. SEÇÃO 1 — IDENTIFICAÇÃO DA EMPRESA -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 1</div>
+      <h2 class="slide__title">Identificação da Empresa</h2>
+      <div class="slide__body">
+        <div class="grid2">
+          <div>
+            <p><strong>Nome:</strong> BabelStack Júnior – Soluções em EdTech</p>
+            <p><strong>Área:</strong> EdTech — Engenharia de Software, BI e UX/UI aplicados ao ensino de idiomas</p>
+            <p><strong>Natureza:</strong> associação civil sem fins lucrativos, gerida por estudantes (Lei nº 13.267/2016)</p>
+          </div>
+          <div>
+            <p><strong>Missão:</strong> democratizar o ensino de idiomas com tecnologia orientada a dados</p>
+            <p><strong>Visão:</strong> referência em EdTech no Centro-Oeste até o fim de 2027</p>
+            <p><strong>Valores:</strong> design centrado no aluno, decisões orientadas a dados, escalabilidade multidiomas, colaboração</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide__foot"><span>BabelStack Júnior</span><span>3 / 22</span></div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 4. SEÇÃO 2 — PROBLEMA DA COMUNIDADE -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 2</div>
+      <h2 class="slide__title">Problema da Comunidade</h2>
+      <div class="slide__body">
+        <ul>
+          <li>Déficit histórico no domínio de inglês no Brasil <em>[estimativa; fonte a confirmar]</em>, agravado na rede pública por falta de metodologias ativas, interfaces engajadoras e dados de acompanhamento.</li>
+          <li><strong>Público-alvo:</strong> escolas públicas do DF (gestão, professores de idiomas, Centros Interescolares de Línguas — CILs) e, indiretamente, alunos do Fundamental II e Ensino Médio.</li>
+          <li><strong>Impacto:</strong> barreira de mobilidade social e econômica — o inglês virou pré-requisito eliminatório no mercado de trabalho qualificado, ampliando a distância entre redes pública e privada.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 5. SEÇÃO 3 — SOLUÇÃO PROPOSTA -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 3</div>
+      <h2 class="slide__title">Solução Proposta</h2>
+      <div class="slide__body">
+        <p>Portfólio de <strong>5 produtos</strong>, cada um endereçando uma dor específica da sala de aula:</p>
+        <div class="grid3">
+          <div class="card"><h3>LingoBoard</h3><p>Dashboards de BI para evasão e desempenho</p></div>
+          <div class="card"><h3>VocabDeck</h3><p>Flashcards com revisão espaçada</p></div>
+          <div class="card"><h3>EduLanding</h3><p>Landing pages educacionais</p></div>
+          <div class="card"><h3>BabelUX</h3><p>Redesign de interfaces (UX/UI)</p></div>
+          <div class="card"><h3>IntegraSchool</h3><p>Automação de rotinas administrativas</p></div>
+          <div class="card"><h3>Diferencial</h3><p>Hiper-especialização em EdTech de idiomas, stack open-source, DNA jovem</p></div>
+        </div>
+        <p class="nota">Impacto social: programa "Código Fluente" — a cada 3 projetos pagos, 1 sistema gratuito para escola pública.</p>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 6. SEÇÃO 4 — PLANEJAMENTO ESTRATÉGICO -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 4</div>
+      <h2 class="slide__title">Planejamento Estratégico</h2>
+      <div class="slide__body">
+        <div class="grid3">
+          <div class="card"><h3>Curto prazo (0–6 m)</h3><p>Pesquisa de mercado, capacitação da dupla, projetos-piloto na rede pública</p></div>
+          <div class="card"><h3>Médio prazo (6–18 m)</h3><p>Sustentabilidade financeira, expansão para espanhol/francês, evolução para fullstack</p></div>
+          <div class="card"><h3>Longo prazo (18–36 m)</h3><p>Análise preditiva de evasão, parcerias com centros de línguas universitários</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 7. SEÇÃO 5 — ESTRUTURA ORGANIZACIONAL -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 5</div>
+      <h2 class="slide__title">Estrutura Organizacional</h2>
+      <div class="slide__body">
+        <table class="tbl">
+          <tr><th>Camada</th><th>Responsável</th><th>Atribuições</th></tr>
+          <tr><td>Conselho de Orientação</td><td>Professores orientadores</td><td>Mentoria técnica e pedagógica</td></tr>
+          <tr><td>CPO — Diretoria Exec. e de Produto</td><td>Raquel Pereira</td><td>Gestão comercial, requisitos, UX/UI, BI</td></tr>
+          <tr><td>CTO — Diretoria de Engenharia</td><td>Roger Quinelato</td><td>Desenvolvimento web, automação, arquitetura, operações</td></tr>
+        </table>
+        <p class="nota">Anexo: organograma em diagramas/organograma.svg</p>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 8. SEÇÃO 6 — RECURSOS HUMANOS -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 6</div>
+      <h2 class="slide__title">Recursos Humanos</h2>
+      <div class="slide__body">
+        <ul>
+          <li><strong>Quadro atual:</strong> 2 estudantes + 1–2 orientadores; crescimento estimado para 6–8 colaboradores no fim do 1º ano <em>[estimativa]</em></li>
+          <li><strong>Seleção:</strong> Programa Trainee semestral — alinhamento cultural, desafio prático gamificado (EdTech Hack), banca final</li>
+          <li><strong>Avaliação:</strong> ciclo 360º semestral, KPIs de sprint, code review pedagógico quinzenal</li>
+          <li><strong>Desenvolvimento:</strong> BabelTech Talks mensais, fundo de capacitação, imersão linguística cruzada</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 9. SEÇÃO 7 — ANÁLISE DE MERCADO -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 7</div>
+      <h2 class="slide__title">Análise de Mercado</h2>
+      <div class="slide__body">
+        <div class="grid2">
+          <div>
+            <p><strong>Público-alvo:</strong> setor público (validação/impacto) e setor privado (monetização — escolas de idiomas, professores particulares)</p>
+            <p><strong>Concorrentes diretos:</strong> outras empresas juniores de TI; <strong>indiretos:</strong> LMS/EdTechs consolidadas (Moodle, Geekie, Agenda Edu)</p>
+          </div>
+          <div>
+            <p><strong>Oportunidades:</strong> forte aderência open-source no setor público, alta demanda por BI de retenção, arquitetura multidiomas replicável</p>
+            <p><strong>Ameaças:</strong> equipe de 2 pessoas, curva de infraestrutura, resistência docente à digitalização</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 10. SEÇÃO 8 — PORTFÓLIO DE PRODUTOS -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 8</div>
+      <h2 class="slide__title">Portfólio de Produtos e Serviços</h2>
+      <div class="slide__body">
+        <table class="tbl">
+          <tr><th>#</th><th>Produto</th><th>Categoria</th><th>Valor privado</th></tr>
+          <tr><td>1</td><td>LingoBoard</td><td>Dashboards (BI)</td><td>R$ 800–2.000 <em>[estimativa]</em></td></tr>
+          <tr><td>2</td><td>VocabDeck</td><td>Flashcards web</td><td>R$ 1.500–3.000 <em>[estimativa]</em></td></tr>
+          <tr><td>3</td><td>EduLanding</td><td>Sites educacionais</td><td>R$ 600–1.800 <em>[estimativa]</em></td></tr>
+          <tr><td>4</td><td>BabelUX</td><td>Redesign UX/UI</td><td>R$ 500–1.500 <em>[estimativa]</em></td></tr>
+          <tr><td>5</td><td>IntegraSchool</td><td>Automação administrativa</td><td>R$ 700–2.000 <em>[estimativa]</em></td></tr>
+        </table>
+        <p class="nota">Para escolas públicas os 5 serviços são gratuitos (projeto social). Demo detalhada dos produtos ao final do deck.</p>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 11. SEÇÃO 9 — PLANO DE MARKETING -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 9</div>
+      <h2 class="slide__title">Plano de Marketing</h2>
+      <div class="slide__body">
+        <ul>
+          <li><strong>Identidade visual:</strong> Índigo, Teal, Âmbar + neutros Grafite/Branco-gelo; Space Grotesk (títulos) + Inter (corpo); estilo moderno e acessível (WCAG AA)</li>
+          <li><strong>Redes sociais:</strong> Instagram (vitrine jovem, 2–3 posts/semana <em>[estimativa]</em>) e LinkedIn (institucional, 1 post/semana <em>[estimativa]</em>)</li>
+          <li><strong>Site institucional:</strong> página única e responsiva — apresentação, problema/solução, portfólio dos 5 produtos, impacto social, contato</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 12. SEÇÃO 10 — PLANO OPERACIONAL -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 10</div>
+      <h2 class="slide__title">Plano Operacional</h2>
+      <div class="slide__body">
+        <ul>
+          <li><strong>Metodologia:</strong> Scrum — CPO levanta requisitos e protótipos, CTO desenvolve e testa, orientador faz o code review antes do deploy</li>
+          <li><strong>Regime:</strong> ~20h semanais por estudante, assíncrono, 100% remoto (alinhamentos via Meet)</li>
+          <li><strong>Ferramentas:</strong> Linux, Git/GitHub, VS Code, Figma, Discord/Notion</li>
+        </ul>
+        <p class="nota">Anexo: fluxograma de atendimento ponta-a-ponta (diagramas/fluxograma_atendimento.svg)</p>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 13. SEÇÃO 11 — PLANO FINANCEIRO -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 11</div>
+      <h2 class="slide__title">Plano Financeiro</h2>
+      <div class="slide__body">
+        <p>Metodologia <strong>Bootstrapping</strong> — laboratórios da universidade, software open-source e nuvem gratuita.</p>
+        <table class="tbl">
+          <tr><th>Item</th><th>Valor</th></tr>
+          <tr><td>Capital inicial</td><td>R$ 0,00</td></tr>
+          <tr><td>Custos fixos</td><td>R$ 40,00/ano (domínio; hospedagem em planos gratuitos)</td></tr>
+          <tr><td>Custos variáveis</td><td>R$ 50–150/mês <em>[estimativa]</em></td></tr>
+          <tr><td>Receita estimada</td><td>R$ 3.000–6.000 no 1º semestre <em>[estimativa]</em></td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 14. SEÇÃO 12 — ASPECTOS LEGAIS -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 12</div>
+      <h2 class="slide__title">Aspectos Legais</h2>
+      <div class="slide__body">
+        <ul>
+          <li><strong>Tipo jurídico:</strong> associação civil sem fins lucrativos — Empresa Júnior (Lei Federal nº 13.267/2016)</li>
+          <li><strong>Documentos de abertura:</strong> Estatuto Social, Ata de Fundação, Regimento Interno, Edital de Convocação, RG/CPF, CNPJ</li>
+          <li><strong>Licenças:</strong> alvará (frequentemente isento em EJs universitárias) e Carta de Reconhecimento da IES</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 15. SEÇÃO 13 — SUSTENTABILIDADE E RESP. SOCIAL -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 13</div>
+      <h2 class="slide__title">Sustentabilidade e Responsabilidade Social</h2>
+      <div class="slide__body">
+        <ul>
+          <li><strong>Ambiental:</strong> política Paperless — contratos e relatórios 100% digitais</li>
+          <li><strong>Social:</strong> programa "Código Fluente" — 1 sistema gratuito a cada 3 projetos pagos</li>
+          <li><strong>Inclusão:</strong> interfaces seguindo diretrizes WCAG (contraste e legibilidade)</li>
+          <li><strong>Impacto esperado:</strong> redução do hiato tecnológico entre escolas públicas e privadas</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 16. SEÇÃO 14 — GESTÃO DA QUALIDADE -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 14</div>
+      <h2 class="slide__title">Gestão da Qualidade</h2>
+      <div class="slide__body">
+        <ul>
+          <li><strong>Satisfação:</strong> NPS e avaliação qualitativa 30 dias após a entrega</li>
+          <li><strong>Indicadores:</strong> taxa de bugs na 1ª semana, cumprimento de prazo (Lead Time), adesão real dos alunos</li>
+          <li><strong>Melhoria contínua:</strong> Sprint Retrospective quinzenal</li>
+          <li><strong>SLA:</strong> correção de falhas críticas em até 48h úteis, sem custo na garantia</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 17. SEÇÃO 15 — GESTÃO DE RISCOS -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 15</div>
+      <h2 class="slide__title">Gestão de Riscos</h2>
+      <div class="slide__body">
+        <table class="tbl">
+          <tr><th>Risco</th><th>Categoria</th><th>Mitigação</th></tr>
+          <tr><td>Inadimplência</td><td>Financeiro</td><td>50% na assinatura do contrato</td></tr>
+          <tr><td>Conflito com calendário acadêmico</td><td>Operacional</td><td>Pausa programada no fechamento de semestre</td></tr>
+          <tr><td>Resistência tecnológica</td><td>Mercado</td><td>Manuais em vídeo, foco em UX simples</td></tr>
+          <tr><td>Perda de código/servidor</td><td>Tecnológico</td><td>Versionamento no GitHub + backup semanal</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 18. SEÇÃO 16 — TECNOLOGIA E INOVAÇÃO -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 16</div>
+      <h2 class="slide__title">Tecnologia e Inovação</h2>
+      <div class="slide__body">
+        <ul>
+          <li><strong>Stack:</strong> Python, PostgreSQL, HTML/CSS/JS, Figma — 100% open-source/custo-zero</li>
+          <li><strong>Gestão de tarefas:</strong> Trello/Notion com Kanban</li>
+          <li><strong>Inovação:</strong> BI e análise preditiva de evasão adaptadas à rotina docente da rede pública</li>
+        </ul>
+        <p class="nota">Anexo: ERD do banco PostgreSQL (diagramas/erd_babelstack.svg) · PRDs, TDD e ADRs em docs/produtos e docs/adr</p>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 19. SEÇÃO 17 — RESULTADOS ESPERADOS -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 17</div>
+      <h2 class="slide__title">Resultados Esperados</h2>
+      <div class="slide__body">
+        <ul>
+          <li><strong>Pessoas atendidas:</strong> 5–10 professores/gestores nos 6 primeiros meses, impactando 300+ alunos <em>[estimativa]</em></li>
+          <li><strong>Impacto:</strong> maior engajamento e menor evasão em aulas de idiomas nas escolas parceiras</li>
+          <li><strong>Crescimento:</strong> de 2 para até 8 estudantes ao fim do 1º ano <em>[estimativa]</em></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 20. SEÇÃO 18 — CRONOGRAMA DE CRIAÇÃO -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 18</div>
+      <h2 class="slide__title">Cronograma de Criação</h2>
+      <div class="slide__body">
+        <table class="tbl">
+          <tr><th>Semana</th><th>Foco</th></tr>
+          <tr><td>1 (16–22/06)</td><td>Fundação e identidade visual</td></tr>
+          <tr><td>2 (23–29/06)</td><td>Mercado, estrutura e portfólio</td></tr>
+          <tr><td>3 (30/06–06/07)</td><td>Planos e esqueleto do site</td></tr>
+          <tr><td>4 (07–13/07)</td><td>Build técnico I — site, VocabDeck, LingoBoard</td></tr>
+          <tr><td>5 (14–20/07)</td><td>Build técnico II e marketing</td></tr>
+          <tr><td>6 (21–24/07)</td><td>Montagem e 1ª apresentação (24/07)</td></tr>
+          <tr><td>7 (25–31/07)</td><td>Ajustes e entrega final (31/07)</td></tr>
+        </table>
+        <p class="nota">Anexo: gráfico de Gantt (diagramas/gantt_cronograma.svg)</p>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 21. DEMO DOS 5 PRODUTOS -->
+    <!-- ===================================================== -->
+    <section class="slide">
+      <div class="slide__eyebrow">Demonstração</div>
+      <h2 class="slide__title">Os 5 Produtos em Ação</h2>
+      <div class="slide__body">
+        <div class="produtos-grid">
+          <div class="produto-card">
+            <h3>LingoBoard</h3>
+            <div class="img-wrap"><img src="../assets/mockups/lingoboard_dashboard.png" alt="Dashboard do LingoBoard"></div>
+            <p>Painel de BI — evasão e desempenho por turma</p>
+          </div>
+          <div class="produto-card">
+            <h3>VocabDeck</h3>
+            <div class="img-wrap"><img src="../assets/mockups/vocabdeck_estudo.png" alt="Tela de estudo do VocabDeck"></div>
+            <p>Flashcards com repetição espaçada (Leitner)</p>
+          </div>
+          <div class="produto-card">
+            <h3>EduLanding</h3>
+            <div class="img-wrap"><img src="../assets/mockups/edulanding_feira_cultural.png" alt="Landing page EduLanding — Feira Cultural de Idiomas"></div>
+            <p>Landing "Feira Cultural de Idiomas"</p>
+          </div>
+          <div class="produto-card">
+            <h3>BabelUX</h3>
+            <div class="img-wrap"><img src="../assets/mockups/babelux_antes_depois.png" alt="Comparativo antes e depois BabelUX"></div>
+            <p>Redesign — comparativo Antes/Depois do Portal Acadêmico</p>
+          </div>
+          <div class="produto-card">
+            <h3>IntegraSchool</h3>
+            <div class="img-wrap"><img src="../assets/mockups/integraschool_simulacao.png" alt="Simulação de execução do IntegraSchool"></div>
+            <p>Automação — resumos e lembretes em modo simulação</p>
+          </div>
+          <div class="produto-card">
+            <h3>Todos juntos</h3>
+            <div class="img-wrap"><span class="placeholder-txt">Os 5 produtos compõem o portfólio completo — código-fonte em produtos/</span></div>
+            <p>Stack open-source, custo-zero, pronta para demo ao vivo</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 22. ENCERRAMENTO / PERGUNTAS -->
+    <!-- ===================================================== -->
+    <section class="slide slide--fim">
+      <h2>Obrigado!</h2>
+      <p style="font-size:1.1rem; margin-bottom:.3rem;">Perguntas?</p>
+      <p class="equipe" style="opacity:.95;"><strong>Raquel Pereira</strong> — CPO&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Roger Quinelato</strong> — CTO</p>
+      <p style="opacity:.85; font-size:.85rem;">BabelStack Júnior · github.com/Roger-Quinelato/EST-GIO_EMPRESARIAL_II</p>
+    </section>
+
+    <div class="nav-ui">
+      <button class="nav-btn" id="btnPrev" aria-label="Slide anterior">&#8592;</button>
+      <span class="nav-count" id="navCount">1 / 22</span>
+      <button class="nav-btn" id="btnNext" aria-label="Próximo slide">&#8594;</button>
+    </div>
+  </div>
+</div>
+
+<div class="help-hint">Use ← → (ou espaço) para navegar · Home/End para início/fim</div>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var idx = 0;
+  var progress = document.getElementById('progress');
+  var navCount = document.getElementById('navCount');
+  var btnPrev = document.getElementById('btnPrev');
+  var btnNext = document.getElementById('btnNext');
+
+  function render() {
+    slides.forEach(function (s, i) {
+      s.classList.toggle('ativo', i === idx);
+    });
+    navCount.textContent = (idx + 1) + ' / ' + total;
+    progress.style.width = (((idx + 1) / total) * 100) + '%';
+    btnPrev.disabled = idx === 0;
+    btnNext.disabled = idx === total - 1;
+  }
+
+  function goTo(n) {
+    idx = Math.max(0, Math.min(total - 1, n));
+    render();
+  }
+
+  btnPrev.addEventListener('click', function () { goTo(idx - 1); });
+  btnNext.addEventListener('click', function () { goTo(idx + 1); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { goTo(idx + 1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { goTo(idx - 1); e.preventDefault(); }
+    else if (e.key === 'Home') { goTo(0); e.preventDefault(); }
+    else if (e.key === 'End') { goTo(total - 1); e.preventDefault(); }
+  });
+
+  // Suporte a swipe simples em touch
+  var touchStartX = null;
+  document.addEventListener('touchstart', function (e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) { goTo(dx < 0 ? idx + 1 : idx - 1); }
+    touchStartX = null;
+  }, { passive: true });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
