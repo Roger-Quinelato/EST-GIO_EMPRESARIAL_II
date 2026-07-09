@@ -117,3 +117,192 @@ a:hover { text-decoration: underline; }
   .nav-links.open { display: flex; }
   .nav-links li { width: 92%; margin-inline: auto; padding: .6rem 0; border-bottom: 1px solid #E2E8F0; }
 }
+
+/* ==========================================
+   Reajuste 60-30-10: Mais Ação, Menos Fundo
+   ========================================== */
+
+/* --- 1. Reduzindo o excesso de fundo (60%) --- */
+/* Transformamos a primeira seção (O que fazemos) em um bloco de impacto Índigo */
+main .section:first-of-type {
+  background-color: var(--cor-primaria);
+  color: #EEF2FF;
+}
+main .section:first-of-type h2,
+main .section:first-of-type .lead {
+  color: #FFFFFF; /* Garante leitura no fundo escuro */
+}
+/* Os cards dentro dessa seção precisam voltar a ser brancos para dar contraste */
+main .section:first-of-type .card {
+  background-color: #FFFFFF;
+  color: var(--cor-texto);
+  border: none;
+}
+main .section:first-of-type .card h3 {
+  color: var(--cor-escura);
+}
+
+/* --- 2. Multiplicando o impacto da cor de Ação (Âmbar) --- */
+/* O botão principal agora é a cor de Ação, gritando para ser clicado */
+.btn-primary {
+  background-color: var(--cor-acao);
+  color: var(--cor-escura); /* Texto escuro para acessibilidade no fundo amarelo */
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+}
+.btn-primary:hover {
+  background-color: #D97706; /* Um tom de âmbar mais escuro e quente */
+  color: #FFFFFF;
+}
+
+/* Trazemos o Âmbar para o gradiente do título principal, aquecendo a marca */
+.gradient-text {
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-acao));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Criamos um "palco" para os seus ícones SVG usando a cor de Ação translúcida */
+.pillar .ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  background-color: rgba(245, 158, 11, 0.15); /* Fundo âmbar suave */
+  border-radius: var(--raio-grande);
+  margin-bottom: 1rem;
+}
+
+/* --- 3. Ajuste do botão Ghost --- */
+/* O botão secundário do hero passa a usar o Teal (Secundária) para criar ritmo */
+.btn-ghost {
+  color: var(--cor-secundaria);
+  border-color: var(--cor-secundaria);
+}
+.btn-ghost:hover {
+  background-color: rgba(14, 165, 164, 0.1);
+}
+
+/* ============================================================
+   Animações e Efeitos Dinâmicos (UX Avançada)
+   ============================================================ */
+
+/* --- 1. Transição Global Suave --- */
+/* Garante que qualquer mudança de cor, fundo ou sombra aconteça de forma fluida */
+a, .btn, .card, .nav-links a, .form input, .form textarea {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- 2. Efeito de Entrada Suave (Fade-In Up) --- */
+/* Faz com que os elementos do Hero surjam de baixo para cima ao carregar a página */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero .eyebrow, .hero h1, .hero .slogan, .hero-actions {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+/* Delays estratégicos para criar um efeito cascata refinado */
+.hero .eyebrow { animation-delay: 0.1s; }
+.hero h1      { animation-delay: 0.2s; }
+.hero .slogan  { animation-delay: 0.3s; }
+.hero-actions  { animation-delay: 0.4s; }
+
+
+/* --- 3. Texto com Gradiente Animado --- */
+/* O gradiente do título principal passa a se mover sutilmente sozinho */
+@keyframes barraGradiente {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text {
+  background: linear-gradient(270deg, var(--cor-primaria), var(--cor-secundaria), var(--cor-acao));
+  background-size: 200% 200%;
+  animation: barraGradiente 6s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+/* --- 4. Micro-interações no Menu (Linha Ativa) --- */
+/* Cria uma linha que se expande por baixo do link ao passar o mouse */
+.nav-links a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--cor-secundaria);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+
+/* --- 5. Efeito de "Pulso Magnético" no Botão de Ação --- */
+/* Cria um brilho expansivo ao redor do CTA principal para atrair o clique */
+@keyframes pulseGlow {
+  0% { box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4), 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  70% { box-shadow: 0 4px 14px rgba(245, 158, 11, 0.6), 0 0 0 8px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4), 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+.btn-primary {
+  animation: pulseGlow 2.5s infinite;
+}
+
+.btn-primary:hover {
+  animation: none; /* Pausa o pulso no hover para focar na transformação física */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+}
+
+/* Inversão dinâmica de cor para o botão Ghost no hover */
+.btn-ghost:hover {
+  background-color: var(--cor-secundaria);
+  border-color: var(--cor-secundaria);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+}
+
+
+/* --- 6. Interação Tridimensional nos Cards --- */
+/* Eleva levemente o card e adiciona uma escala sutil, dando profundidade física */
+.card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 12px 24px rgba(30, 41, 59, 0.12);
+}
+
+
+/* --- 7. Efeito Flutuante nos Ícones dos Pilares --- */
+/* Faz os ícones SVG flutuarem suavemente quando o usuário demonstra interesse no card */
+@keyframes floatIcon {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.pillar:hover .ico {
+  animation: floatIcon 2s ease-in-out infinite;
+  background-color: rgba(245, 158, 11, 0.25); /* Intensifica a cor de fundo do ícone no hover */
+}
