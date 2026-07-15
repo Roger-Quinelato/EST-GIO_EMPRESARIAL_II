@@ -1,4 +1,4 @@
-﻿Issue Type,Summary,Description,Epic Link,Sprint,Priority,Story Points,Labels,Assignee(Responsavel)
+Issue Type,Summary,Description,Epic Link,Sprint,Priority,Story Points,Labels,Assignee(Responsavel)
 Epic,LingoBoard,Dashboard BI (Streamlit/Pandas).,,,,,epic lingo,
 Epic,VocabDeck,Flashcards web (repeticao espacada - Leitner).,,,,,epic vocab,
 Epic,EduLanding,Template de landing page educacional.,,,,,epic edu,
@@ -24,7 +24,7 @@ História,Diagnostico heuristico da interface-alvo,[S3-3] >=5 problemas com seve
 História,Prototipo 'Antes/Depois' no Figma (2 telas),"[S3-4] 2 telas redesenhadas (Login + Boletim) com tokens + comparativo exportado. Entregue como mockup HTML/PNG custo-zero (produtos/babelux/antes_depois.html + assets/mockups/babelux_antes_depois.png), base para o Figma. (Criterio de aceite). Pts 3 [estimativa]. Responsavel: Raquel.",BabelUX,Sprint 3,High,3,babelux sprint-3 p0 dono-raquel status-concluido,Raquel
 Tarefa,Gerar Gantt do cronograma (Secao 18),[S3-5] Gantt com datas reais exportado e inserido na Secao 18. (Criterio de aceite). Pts 2 [estimativa]. Responsavel: Roger.,Documento e Anexos,Sprint 3,High,2,docs sprint-3 p0 dono-roger status-concluido,Roger
 Tarefa,Criar redes sociais (opcional),[S3-6] Perfil criado com a identidade (se houver tempo). (Criterio de aceite). Pts 1 [estimativa]. Responsavel: Raquel.,Plataforma e Site,Sprint 3,Low,1,plat sprint-3 p2 dono-raquel status-a-fazer,Raquel
-Tarefa,Capturar mockups/prints dos produtos e site (Secao 8/9),[S4-1] Imagens inseridas nas secoes 8 e 9. (Criterio de aceite). Pts 2 [estimativa]. Responsavel: Raquel.,Documento e Anexos,Sprint 4,High,2,docs sprint-4 p0 dono-raquel,Raquel
+Tarefa,Capturar mockups/prints dos produtos e site (Secao 8/9),[S4-1] Imagens inseridas nas secoes 8 e 9. (Criterio de aceite). Pts 2 [estimativa]. Responsavel: Raquel.,Documento e Anexos,Sprint 4,High,2,docs sprint-4 p0 dono-raquel status-concluido,Raquel
 História,Montar documento 20+ paginas com anexos (regenerar .docx),"[S4-2] .docx final com 18 secoes + anexos, >=20 paginas. (Criterio de aceite). Pts 3 [estimativa]. Responsavel: Roger.",Documento e Anexos,Sprint 4,High,3,docs sprint-4 p0 dono-roger,Roger
 Tarefa,Inserir logo na capa do .docx,[S4-3] Capa com o logo oficial. (Criterio de aceite). Pts 1 [estimativa]. Responsavel: Roger.,Documento e Anexos,Sprint 4,Medium,1,docs sprint-4 p1 dono-roger,Roger
 História,Montar deck de apresentacao,[S4-4] Deck cobrindo os 18 itens + demo dos produtos. (Criterio de aceite). Pts 3 [estimativa]. Responsavel: Raquel.,Entrega e Apresentacoes,Sprint 4,High,3,entrega sprint-4 p0 dono-raquel,Raquel
