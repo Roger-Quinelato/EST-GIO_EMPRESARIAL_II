@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BabelStack Júnior — Deck de Apresentação</title>
+<meta name="description" content="Deck de apresentação do plano de negócios BabelStack Júnior — Empresa Júnior fictícia de EdTech.">
+
+<!-- ============================================================
+     BabelStack Júnior — Deck de Apresentação
+     Navegação: setas do teclado (←/→), barra de espaço, botões prev/next
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+
+<style>
+  :root {
+    --cor-primaria:   #4338CA; /* Índigo */
+    --cor-secundaria: #0EA5A4; /* Teal */
+    --cor-acao:       #F59E0B; /* Âmbar */
+    --cor-escura:     #1E293B; /* Grafite */
+    --cor-clara:      #F8FAFC; /* Branco-gelo */
+    --cor-borda:      #E2E8F0;
+    --cor-texto-suave:#475569;
+    --branco:         #FFFFFF;
+    --gradiente-marca: linear-gradient(135deg, #4338CA, #0EA5A4);
+    --fonte-titulo: 'Space Grotesk', system-ui, sans-serif;
+    --fonte-texto:  'Inter', system-ui, -apple-system, sans-serif;
+    --raio-p: 8px;
+    --sombra: 0 4px 16px rgba(30, 41, 59, 0.08);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    font-family: var(--fonte-texto);
+    background: var(--cor-escura);
+    color: var(--cor-escura);
+  }
+
+  h1, h2, h3 { font-family: var(--fonte-titulo); line-height: 1.15; margin: 0 0 .5rem; }
+  p { margin: 0 0 .8rem; }
+  ul { margin: 0; padding-left: 1.2rem; }
+  li { margin-bottom: .5rem; }
+  strong { color: var(--cor-primaria); }
+
+  /* ---------------- Stage (viewport 16:9) ---------------- */
+  .stage {
+    width: 100%; height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    background: var(--cor-escura);
+  }
+
+  .deck {
+    position: relative;
+    width: min(100vw, 177.78vh);
+    height: min(100vh, 56.25vw);
+    background: var(--cor-clara);
+    box-shadow: 0 0 60px rgba(0,0,0,.5);
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: none;
+    flex-direction: column;
+    padding: 5.5% 6.5% 4.5%;
+    background: var(--cor-clara);
+    transition: background-color 0.3s ease;
+  }
+  .slide.ativo { display: flex; }
+
+  .slide__eyebrow {
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    font-size: clamp(.7rem, 1.1vw, .95rem);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--cor-secundaria);
+    margin-bottom: .4rem;
+  }
+  .slide__title {
+    font-size: clamp(1.4rem, 3vw, 2.4rem);
+    color: var(--cor-primaria);
+    margin-bottom: .8rem;
+  }
+  .slide__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: clamp(.85rem, 1.5vw, 1.25rem);
+    color: var(--cor-escura);
+    overflow: hidden;
+  }
+  .slide__body p, .slide__body li { line-height: 1.45; }
+  .slide__foot {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: clamp(.6rem, 1vw, .8rem);
+    color: var(--cor-texto-suave);
+    border-top: 1px solid var(--cor-borda);
+    padding-top: .5rem;
+  }
+
+  /* ---------------- Fundos Dinâmicos ---------------- */
+  .slide--dark {
+    background: var(--cor-escura);
+    color: var(--cor-clara);
+  }
+  .slide--dark .slide__title { color: var(--cor-secundaria); }
+  .slide--dark .slide__eyebrow { color: var(--cor-acao); }
+  .slide--dark .slide__body { color: var(--cor-clara); }
+  .slide--dark strong { color: var(--cor-secundaria); }
+  .slide--dark .slide__foot { color: var(--cor-clara); border-color: rgba(255,255,255,0.2); }
+  
+  .slide--teal {
+    background: var(--cor-secundaria);
+    color: var(--branco);
+  }
+  .slide--teal .slide__title { color: var(--cor-escura); }
+  .slide--teal .slide__eyebrow { color: var(--branco); }
+  .slide--teal .slide__body { color: var(--branco); }
+  .slide--teal strong { color: var(--cor-escura); }
+
+  /* ---------------- Grid helpers ---------------- */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2.5rem; align-items: start; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .cols { columns: 2; column-gap: 2.5rem; }
+
+  .card {
+    background: var(--branco);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-p);
+    padding: .9rem 1.1rem;
+    box-shadow: var(--sombra);
+    color: var(--cor-escura);
+  }
+  .card h3 { font-size: 1em; color: var(--cor-primaria); margin-bottom: .3rem; }
+  .card p, .card ul { font-size: .85em; margin-bottom: 0; }
+
+  table.tbl { width: 100%; border-collapse: collapse; font-size: .82em; background: var(--branco); color: var(--cor-escura);}
+  table.tbl th, table.tbl td { border: 1px solid var(--cor-borda); padding: .4em .6em; text-align: left; }
+  table.tbl th { background: var(--cor-secundaria); font-family: var(--fonte-titulo); color: var(--branco); }
+
+  .cite { font-size: 0.7em; vertical-align: super; color: var(--cor-acao); font-weight: bold;}
+
+  /* ---------------- Capa e Fim ---------------- */
+  .slide--capa, .slide--fim {
+    background: var(--gradiente-marca);
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .slide--capa .logo-wrap { margin-bottom: 1.5rem; }
+  .slide--capa .logo-wrap svg { width: min(38vw, 300px); height: auto; }
+  .slide--capa h1 { color: #fff; font-size: clamp(1.8rem, 4.4vw, 3.6rem); margin-bottom: .3rem; }
+  .slide--capa .subtitulo { font-size: clamp(.9rem, 1.8vw, 1.4rem); opacity: .95; margin-bottom: .3rem; }
+  .slide--capa .slogan { font-style: italic; color: var(--cor-clara); font-size: clamp(.8rem, 1.4vw, 1.1rem); margin-bottom: 2rem; }
+  .slide--capa .equipe { font-size: clamp(.75rem, 1.3vw, 1rem); opacity: .92; }
+  .slide--capa .equipe strong { color: #fff; }
+  .slide--fim h2 { color: #fff; font-size: clamp(1.6rem, 3.6vw, 3rem); }
+
+  /* ---------------- Demo produtos ---------------- */
+  .produtos-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; height: 100%;
+  }
+  .produto-card {
+    background: var(--branco); border: 1px solid var(--cor-borda); border-radius: var(--raio-p);
+    padding: .6rem; display: flex; flex-direction: column; box-shadow: var(--sombra); color: var(--cor-escura);
+  }
+  .produto-card h3 { font-size: .85em; color: var(--cor-primaria); margin-bottom: .25rem; }
+  .produto-card .img-wrap { 
+    flex: 1; border-radius: 6px; background: #EEF2FF; 
+    display: flex; align-items: center; justify-content: center; 
+    margin-bottom: .35rem; overflow: hidden; /* Mantém a imagem contida */
+  }
+  .produto-card img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;
+  }
+  .produto-card p { font-size: .68em; margin-bottom: 0; color: var(--cor-texto-suave); }
+
+  /* ---------------- Solução Proposta ---------------- */
+  .produto-split {
+    display: flex; flex-direction: row; gap: 2.5rem; align-items: center; height: 100%;
+  }
+  .produto-split__texto {
+    flex: 1; font-size: 1.1em;
+  }
+  .produto-split__imagem {
+    flex: 1.5; border-radius: 12px; overflow: hidden; box-shadow: var(--sombra);
+    display: flex; align-items: center; justify-content: center; background: #fff;
+  }
+  .produto-split__imagem img {
+    width: 100%; height: auto; max-height: 60vh; object-fit: contain; display: block;
+  }
+
+  /* ---------------- Navegação ---------------- */
+  .nav-ui {
+    position: absolute; bottom: 10px; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: center; gap: .6rem; z-index: 20; pointer-events: none;
+  }
+  .nav-ui * { pointer-events: auto; }
+  .nav-btn {
+    font-family: var(--fonte-titulo); font-weight: 600; background: rgba(30,41,59,.55); color: #fff;
+    border: none; border-radius: 999px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 1.1rem; transition: background .15s ease;
+  }
+  .nav-btn:hover { background: var(--cor-primaria); }
+  .nav-count { font-family: var(--fonte-titulo); font-size: .75rem; color: #fff; background: rgba(30,41,59,.55); border-radius: 999px; padding: .3rem .8rem; }
+  .progress { position: absolute; top: 0; left: 0; height: 4px; background: var(--cor-acao); transition: width .25s ease; z-index: 20; }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="deck" id="deck">
+    <div class="progress" id="progress"></div>
+
+    <!-- 1. CAPA -->
+    <section class="slide slide--capa ativo">
+      <div class="logo-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+          <g transform="translate(10,16) scale(0.72)">
+            <rect x="6" y="10" width="52" height="36" rx="11" fill="#FFFFFF"/>
+            <path d="M16 43 L16 56 L29 44 Z" fill="#FFFFFF"/>
+            <path d="M27 22 L21 28 L27 34" fill="none" stroke="#4338CA" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M37 21 L30 35" fill="none" stroke="#F59E0B" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M40 22 L46 28 L40 34" fill="none" stroke="#0EA5A4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <text x="64" y="42" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="700" font-size="30" fill="#FFFFFF">Babel<tspan fill="#F8FAFC" opacity="0.85">Stack</tspan></text>
+          <text x="65" y="60" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="500" font-size="13" letter-spacing="1.5" fill="#F8FAFC">JÚNIOR · EDTECH</text>
+        </svg>
+      </div>
+      <h1>BabelStack Júnior </h1>
+      <p class="subtitulo">Soluções em EdTech — Plano de Negócios </p>
+      <p class="slogan">"Codificando fluência, estruturando conexões globais." </p>
+      <p class="equipe"><strong>Raquel Pereira</strong> — CPO · Diretoria Executiva e de Produto &nbsp;&nbsp;|&nbsp;&nbsp;<strong>Roger Quinelato</strong> — CTO · Diretoria de Engenharia </p>
+    </section>
+
+    <!-- 2. IDENTIFICAÇÃO DA EMPRESA -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 1</div>
+      <h2 class="slide__title">Identificação da Empresa</h2>
+      <div class="slide__body">
+        <div class="grid2">
+          <div>
+            <p><strong>Nome:</strong> BabelStack Júnior – Soluções em EdTech </p>
+            <p><strong>Área:</strong> Soluções Tecnológicas para Educação de Idiomas (EdTech), com foco em Engenharia de Software, Business Intelligence e Design de Experiência do Usuário (UX/UI) .</p>
+            <p><strong>Natureza:</strong> Associação civil sem fins lucrativos gerida exclusivamente por estudantes de Sistemas de Informação .</p>
+          </div>
+          <div>
+            <p><strong>Missão:</strong> Democratizar e otimizar o ensino de línguas estrangeiras por meio da tecnologia .</p>
+            <p><strong>Visão:</strong> Consolidar-se até o final de 2027 como a Empresa Júnior de referência no desenvolvimento de tecnologias educacionais no Centro-Oeste .</p>
+            <p><strong>Valores:</strong> Design Centrado no Aluno, Excelência Orientada a Dados, Escalabilidade e Visão Global, Colaboração Integrada .</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PROBLEMA DA COMUNIDADE -->
+    <section class="slide slide--dark">
+      <div class="slide__eyebrow">Seção 2</div>
+      <h2 class="slide__title">Problema da Comunidade</h2>
+      <div class="slide__body">
+        <ul>
+          <li>O Brasil enfrenta um déficit histórico e estrutural no domínio de línguas estrangeiras .</li>
+          <li>Nas escolas públicas, esse abismo linguístico é aprofundado pela falta de ferramentas tecnológicas, ausência de interfaces engajadoras e carência de sistemas de análise de dados (BI) .</li>
+          <li><strong>Público-alvo:</strong> Escolas públicas da rede de ensino do DF (gestão e professores) e Centros Interescolares de Línguas (CILs) .</li>
+          <li><strong>Impacto:</strong> A limitação no domínio do inglês atua como uma severa barreira de mobilidade social e econômica, tornando-se um pré-requisito eliminatório no mercado .</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====================================================================== -->
+    <!-- 4 a 8. SOLUÇÃO PROPOSTA (1 Slide por Produto) -->
+    <!-- ====================================================================== -->
+
+    <!-- Solução 1: LingoBoard -->
+    <section class="slide slide--teal">
+      <div class="slide__eyebrow">Seção 3 — Solução Proposta</div>
+      <h2 class="slide__title">LingoBoard (Dashboards Educacionais)</h2>
+      <div class="slide__body">
+        <div class="produto-split">
+          <div class="produto-split__texto">
+            <p>Painel interativo desenvolvido em Python (Streamlit/Pandas) para visualização de dados educacionais, que transforma planilhas de notas e chamadas em gráficos dinâmicos .</p>
+          </div>
+          <div class="produto-split__imagem">
+            <!-- EXTENSÃO CORRIGIDA AQUI: de .jpg para .png -->
+            <img src="lingoboard_dashboard.png" alt="Interface do Dashboard LingoBoard">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solução 2: VocabDeck -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 3 — Solução Proposta</div>
+      <h2 class="slide__title">VocabDeck (Plataforma de Flashcards)</h2>
+      <div class="slide__body">
+        <div class="produto-split">
+          <div class="produto-split__texto">
+            <p>Aplicação web responsiva para revisão espaçada de vocabulário, com arquitetura preparada para suportar múltiplos idiomas e anotações visuais .</p>
+          </div>
+          <div class="produto-split__imagem">
+            <img src="vocabdeck_estudo.png" alt="Tela de estudo da plataforma VocabDeck">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solução 3: EduLanding -->
+    <section class="slide slide--dark">
+      <div class="slide__eyebrow">Seção 3 — Solução Proposta</div>
+      <h2 class="slide__title">EduLanding (Páginas Web Educacionais)</h2>
+      <div class="slide__body">
+        <div class="produto-split">
+          <div class="produto-split__texto">
+            <p>Criação e configuração de Landing Pages e sites institucionais, como feiras culturais e portais de materiais, otimizados para a conversão de matrículas .</p>
+          </div>
+          <div class="produto-split__imagem">
+            <img src="edulanding_feira_cultural.png" alt="Landing page criada com o EduLanding">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solução 4: BabelUX -->
+    <section class="slide slide--teal">
+      <div class="slide__eyebrow">Seção 3 — Solução Proposta</div>
+      <h2 class="slide__title">BabelUX (Consultoria de Usabilidade)</h2>
+      <div class="slide__body">
+        <div class="produto-split">
+          <div class="produto-split__texto">
+            <p>Consultoria especializada para auditar e redesenhar a interface e a usabilidade (UX/UI) de portais educacionais já existentes, tornando o ambiente de estudo mais intuitivo .</p>
+          </div>
+          <div class="produto-split__imagem">
+            <!-- EXTENSÃO CORRIGIDA AQUI: de .jpg para .png -->
+            <img src="babelux_antes_depois.png" alt="Comparativo de antes e depois de um redesign feito pela BabelUX">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solução 5: IntegraSchool -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 3 — Solução Proposta</div>
+      <h2 class="slide__title">IntegraSchool (Automação Administrativa)</h2>
+      <div class="slide__body">
+        <div class="produto-split">
+          <div class="produto-split__texto">
+            <p>Desenvolvimento de scripts customizados em Python e plataformas low-code para a automação de rotinas administrativas burocráticas, como envios de lembretes e boletins .</p>
+          </div>
+          <div class="produto-split__imagem">
+            <!-- EXTENSÃO CORRIGIDA AQUI: de .jpg para .png -->
+            <img src="integraschool_simulacao.png" alt="Simulação de envio e automação do IntegraSchool">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================== -->
+    <!-- FIM DA SEÇÃO 3 (CONTINUAÇÃO NORMAL)                                    -->
+    <!-- ====================================================================== -->
+
+    <!-- 9. PLANEJAMENTO ESTRATÉGICO -->
+    <section class="slide slide--dark">
+      <div class="slide__eyebrow">Seção 4</div>
+      <h2 class="slide__title">Planejamento Estratégico</h2>
+      <div class="slide__body">
+        <div class="grid3">
+          <div class="card"><h3>Curto prazo (0–6 m)</h3><p>Pesquisa de Mercado, Capacitação da Equipe e Projetos Piloto na Rede Pública do DF .</p></div>
+          <div class="card"><h3>Médio prazo (6–18 m)</h3><p>Sustentabilidade Financeira, Expansão para Novos Idiomas (Espanhol e Francês) e Evolução da Arquitetura (Fullstack) .</p></div>
+          <div class="card"><h3>Longo prazo (18–36 m)</h3><p>Implementação de Análise Preditiva Básica e Parcerias com Centros de Línguas Universitários .</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. ESTRUTURA ORGANIZACIONAL -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 5</div>
+      <h2 class="slide__title">Estrutura Organizacional</h2>
+      <div class="slide__body">
+        <table class="tbl">
+          <tr><th>Cargo</th><th>Responsável</th><th>Atribuições</th></tr>
+          <tr><td>Conselho de Orientação</td><td>Professores orientadores</td><td>Mentoria e code review pedagógico .</td></tr>
+          <tr><td>CPO — Diretora Executiva e de Produto</td><td>Raquel Pereira </td><td>Gestão Estratégica e Comercial, Engenharia de Requisitos, Design de UX/UI, Business Intelligence .</td></tr>
+          <tr><td>CTO — Diretor de Eng. e Operações</td><td>Roger Quinelato </td><td>Desenvolvimento Web, Automação e Integrações, Arquitetura Multidiomas, Operações de TI e Hospedagem .</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- 11. RECURSOS HUMANOS -->
+    <section class="slide slide--teal">
+      <div class="slide__eyebrow">Seção 6</div>
+      <h2 class="slide__title">Recursos Humanos</h2>
+      <div class="slide__body">
+        <ul>
+          <li><strong>Quadro atual:</strong> 2 Estudantes (Diretores) e 1 a 2 Professores Orientadores . Crescimento estimado para 6 a 8 colaboradores efetivos no final do 1º ano .</li>
+          <li><strong>Processo de Seleção:</strong> Alinhamento Cultural, Desafio Prático Gamificado (EdTech Hack) e Banca Final .</li>
+          <li><strong>Avaliação de Desempenho:</strong> Caráter formativo baseado na metodologia Ágil (Scrum), Avaliação 360 Graus semestral e Code Review Pedagógico quinzenal .</li>
+          <li><strong>Plano de Desenvolvimento:</strong> BabelTech Talks mensais, Fundo de Capacitação e Imersão Linguística Cruzada .</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 12. ANÁLISE DE MERCADO -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 7</div>
+      <h2 class="slide__title">Análise de Mercado</h2>
+      <div class="slide__body">
+        <div class="grid2">
+          <div>
+            <p><strong>Mercado Alvo:</strong> Setor Público (validação e impacto) e Setor Privado (monetização via escolas e professores independentes) .</p>
+            <p><strong>Concorrentes:</strong> Diretos: Outras Empresas Juniores de TI . Indiretos: EdTechs consolidadas como Geekie e Moodle .</p>
+          </div>
+          <div>
+            <p><strong>Oportunidades:</strong> Forte aderência Open-Source no setor público, demanda por Análise de Retenção (BI) e Escalabilidade Multidiomas .</p>
+            <p><strong>Ameaças:</strong> Limitações operacionais (equipe pequena de alunos), curva de aprendizado (setup de servidores) e resistência docente à digitalização .</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. PORTFÓLIO DE PRODUTOS E SERVIÇOS (TABELA DE PREÇOS) -->
+    <section class="slide slide--dark">
+      <div class="slide__eyebrow">Seção 8</div>
+      <h2 class="slide__title">Portfólio de Produtos e Serviços</h2>
+      <div class="slide__body">
+        <table class="tbl">
+          <tr><th>Produto</th><th>Categoria</th><th>Valor de Mercado</th></tr>
+          <tr><td>LingoBoard</td><td>Business Intelligence</td><td>R$ 50,00 por hora de desenvolvimento .</td></tr>
+          <tr><td>VocabDeck</td><td>Desenvolvimento Web</td><td>R$ 400,00 a R$ 800,00 .</td></tr>
+          <tr><td>EduLanding</td><td>Desenvolvimento Web</td><td>R$ 650,00 a R$ 1.500,00 .</td></tr>
+          <tr><td>BabelUX</td><td>UX/UI Design</td><td>R$ 35,00 por hora (R$ 350,00 a R$ 1.000,00+) .</td></tr>
+          <tr><td>IntegraSchool</td><td>Automação Administrativa</td><td>R$ 500,00 a R$ 2.500,00 por script/módulo .</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- 14. DEMO DOS 5 PRODUTOS (GRADE) -->
+    <section class="slide">
+      <div class="slide__eyebrow">Demonstração</div>
+      <h2 class="slide__title">Os 5 Produtos em Ação</h2>
+      <div class="slide__body">
+        <div class="produtos-grid">
+          <div class="produto-card">
+            <h3>LingoBoard</h3>
+            <!-- EXTENSÃO CORRIGIDA AQUI: de .jpg para .png -->
+            <div class="img-wrap"><img src="lingoboard_dashboard.png" alt="Dashboard do LingoBoard"></div>
+            <p>Painel de BI (Python/Streamlit) .</p>
+          </div>
+          <div class="produto-card">
+            <h3>VocabDeck</h3>
+            <div class="img-wrap"><img src="vocabdeck_estudo.png" alt="Tela de estudo do VocabDeck"></div>
+            <p>Plataforma web de flashcards .</p>
+          </div>
+          <div class="produto-card">
+            <h3>EduLanding</h3>
+            <div class="img-wrap"><img src="edulanding_feira_cultural.png" alt="Landing page EduLanding"></div>
+            <p>Landing pages educacionais otimizadas .</p>
+          </div>
+          <div class="produto-card">
+            <h3>BabelUX</h3>
+            <!-- EXTENSÃO CORRIGIDA AQUI: de .jpg para .png -->
+            <div class="img-wrap"><img src="babelux_antes_depois.png" alt="Comparativo antes e depois BabelUX"></div>
+            <p>Redesign de interfaces educacionais .</p>
+          </div>
+          <div class="produto-card">
+            <h3>IntegraSchool</h3>
+            <!-- EXTENSÃO CORRIGIDA AQUI: de .jpg para .png -->
+            <div class="img-wrap"><img src="integraschool_simulacao.png" alt="Simulação de execução do IntegraSchool"></div>
+            <p>Automação administrativa e scripts .</p>
+          </div>
+          <div class="produto-card" style="background: var(--cor-primaria); border-color: var(--cor-primaria); align-items: center; justify-content: center; text-align: center;">
+            <h3 style="color: #fff; font-size: 1.1em; margin-bottom: 0.5rem;">Prontos para Escalar</h3>
+            <p style="color: rgba(255,255,255,0.9); font-size: 0.85em; line-height: 1.5;">
+              Soluções 100% integradas e focadas nas dores reais do ensino público e privado .
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15. PLANO DE MARKETING -->
+    <section class="slide slide--teal">
+      <div class="slide__eyebrow">Seção 9</div>
+      <h2 class="slide__title">Plano de Marketing</h2>
+      <div class="slide__body">
+        <ul>
+          <li><strong>Identidade Visual:</strong> Cores principais: Índigo, Teal, Âmbar, Grafite e Branco-gelo .</li>
+          <li><strong>Tipografia:</strong> Fontes <em>Space Grotesk</em> para títulos e <em>Inter</em> para texto corrido, garantindo legibilidade otimizada .</li>
+          <li><strong>Site Institucional:</strong> Exibição clara do portfólio, com foco em comunicar as soluções (LingoBoard, VocabDeck, EduLanding, BabelUX e IntegraSchool) .</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 16. PLANO OPERACIONAL -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seção 10</div>
+      <h2 class="slide__title">Plano Operacional</h2>
+      <div class="slide__body">
+        <ul>
+          <li><strong>Metodologia Ágil (Scrum):</strong> CPO levanta requisitos, CTO codifica e testa, orientador faz code review .</li>
+          <li><strong>Funcionamento:</strong> 20 horas semanais por estudante, em formato híbrido (100% remoto para desenvolvimento, reuniões via Google Meet) .</li>
+          <li><strong>Tecnologia:</strong> Ambientes Linux, Git/GitHub, VS Code, Figma e Discord/Notion .</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 17. PLANO FINANCEIRO & ASPECTOS LEGAIS -->
+    <section class="slide slide--dark">
+      <div class="slide__eyebrow">Seções 11 e 12</div>
+      <h2 class="slide__title">Plano Financeiro e Aspectos Legais</h2>
+      <div class="slide__body">
+        <div class="grid2">
+          <div>
+            <h3>Plano Financeiro</h3>
+            <p><strong>Capital inicial:</strong> R$ 0,00 (Bootstrapping, open-source e nuvem gratuita) .</p>
+            <p><strong>Custos fixos:</strong> R$ 40,00 anuais (domínio) .</p>
+            <p><strong>Receita estimada:</strong> R$ 1.500,00 a R$ 4.000,00 no primeiro semestre .</p>
+          </div>
+          <div>
+            <h3>Aspectos Legais</h3>
+            <p><strong>Tipo jurídico:</strong> Associação Civil sem fins lucrativos — Empresa Júnior (Lei nº 13.267/2016) .</p>
+            <p><strong>Documentação:</strong> Estatuto Social, Ata de Fundação, Regimento Interno, CNPJ e Carta de Reconhecimento da IES .</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 18. SUSTENTABILIDADE E QUALIDADE -->
+    <section class="slide">
+      <div class="slide__eyebrow">Seções 13, 14 e 15</div>
+      <h2 class="slide__title">Responsabilidade, Qualidade e Riscos</h2>
+      <div class="slide__body">
+        <ul>
+          <li><strong>Social:</strong> Programa "Código Fluente" (1 sistema gratuito em escola pública a cada 3 projetos pagos privados) . Política <em>Paperless</em> . Inclusão WCAG .</li>
+          <li><strong>Qualidade:</strong> NPS aos 30 dias , reuniões de Sprint Retrospective quinzenais  e SLA de 48h úteis para falhas críticas .</li>
+          <li><strong>Gestão de Riscos:</strong> Cobrança de 50% antecipada contra inadimplência , pausas programadas no calendário acadêmico , e versionamento em GitHub (mitigação de riscos tecnológicos) .</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 19. RESULTADOS ESPERADOS -->
+    <section class="slide slide--teal">
+      <div class="slide__eyebrow">Seção 17</div>
+      <h2 class="slide__title">Resultados Esperados</h2>
+      <div class="slide__body">
+        <ul>
+          <li><strong>Atendimento:</strong> 3 a 8 professores/gestores nos primeiros 6 meses, impactando indiretamente mais de 300 alunos .</li>
+          <li><strong>Impacto Escolar:</strong> Melhoria no engajamento e redução nas taxas de abandono nas escolas públicas parceiras .</li>
+          <li><strong>Formação de Talentos:</strong> Crescimento de 2 para até 8 estudantes de Sistemas de Informação, fornecendo talentos com vivência prática ao mercado de TI .</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 20. ENCERRAMENTO -->
+    <section class="slide slide--fim">
+      <h2>Obrigado!</h2>
+      <p style="font-size:1.1rem; margin-bottom:.3rem;">BabelStack Júnior — Soluções em EdTech</p>
+      <p class="equipe" style="opacity:.95;"><strong>Raquel Pereira</strong> — CPO &nbsp;&nbsp;|&nbsp;&nbsp;<strong>Roger Quinelato</strong> — CTO </p>
+      <p style="opacity:.85; font-size:.85rem; margin-top: 2rem;">Apresentação: 24 de Julho de 2026 </p>
+    </section>
+
+    <!-- Controles de Navegação -->
+    <div class="nav-ui">
+      <button class="nav-btn" id="btnPrev" aria-label="Slide anterior">&#8592;</button>
+      <span class="nav-count" id="navCount">1 / 20</span>
+      <button class="nav-btn" id="btnNext" aria-label="Próximo slide">&#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var idx = 0;
+  var progress = document.getElementById('progress');
+  var navCount = document.getElementById('navCount');
+  var btnPrev = document.getElementById('btnPrev');
+  var btnNext = document.getElementById('btnNext');
+
+  function render() {
+    slides.forEach(function (s, i) {
+      s.classList.toggle('ativo', i === idx);
+    });
+    navCount.textContent = (idx + 1) + ' / ' + total;
+    progress.style.width = (((idx + 1) / total) * 100) + '%';
+    btnPrev.disabled = idx === 0;
+    btnNext.disabled = idx === total - 1;
+  }
+
+  function goTo(n) {
+    idx = Math.max(0, Math.min(total - 1, n));
+    render();
+  }
+
+  btnPrev.addEventListener('click', function () { goTo(idx - 1); });
+  btnNext.addEventListener('click', function () { goTo(idx + 1); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { goTo(idx + 1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { goTo(idx - 1); e.preventDefault(); }
+    else if (e.key === 'Home') { goTo(0); e.preventDefault(); }
+    else if (e.key === 'End') { goTo(total - 1); e.preventDefault(); }
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
