@@ -1,0 +1,48 @@
+/* ============================================================
+   BabelStack Júnior — Design Tokens (Identidade Visual)
+   Fase 1 do roteiro. Importe este arquivo no site e nos produtos
+   para reutilizar cores, fontes, raios e sombras sem repetir valores.
+
+   Uso:
+     <link rel="stylesheet" href="/assets/identidade/tokens.css">
+     ...
+     color: var(--cor-texto);
+     background: var(--cor-primaria);
+     font-family: var(--fonte-titulo);
+   ============================================================ */
+
+/* Fontes (Google Fonts, gratuitas) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  /* ---- Cores da marca ---- */
+  --cor-primaria:    #4338CA; /* Índigo BabelBlue — tecnologia/confiança */
+  --cor-secundaria:  #0EA5A4; /* Teal LingoTeal — educação/crescimento */
+  --cor-acao:        #F59E0B; /* Âmbar Energia — CTAs e destaques */
+  --cor-escura:      #1E293B; /* Grafite InkSlate — textos e fundos escuros */
+  --cor-clara:       #F8FAFC; /* Branco-gelo Cloud — fundos e respiro */
+
+  /* ---- Aliases semânticos ---- */
+  --cor-texto:        var(--cor-escura);
+  --cor-fundo:        var(--cor-clara);
+  --cor-link:         var(--cor-primaria);
+  --cor-destaque:     var(--cor-acao);
+
+  /* Variações de apoio (derivadas das cores da marca) */
+  --cor-primaria-clara: #6366F1; /* índigo mais claro para hover/realces */
+  --cor-secundaria-clara: #2DD4BF; /* teal mais claro */
+  --gradiente-marca: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+
+  /* ---- Tipografia ---- */
+  --fonte-titulo: 'Space Grotesk', system-ui, sans-serif;
+  --fonte-texto:  'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ---- Formas e profundidade ---- */
+  --raio-pequeno: 8px;
+  --raio-grande:  16px;
+  --sombra-card:  0 4px 16px rgba(30, 41, 59, 0.08);
+  --sombra-forte: 0 8px 28px rgba(67, 56, 202, 0.18);
+
+  /* ---- Espaçamento base ---- */
+  --espaco: 1rem;
+}
