@@ -120,4 +120,4 @@ python integraschool.py
 
 ---
 
-**Desenvolvido em 2026 para a disciplina de Estágio Empresarial II — UNDEF (Centro)**
+**Desenvolvido em 2026 para a disciplina de Estágio Empresarial II — UnDF (Centro)**
