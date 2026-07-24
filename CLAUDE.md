@@ -1,4 +1,4 @@
-# CLAUDE.md
+S# CLAUDE.md
 
 Guia para agentes que trabalham neste repositório. Leia antes de editar qualquer coisa.
 
@@ -11,7 +11,7 @@ Guia para agentes que trabalham neste repositório. Leia antes de editar qualque
 - **Documento regente:** `DocumentosIniciais/DiretrizesProjetoFinal.pdf` (18 seções obrigatórias).
 - **Roteiro de execução:** `DocumentosIniciais/Roteiro_BabelStack_Junior.md` (é um PDF apesar da extensão `.md`).
 
-## Estado atual (06/07/2026)
+## Estado atual (22/07/2026)
 
 - **Sprints 1, 2 e 3 CONCLUÍDAS (adiantadas)** — todos os P0 da Sprint 3 fechados; resta só S3-6 (redes sociais, P2 opcional). Próximo foco: Sprint 4 (documento 20+ págs., mockups nas Seções 8/9, deck). Board Jira EST. Ver `docs/sprints/plano_sprints.md`.
 - **Entregue na Sprint 1:** anexos em `diagramas/` (ERD, fluxograma, organograma — `.mmd` + `.svg`), referenciados nas Seções 5/10/16; **esqueleto do site** em `site/` (index/portfólio/contato com tokens); revisão das seções 9–16. Também: `analise_repositorio.md`, 5 PRDs + TDD, 5 ADRs, roadmap.
@@ -24,7 +24,9 @@ Guia para agentes que trabalham neste repositório. Leia antes de editar qualque
   - **EduLanding** (`produtos/edulanding/index.html` + `README.md`): template de landing educacional **autocontido** (CSS/JS embutidos, custo-zero), responsivo, com pontos `EDITÁVEL:` marcados e o exemplo preenchido **"Feira Cultural de Idiomas"** (hero/sobre/programação/galeria/FAQ/CTA). Tokens da marca no `:root`. Verificado (desktop + mobile). Mockup em `assets/mockups/edulanding_feira_cultural.png`. **(S3-1)**
   - **BabelUX** (`produtos/babelux/`): (a) **diagnóstico heurístico** (`diagnostico_heuristico.md`) do "Portal Acadêmico" fictício — **7 problemas** com severidade (escala Nielsen 0–4) e heurística violada; (b) **comparativo Antes/Depois** (`antes_depois.html`) de **2 telas** (Login + Boletim), o lado "Antes" reproduzindo os problemas e o "Depois" aplicando os tokens BabelStack. Comparativo exportado em `assets/mockups/babelux_antes_depois.png`. Briefing e README atualizados. **(S3-3, S3-4)**
   - **Gantt do cronograma** (`diagramas/gantt_cronograma.mmd` + `.svg`): datas reais 16/06–31/07/2026, pacotes por sprint, marcador "hoje" e marcos das apresentações (24/07 e 31/07); referenciado na **Seção 18** (via `_build/build.js`). **(S3-5)**
-  - Notas de anexo defasadas ("a produzir") das Seções 5/10/16/18 atualizadas em `build.js` para apontar os SVGs reais; `.docx` e `jira_backlog.csv/.pdf` regenerados (S3-1/3/4/5 → `status-concluido`).
+   - Notas de anexo defasadas ("a produzir") das Seções 5/10/16/18 atualizadas em `build.js` para apontar os SVGs reais; `.docx` e `jira_backlog.csv/.pdf` regenerados (S3-1/3/4/5 → `status-concluido`).
+
+  - Observação (22/07/2026): o Gantt e diversos mockups já foram gerados e estão em `diagramas/` e `assets/mockups/` (SVG/PNG). Atualizei a data de estado para refletir isso.
 - **Pendências resolvidas em 02/07:** (1) `jira_backlog.csv`/`.pdf` atualizados com os itens das Sprints 2/3 (status via labels `status-concluido`/`status-a-fazer`; novo item S2-6 espelhado também em `plano_sprints.md`); PDF agora regenerável via `_build/build_jira_pdf.py`; (2) fluxograma e organograma ganharam versões nativas Draw.io (`diagramas/*.drawio`, XML não-comprimido, paleta da marca); (3) commits sincronizados com origin/main. Soluções revisadas e aprovadas em code review interno.
 
 ## Regras fixas (NUNCA violar)
@@ -54,7 +56,7 @@ assets/
   mockups/           # mockups dos produtos (a produzir)
 produtos/            # código dos 5 produtos (stubs até a Sprint 2)
 site/                # PRONTO (esqueleto): index/portfolio/contato + style.css/script.js, com tokens
-diagramas/           # PRONTOS: erd_babelstack / fluxograma_atendimento / organograma (.mmd + .svg). Gantt a produzir.
+  diagramas/           # PRONTOS: erd_babelstack / fluxograma_atendimento / organograma / gantt_cronograma (.mmd + .svg).
 apresentacao/        # decks (a produzir)
 _build/              # gerador do .docx (Node + lib `docx`) — ⚠️ desalinhado, ver Comandos
 ```
