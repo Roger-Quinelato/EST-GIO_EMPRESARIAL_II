@@ -1,0 +1,15 @@
+# Tema visual do LingoBoard com a identidade BabelStack Júnior.
+# Cores/fontes espelham assets/identidade/tokens.css.
+# Referência completa de opções: https://docs.streamlit.io/develop/api-reference/configuration/config.toml
+
+[theme]
+primaryColor = "#4338CA"           # índigo BabelBlue
+backgroundColor = "#F8FAFC"        # branco-gelo Cloud
+secondaryBackgroundColor = "#EEF2FF"  # tint claro do índigo, para widgets/sidebar
+textColor = "#1E293B"              # grafite InkSlate
+
+# Fontes da marca via Google Fonts (suportado em versões recentes do
+# Streamlit; se a versão instalada não reconhecer estas chaves, elas são
+# ignoradas sem quebrar o tema de cores acima).
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+headingFont = "Space Grotesk:https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap"

@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ============================================================
+       EDITÁVEL: título da aba do navegador
+       ============================================================ -->
+  <title>Feira Cultural de Idiomas — Escola Municipal Exemplo</title>
+  <meta name="description" content="Feira Cultural de Idiomas: um dia de apresentações, oficinas e cultura em inglês, espanhol e francês. Entrada gratuita.">
+
+  <!-- ============================================================
+       EduLanding — Template de landing page educacional (BabelStack Júnior)
+       Produto: EduLanding · PRD: docs/produtos/prd_edulanding.md · Sprint 3 (S3-1)
+
+       COMO USAR (sem mexer em lógica):
+       1. Procure os comentários "EDITÁVEL:" e troque o texto ao lado.
+       2. Troque as datas, o local e os links dos botões (procure por href="#inscricao").
+       3. Para reaproveitar em outro evento, basta editar os textos — a estrutura e o
+          estilo (identidade BabelStack) já vêm prontos.
+       4. Publicação custo-zero: suba este arquivo em qualquer hospedagem estática
+          (ex.: GitHub Pages). Não precisa de servidor nem banco de dados.
+
+       Identidade visual (tokens locais no :root abaixo) espelha
+       assets/identidade/tokens.css — Índigo #4338CA, Teal #0EA5A4, Âmbar #F59E0B.
+       Para trocar o tema (outra escola/cores), altere apenas as variáveis do :root.
+       ============================================================ -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+
+  <style>
+    /* ---- Tokens de identidade BabelStack (edite aqui para trocar o tema) ---- */
+    :root {
+      --cor-primaria:   #4338CA; /* Índigo */
+      --cor-secundaria: #0EA5A4; /* Teal   */
+      --cor-acao:       #F59E0B; /* Âmbar (CTAs) */
+      --cor-escura:     #1E293B; /* Grafite */
+      --cor-clara:      #F8FAFC; /* Branco-gelo */
+      --cor-borda:      #E2E8F0;
+      --cor-texto-suave:#475569;
+      --branco:         #FFFFFF;
+      --gradiente-marca: linear-gradient(135deg, #4338CA, #0EA5A4);
+      --fonte-titulo: 'Space Grotesk', system-ui, sans-serif;
+      --fonte-texto:  'Inter', system-ui, -apple-system, sans-serif;
+      --raio-p: 8px;
+      --raio-g: 18px;
+      --sombra: 0 4px 16px rgba(30, 41, 59, 0.08);
+      --sombra-forte: 0 12px 32px rgba(67, 56, 202, 0.20);
+      --largura: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: var(--fonte-texto);
+      color: var(--cor-escura);
+      background: var(--cor-clara);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 { font-family: var(--fonte-titulo); line-height: 1.15; margin: 0 0 .5rem; }
+    p { margin: 0 0 1rem; }
+    a { color: var(--cor-primaria); }
+
+    .container {
+      width: 100%;
+      max-width: var(--largura);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--fonte-titulo);
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--raio-p);
+      padding: .85rem 1.6rem;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn--acao { background: var(--cor-acao); color: var(--cor-escura); }
+    .btn--acao:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(245,158,11,.35); }
+    .btn--claro { background: transparent; color: var(--branco); border-color: rgba(255,255,255,.7); }
+    .btn--claro:hover { background: rgba(255,255,255,.12); }
+    .btn--primaria { background: var(--cor-primaria); color: var(--branco); }
+    .btn--primaria:hover { transform: translateY(-2px); box-shadow: var(--sombra-forte); }
+
+    /* ---------------- Navegação ---------------- */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(248,250,252,.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--cor-borda);
+    }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .75rem 1.25rem; max-width: var(--largura); margin: 0 auto; }
+    .nav__brand { display: flex; align-items: center; gap: .6rem; font-family: var(--fonte-titulo); font-weight: 700; color: var(--cor-escura); }
+    .nav__logo { width: 34px; height: 34px; border-radius: var(--raio-p); background: var(--gradiente-marca); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: .95rem; }
+    .nav__links { display: flex; gap: 1.25rem; align-items: center; list-style: none; margin: 0; padding: 0; }
+    .nav__links a { text-decoration: none; color: var(--cor-escura); font-weight: 500; font-size: .95rem; }
+    .nav__links a:hover { color: var(--cor-primaria); }
+    .nav__toggle { display: none; background: none; border: 0; font-size: 1.6rem; cursor: pointer; color: var(--cor-escura); }
+
+    /* ---------------- Hero ---------------- */
+    .hero {
+      background: var(--gradiente-marca);
+      color: var(--branco);
+      padding: 4.5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: ""; position: absolute; right: -120px; top: -120px;
+      width: 360px; height: 360px; border-radius: 50%;
+      background: rgba(245,158,11,.18);
+    }
+    .hero__badge {
+      display: inline-block; background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.3);
+      padding: .3rem .9rem; border-radius: 999px;
+      font-size: .85rem; font-weight: 600; margin-bottom: 1rem;
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); max-width: 18ch; }
+    .hero__sub { font-size: 1.15rem; max-width: 46ch; opacity: .95; }
+    .hero__meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0 2rem; }
+    .hero__meta div { display: flex; align-items: center; gap: .5rem; font-weight: 500; }
+    .hero__meta .ico { font-size: 1.3rem; }
+    .hero__cta { display: flex; flex-wrap: wrap; gap: .8rem; }
+
+    /* ---------------- Seções ---------------- */
+    section { padding: 3.5rem 0; }
+    .section-title { font-size: clamp(1.5rem, 3.5vw, 2.1rem); text-align: center; }
+    .section-title span { color: var(--cor-secundaria); }
+    .section-intro { text-align: center; max-width: 60ch; margin: 0 auto 2.5rem; color: var(--cor-texto-suave); }
+
+    .sobre-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .card {
+      background: var(--branco); border: 1px solid var(--cor-borda);
+      border-radius: var(--raio-g); padding: 1.5rem; box-shadow: var(--sombra);
+    }
+    .card .ico { font-size: 1.8rem; }
+    .card h3 { font-size: 1.15rem; margin-top: .5rem; }
+    .card p { color: var(--cor-texto-suave); margin: 0; }
+
+    /* ---------------- Programação ---------------- */
+    .programacao { background: var(--branco); }
+    .agenda { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: .75rem; }
+    .agenda__item {
+      display: grid; grid-template-columns: 120px 1fr; gap: 1rem;
+      align-items: start; padding: 1rem 1.25rem;
+      border: 1px solid var(--cor-borda); border-left: 5px solid var(--cor-secundaria);
+      border-radius: var(--raio-p); background: var(--cor-clara);
+    }
+    .agenda__hora { font-family: var(--fonte-titulo); font-weight: 700; color: var(--cor-primaria); }
+    .agenda__desc strong { display: block; }
+    .agenda__desc span { color: var(--cor-texto-suave); font-size: .95rem; }
+
+    /* ---------------- Galeria (P1) ---------------- */
+    .galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .galeria figure {
+      margin: 0; border-radius: var(--raio-g); overflow: hidden;
+      aspect-ratio: 4/3; display: grid; place-items: center;
+      color: var(--branco); font-family: var(--fonte-titulo); font-weight: 600;
+      text-align: center; padding: 1rem; box-shadow: var(--sombra);
+    }
+    /* Placeholders coloridos: troque por <img src="..."> reais quando tiver as fotos */
+    .g1 { background: linear-gradient(135deg,#4338CA,#6366F1); }
+    .g2 { background: linear-gradient(135deg,#0EA5A4,#2DD4BF); }
+    .g3 { background: linear-gradient(135deg,#F59E0B,#FBBF24); color: var(--cor-escura); }
+    .g4 { background: linear-gradient(135deg,#1E293B,#475569); }
+
+    /* ---------------- FAQ (P1) ---------------- */
+    .faq { max-width: 760px; margin: 0 auto; }
+    .faq details {
+      background: var(--branco); border: 1px solid var(--cor-borda);
+      border-radius: var(--raio-p); padding: 1rem 1.25rem; margin-bottom: .75rem;
+    }
+    .faq summary { font-family: var(--fonte-titulo); font-weight: 600; cursor: pointer; }
+    .faq details[open] summary { color: var(--cor-primaria); }
+    .faq p { margin: .75rem 0 0; color: var(--cor-texto-suave); }
+
+    /* ---------------- CTA final / contato ---------------- */
+    .cta-final { background: var(--cor-escura); color: var(--branco); text-align: center; }
+    .cta-final h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); }
+    .cta-final p { color: #CBD5E1; max-width: 50ch; margin: 0 auto 1.75rem; }
+    .cta-final__contatos { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 2rem; color: #CBD5E1; }
+    .cta-final__contatos a { color: var(--cor-secundaria); text-decoration: none; }
+
+    /* ---------------- Rodapé ---------------- */
+    .rodape { background: #0F172A; color: #94A3B8; text-align: center; padding: 1.75rem 0; font-size: .9rem; }
+    .rodape a { color: #CBD5E1; }
+
+    /* ---------------- Responsivo ---------------- */
+    @media (max-width: 860px) {
+      .sobre-grid { grid-template-columns: 1fr; }
+      .galeria { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .nav__links {
+        display: none; position: absolute; top: 100%; right: 0; left: 0;
+        flex-direction: column; align-items: flex-start; gap: 0;
+        background: var(--cor-clara); border-bottom: 1px solid var(--cor-borda); padding: .5rem 1.25rem 1rem;
+      }
+      .nav__links.aberto { display: flex; }
+      .nav__links li { width: 100%; }
+      .nav__links a { display: block; padding: .6rem 0; }
+      .nav__toggle { display: block; }
+      .agenda__item { grid-template-columns: 1fr; }
+      .agenda__hora { border-bottom: 1px solid var(--cor-borda); padding-bottom: .25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVEGAÇÃO ===================== -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <!-- EDITÁVEL: nome/sigla da escola -->
+      <div class="nav__brand">
+        <span class="nav__logo">FC</span>
+        Feira Cultural de Idiomas
+      </div>
+      <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav__links" id="menu">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#programacao">Programação</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+        <li><a href="#inscricao" class="btn btn--primaria" style="padding:.5rem 1rem;">Inscreva-se</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero">
+    <div class="container">
+      <!-- EDITÁVEL: chamada curta / edição do evento -->
+      <span class="hero__badge">3ª edição · Entrada gratuita</span>
+      <!-- EDITÁVEL: título do evento -->
+      <h1>Feira Cultural de Idiomas 2026</h1>
+      <!-- EDITÁVEL: subtítulo / descrição de uma linha -->
+      <p class="hero__sub">Um dia inteiro de apresentações, oficinas e cultura em inglês, espanhol e francês, feito por alunos para toda a comunidade escolar.</p>
+
+      <!-- EDITÁVEL: data, horário e local -->
+      <div class="hero__meta">
+        <div><span class="ico">📅</span> 22 de agosto de 2026, sábado</div>
+        <div><span class="ico">🕘</span> 9h às 17h</div>
+        <div><span class="ico">📍</span> Escola Municipal Exemplo — Quadra 10, Brasília/DF</div>
+      </div>
+
+      <div class="hero__cta">
+        <!-- EDITÁVEL: link de inscrição (formulário externo, ex.: Google Forms) -->
+        <a href="#inscricao" class="btn btn--acao">Quero participar</a>
+        <a href="#programacao" class="btn btn--claro">Ver programação</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== SOBRE O EVENTO ===================== -->
+  <section id="sobre">
+    <div class="container">
+      <h2 class="section-title">Sobre a <span>Feira</span></h2>
+      <p class="section-intro">A Feira Cultural de Idiomas reúne as turmas de línguas estrangeiras em um dia aberto ao público. É a chance de vivenciar outras culturas, apresentar projetos e valorizar o aprendizado de idiomas na escola pública.</p>
+      <div class="sobre-grid">
+        <!-- EDITÁVEL: até 3 destaques do evento -->
+        <div class="card">
+          <div class="ico">🎭</div>
+          <h3>Apresentações culturais</h3>
+          <p>Teatro, música e dança em inglês, espanhol e francês, produzidos pelos próprios alunos ao longo do semestre.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🧩</div>
+          <h3>Oficinas de idiomas</h3>
+          <p>Mini-oficinas gratuitas de conversação e jogos de vocabulário, abertas a estudantes e responsáveis.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🌍</div>
+          <h3>Mostra gastronômica</h3>
+          <p>Barracas com pratos típicos dos países estudados, organizadas por turma, para arrecadação da biblioteca.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROGRAMAÇÃO ===================== -->
+  <section id="programacao" class="programacao">
+    <div class="container">
+      <h2 class="section-title">Programação do <span>dia</span></h2>
+      <p class="section-intro">Confira os horários. A programação pode sofrer pequenos ajustes divulgados nas redes da escola.</p>
+      <div class="agenda">
+        <!-- EDITÁVEL: cada item = um horário do evento -->
+        <div class="agenda__item">
+          <span class="agenda__hora">09h00</span>
+          <div class="agenda__desc"><strong>Abertura oficial</strong><span>Palavra da direção e do grêmio estudantil — Pátio central.</span></div>
+        </div>
+        <div class="agenda__item">
+          <span class="agenda__hora">09h30</span>
+          <div class="agenda__desc"><strong>Mostra de projetos de inglês</strong><span>Cartazes e apresentações das turmas do 8º e 9º ano — Sala 12.</span></div>
+        </div>
+        <div class="agenda__item">
+          <span class="agenda__hora">11h00</span>
+          <div class="agenda__desc"><strong>Oficina de conversação em espanhol</strong><span>Atividade prática para iniciantes — Laboratório de idiomas.</span></div>
+        </div>
+        <div class="agenda__item">
+          <span class="agenda__hora">12h30</span>
+          <div class="agenda__desc"><strong>Mostra gastronômica</strong><span>Barracas das turmas com pratos típicos — Quadra coberta.</span></div>
+        </div>
+        <div class="agenda__item">
+          <span class="agenda__hora">14h30</span>
+          <div class="agenda__desc"><strong>Apresentações artísticas</strong><span>Música e teatro em francês e inglês — Auditório.</span></div>
+        </div>
+        <div class="agenda__item">
+          <span class="agenda__hora">16h30</span>
+          <div class="agenda__desc"><strong>Encerramento e premiação</strong><span>Reconhecimento dos melhores projetos — Pátio central.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALERIA ===================== -->
+  <section id="galeria">
+    <div class="container">
+      <h2 class="section-title">Edições <span>anteriores</span></h2>
+      <p class="section-intro">Momentos das feiras passadas. Troque estes blocos por fotos reais (<code>&lt;img&gt;</code>) quando tiver as imagens.</p>
+      <div class="galeria">
+        <!-- EDITÁVEL: substitua cada <figure> por <figure><img src="foto.jpg" alt="..."></figure> -->
+        <figure class="g1">Abertura 2025</figure>
+        <figure class="g2">Oficina de idiomas</figure>
+        <figure class="g3">Mostra gastronômica</figure>
+        <figure class="g4">Apresentações</figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="faq" class="programacao">
+    <div class="container">
+      <h2 class="section-title">Dúvidas <span>frequentes</span></h2>
+      <p class="section-intro">As perguntas mais comuns sobre a feira. Edite livremente para o seu evento.</p>
+      <div class="faq">
+        <!-- EDITÁVEL: cada <details> = uma pergunta e resposta -->
+        <details open>
+          <summary>Preciso pagar para entrar?</summary>
+          <p>Não. A entrada é gratuita e aberta a toda a comunidade — alunos, famílias e vizinhança.</p>
+        </details>
+        <details>
+          <summary>Preciso me inscrever?</summary>
+          <p>A visitação é livre. A inscrição pelo botão "Quero participar" é opcional e serve para receber a programação atualizada e ajudar na organização das oficinas.</p>
+        </details>
+        <details>
+          <summary>Quem pode apresentar um projeto?</summary>
+          <p>Todas as turmas de idiomas da escola. Fale com o professor responsável até 15 dias antes do evento.</p>
+        </details>
+        <details>
+          <summary>Haverá estacionamento?</summary>
+          <p>Sim, no pátio lateral, com vagas limitadas. Recomendamos transporte público quando possível.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA FINAL / INSCRIÇÃO ===================== -->
+  <section id="inscricao" class="cta-final">
+    <div class="container">
+      <h2>Faça parte da Feira Cultural</h2>
+      <p>Inscreva-se para receber a programação completa, novidades das oficinas e o mapa do evento direto no seu contato.</p>
+      <!-- EDITÁVEL: troque o href pelo link do seu formulário (Google Forms, etc.) -->
+      <a href="https://forms.gle/SEU-FORMULARIO-AQUI" class="btn btn--acao" target="_blank" rel="noopener">Fazer inscrição gratuita</a>
+      <div class="cta-final__contatos">
+        <!-- EDITÁVEL: contatos da escola -->
+        <span>✉️ <a href="mailto:contato@escolaexemplo.edu.br">contato@escolaexemplo.edu.br</a></span>
+        <span>📞 (61) 0000-0000</span>
+        <span>📷 <a href="#">@escolaexemplo</a></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="rodape">
+    <div class="container">
+      <p>Feira Cultural de Idiomas 2026 · Escola Municipal Exemplo — Brasília/DF</p>
+      <p>Página criada com <strong>EduLanding</strong>, template educacional da <a href="../../site/index.html">BabelStack Júnior</a> · custo-zero, código aberto.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Menu responsivo (mobile) — único comportamento com JS, opcional.
+    (function () {
+      var toggle = document.querySelector('.nav__toggle');
+      var menu = document.getElementById('menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', function () {
+        var aberto = menu.classList.toggle('aberto');
+        toggle.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+      });
+      // Fecha o menu ao clicar em um link (mobile)
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { menu.classList.remove('aberto'); });
+      });
+    })();
+  </script>
+</body>
+</html>
