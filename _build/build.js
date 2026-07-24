@@ -172,38 +172,39 @@ const sections = [
 { n:7, slug:'07_analise_mercado', title:'Análise de Mercado', body:[
   h2('Público-alvo'),
   ul(
-    '**Setor público e validação:** professores e gestores de escolas públicas do DF e Centros Interescolares de Línguas (CILs) — foco em validação, testes de usabilidade e impacto social.',
-    '**Setor privado e monetização:** escolas de idiomas de pequeno porte e professores particulares que buscam automação e plataformas próprias, sem orçamento para fábricas de software tradicionais.',
+    '**Setor público e validação social:** gestores, coordenadores pedagógicos e professores de escolas públicas do Distrito Federal e dos Centros Interescolares de Línguas (CILs). Esse segmento constitui o laboratório de validação técnica, testes de usabilidade em ambiente real e consolidação de impacto social, alinhado às diretrizes de extensão universitária e ao programa "Código Fluente".',
+    '**Setor privado e sustentabilidade financeira:** escolas de idiomas de pequeno e médio porte e professores particulares de línguas estrangeiras no DF e no Brasil. Esse público necessita de automação pedagógica e plataformas próprias de estudo (como *VocabDeck* e *EduLanding*) e dashboards de engajamento (*LingoBoard*), mas carece de orçamento para contratar fábricas de software ou consultorias de TI tradicionais.',
   ),
   h2('Concorrentes'),
   ul(
-    '**Diretos:** empresas juniores como a CJR (Empresa Júnior de Computação da UnB) e consultorias de TI acessíveis. Diferencial da BabelStack: hiper-especialização no nicho de EdTech para idiomas.',
-    '**Indiretos:** plataformas de gestão de aprendizagem (LMS) e EdTechs consolidadas (Geekie, Moodle, Agenda Edu); soluções de prateleira que muitas vezes engessam a metodologia do professor.',
+    '**Diretos:** outras Empresas Juniores de Computação/TI do Distrito Federal (como a CJR da UnB) e agências boutique de desenvolvimento de software. O diferencial competitivo exclusivo da BabelStack Júnior reside na hiper-especialização no ecossistema de idiomas (EdTech), oferecendo um portfólio pré-estruturado (*LingoBoard*, *VocabDeck*, *EduLanding*, *BabelUX* e *IntegraSchool*) que reduz o tempo de entrega e garante metodologias pedagógicas integradas ao código.',
+    '**Indiretos:** plataformas de gestão da aprendizagem consolidadas (LMS como Moodle, Geekie, Google Classroom e Agenda Edu) e softwares de prateleira genéricos. Tais soluções apresentam custos recorrentes elevados de licença, suporte técnico generalista e fluxos rígidos que engessam a autonomia metodológica do professor de idiomas.',
   ),
   h2('Parceiros potenciais'),
   ul(
-    '**Institucionais e governamentais:** universidades e escolas de governo do DF, como apoiadoras e facilitadoras do diálogo com a gestão pública.',
-    '**Fomento à inovação:** programas de incubadora digital do DF (espaço, networking e capacitação).',
-    '**Aplicação (rede de ensino):** os CILs, distribuídos por várias regiões administrativas, como laboratório ideal de validação.',
+    '**Institucionais e acadêmicos:** universidades e instituições de ensino superior do Distrito Federal, atuando no suporte metodológico, mentoria docente de engenharia de software e facilitação do diálogo com órgãos governamentais de educação.',
+    '**Ecossistema de inovação e fomento:** programas de incubação e aceleradoras digitais do DF, propiciando infraestrutura de coworking, networking estratégico e capacitação em modelagem de negócios.',
+    '**Rede de aplicação e teste (CILs):** os Centros Interescolares de Línguas da Secretaria de Estado de Educação do DF, distribuídos em diversas regiões administrativas, atuando como parceiros de co-criação para testes em escala com diversidade socioeconômica e linguística.',
   ),
-  h2('Fornecedores'),
+  h2('Fornecedores e Stack Tecnológica'),
   ul(
-    '**Sistemas operacionais:** distribuições Linux para padronizar as estações de desenvolvimento.',
-    '**Banco de dados:** PostgreSQL (relacional, open-source, robusto e sem custo de licença).',
-    '**Lógica e BI:** bibliotecas Python (Pandas para tratamento de dados, Streamlit para dashboards).',
-    '**Design (UX/UI):** Figma (versão gratuita), padrão da indústria para protótipos de alta fidelidade.',
+    '**Sistemas operacionais e infraestrutura:** distribuições Linux para padronização das estações de desenvolvimento e ambientes virtuais.',
+    '**Banco de dados:** PostgreSQL, sistema relacional open-source de alta robustez, conformidade ACID e custo zero de licenciamento.',
+    '**Lógica de software e Business Intelligence:** bibliotecas Python modernas (Pandas para engenharia de dados e Streamlit para renderização ágil de dashboards interativos no *LingoBoard* e *IntegraSchool*).',
+    '**Design de Experiência e Interface (UX/UI):** Figma (plano educacional/gratuito), padrão da indústria para prototipagem de alta fidelidade e auditorias heurísticas (*BabelUX*).',
+    '**Hospedagem e DevOps em nuvem:** ecossistema Git/GitHub para versionamento e CI/CD, utilizando instâncias gratuitas do GitHub Pages para aplicações estáticas (*EduLanding* e *VocabDeck*) e plataformas em nuvem (Vercel e Streamlit Community Cloud) para aplicações dinâmicas.',
   ),
   h2('Oportunidades de mercado'),
   ul(
-    'Excelente aderência de soluções open-source no setor público, sem orçamento para licenças caras.',
-    'Alta demanda por análise de retenção (BI) em cursos de idiomas, que sofrem com evasão.',
-    'Escalabilidade da arquitetura multidiomas, replicável para espanhol e francês a baixo custo.',
+    '**Alta aderência a soluções open-source no setor público:** restrições orçamentárias de escolas públicas tornam atraente a adoção de sistemas de custo-zero de licença e baixo overhead operacional.',
+    '**Demanda crítica por retenção de alunos via dados (BI):** cursos de idiomas enfrentam altas taxas históricas de evasão, gerando urgência por painéis analíticos (*LingoBoard*) que emitam alertas precoces de baixo engajamento.',
+    '**Escalabilidade e replicabilidade multidiomas:** a arquitetura modular dos sistemas é projetada primariamente para o inglês, mas permite rápida expansão para espanhol, francês e outras línguas com custo marginal quase nulo.',
   ),
-  h2('Ameaças'),
+  h2('Ameaças e Mitigações'),
   ul(
-    '**Limitações operacionais:** apenas dois estudantes dividindo a jornada com a grade curricular.',
-    '**Curva de aprendizado e setup de servidores:** infraestrutura pura (PostgreSQL, deploys Linux) exige esforço técnico inicial.',
-    '**Resistência docente à digitalização:** letramento digital baixo de parte dos professores exige investimento em capacitação e usabilidade.',
+    '**Limitações operacionais da equipe (grade curricular):** o quadro inicial conta com apenas dois estudantes dividindo a jornada de desenvolvimento com a graduação. *Mitigação:* aplicação rigorosa de metodologias ágeis (Scrum), escopo focado nos 5 produtos do portfólio e lançamento do Programa Trainee para expansão de pessoal.',
+    '**Curva de aprendizado e configuração de servidores:** infraestrutura baseada em ambientes Linux e bancos de dados relacionais puros exige esforço técnico inicial de configuração. *Mitigação:* uso de rotinas automatizadas de CI/CD, conteinerização e plataformas de nuvem nativas para os estágios iniciais dos produtos.',
+    '**Heterogeneidade de letramento digital docente:** parte do corpo docente apresenta resistência a novas plataformas de software. *Mitigação:* priorização de design centrado no usuário (*BabelUX*) para garantia de interfaces intuitivas com baixa carga cognitiva, além de treinamentos práticos na entrega.',
   ),
 ]},
 
@@ -274,20 +275,28 @@ const sections = [
 ]},
 
 { n:10, slug:'10_plano_operacional', title:'Plano Operacional', body:[
-  h2('Como o serviço será executado?'),
-  p('O serviço segue a metodologia ágil Scrum. A Diretoria Executiva e de Produto levanta os requisitos com o professor/escola e desenha os protótipos. Após aprovação visual, a Diretoria de Engenharia codifica a solução, realiza os testes técnicos e, junto ao professor orientador, faz o code review antes de hospedar a solução em nuvem.'),
-  h2('Demais aspectos operacionais'),
+  h2('Metodologia e Fluxo de Execução de Serviços'),
+  p('A execução dos serviços da BabelStack Júnior adota a metodologia ágil Scrum adaptada à realidade universitária, estruturada em cinco fases sequenciais e iterativas que garantem alinhamento entre rigor pedagógico e excelência em engenharia de software:'),
   ul(
-    '**Horário de funcionamento:** regime flexível e assíncrono, ~20 horas semanais por estudante, com reuniões agendadas para não conflitar com a graduação.',
-    '**Local de atendimento:** modelo híbrido — desenvolvimento 100% remoto; alinhamentos via Google Meet ou nos laboratórios da instituição.',
-    '**Equipamentos necessários:** notebooks pessoais dos estudantes e conexão à internet.',
-    '**Tecnologia utilizada:** ambientes Linux, Git/GitHub, VS Code, Figma e Discord/Notion para comunicação e documentação.',
+    '**Fase 1 — Diagnóstico e Requisitos (CPO):** a Diretoria Executiva e de Produto (Raquel Pereira) realiza reuniões de imersão com os gestores da escola ou professor cliente para levantamento de requisitos funcionais e pedagógicos, gerando o Product Backlog no Jira e os protótipos interativos no Figma (*BabelUX*).',
+    '**Fase 2 — Validação e Alinhamento Visual:** o cliente revisa e valida as telas e fluxos de navegação pretendidos (`Definition of Ready`). Somente após a aprovação visual formal é autorizada a entrada das histórias de usuário na sprint de codificação.',
+    '**Fase 3 — Codificação e Sprints Ágeis (CTO):** a Diretoria de Engenharia de Software e Operações (Roger Quinelato) assume o desenvolvimento técnico em ciclos semanais, empregando tecnologias open-source da stack (Python, PostgreSQL, HTML/CSS/JS e Streamlit para o *LingoBoard* ou *IntegraSchool*), com controle rigoroso de versionamento via Git/GitHub.',
+    '**Fase 4 — Code Review Acadêmico e Garantia de Qualidade:** concluída a codificação, a solução passa por testes de integração e revisão paritária externa com o conselho de professores orientadores (`Definition of Done`), garantindo conformidade arquitetural e segurança de dados pedagógicos.',
+    '**Fase 5 — Implantação e Transferência Tecnológica:** a aplicação é hospedada em nuvem acessível ao cliente (como GitHub Pages para *EduLanding* e *VocabDeck*, ou Vercel/Streamlit Community Cloud para sistemas dinâmicos), acompanhada da entrega da documentação técnica e sessão prático-pedagógica de capacitação.',
+  ),
+  h2('Aspectos Operacionais e Infraestrutura'),
+  ul(
+    '**Horário de funcionamento e dedicação:** regime flexível e assíncrono, com dedicação estimada de ~20 horas semanais por estudante (`[estimativa]`), conciliação harmônica com a grade curricular de Sistemas de Informação e ritos ágeis (Dailies assíncronas e reuniões de planejamento/retrospectiva).',
+    '**Local e modelo de atendimento:** modelo híbrido — desenvolvimento de software, documentação técnica e reuniões de sincronização executados 100% em regime remoto via Google Meet; reuniões de mentoria acadêmica e sessões presenciais de teste de usabilidade conduzidas nos laboratórios da instituição de ensino ou nas unidades dos Centros Interescolares de Línguas (CILs).',
+    '**Equipamentos e estações de trabalho:** notebooks pessoais dos sócios devidamente equipados com ambientes virtuais Linux, conteinerização e conexão de banda larga, complementados pela infraestrutura laboratorial de informática da universidade para simulações de carga e testes multiusuário.',
+    '**Ferramental tecnológico operacional:** padronização de estações de desenvolvimento em Linux, versionamento de código e CI/CD via Git e GitHub, IDE Visual Studio Code (VS Code), design e auditoria heurística no Figma (*BabelUX*), além do ecossistema Jira (gestão de sprints no board EST), Discord e Notion para comunicação e repositório de conhecimento institucional.',
   ),
   note('[Anexo: fluxograma de atendimento ponta-a-ponta — ver diagramas/fluxograma_atendimento.svg (fontes .mmd e .drawio)]'),
 ]},
 
 { n:11, slug:'11_plano_financeiro', title:'Plano Financeiro', body:[
-  p('A operação utiliza a metodologia Bootstrapping, alavancando laboratórios da universidade, softwares open-source e instâncias de nuvem gratuitas.'),
+  h2('Metodologia Financeira e Alocação de Recursos'),
+  p('A modelagem financeira da BabelStack Júnior baseia-se estritamente na metodologia de Bootstrapping (alavancagem orgânica sem capital externo), viabilizada pela natureza acadêmica da Empresa Júnior. Ao utilizar a infraestrutura laboratorial do curso de Sistemas de Informação da universidade, ferramentas 100% open-source (Python, PostgreSQL, HTML/CSS/JS, Streamlit) e instâncias em nuvem com planos educacionais ou gratuitos (GitHub Pages, Vercel e Streamlit Community Cloud), a empresa elimina a necessidade de investimento inicial (CAPEX) e reduz os custos operacionais (OPEX) a patamares mínimos de manutenção de domínio e deslocamento.'),
   tbl(['Item','Valor'],[
     ['Capital inicial','R$ 0,00'],
     ['Empréstimos','Não se aplica'],
@@ -295,75 +304,174 @@ const sections = [
     ['Custos variáveis','R$ 50,00 a R$ 150,00/mês [estimativa] (transporte para visitas a escolas e eventuais manutenções)'],
     ['Receita estimada','R$ 3.000,00 a R$ 6.000,00 no 1º semestre [estimativa] (3 a 5 contratos privados que subsidiam os projetos sociais)'],
   ]),
+  h2('Estrutura de Custos e Política de Reinvestimento Social'),
+  ul(
+    '**Análise de Custos Operacionais:** os custos fixos restringem-se ao pagamento da anuidade do domínio de internet institucional (`babelstack.com.br` no Registro.br por R$ 40,00/ano). Os custos variáveis (`[estimativa]` de R$ 50,00 a R$ 150,00/mês) cobrem exclusivamente despesas logísticas e de transporte para visitas técnicas presenciais nas escolas públicas do DF (CILs) e em clientes privados, além de eventuais aquisições pontuais de ativos de testes de interface.',
+    '**Modelo de Subsidiação Cruzada (Programa Código Fluente):** em total conformidade com a Lei Federal nº 13.267/2016, a BabelStack Júnior não distribui lucros ou dividendos aos seus membros. A receita arrecadada nos 3 a 5 contratos privados de comercialização de soluções customizadas (`[estimativa]` de R$ 3.000,00 a R$ 6.000,00 no 1º semestre) opera em modelo de subsidiação cruzada: cada 3 contratos privados custeiam integralmente a implantação, capacitação e suporte de 1 projeto social gratuito na rede pública de ensino do Distrito Federal.',
+    '**Destinação de Excedente de Caixa:** o superávit financeiro remanescente é alocado em duas frentes estritamente institucionais: (1) Fundo de Capacitação Técnica da equipe (aquisição de cursos, livros, certificações e inscrições em hackathons e eventos de EdTech) e (2) Fundo de Reserva Institucional para sustentar os custos de integração e onboarding de novos membros no Programa Trainee.',
+  ),
 ]},
 
 { n:12, slug:'12_aspectos_legais', title:'Aspectos Legais', body:[
+  h2('Natureza Jurídica e Enquadramento Institucional'),
   ul(
-    '**Tipo jurídico:** associação civil sem fins lucrativos, classificada como Empresa Júnior (Lei Federal nº 13.267/2016).',
-    '**Documentos para abertura:** Estatuto Social, Ata de Fundação, Regimento Interno, Edital de Convocação, RG/CPF dos fundadores e Comprovante de Inscrição e Situação Cadastral (CNPJ).',
-    '**Licenças e autorizações:** alvará de funcionamento (frequentemente isento para EJs sediadas em universidades) e Carta de Reconhecimento da Instituição de Ensino Superior.',
+    '**Tipo jurídico e regulamentação:** constituição formal como associação civil sem fins lucrativos com finalidade educacional e extensionista, enquadrada nos termos da Lei Federal nº 13.267/2016 (Lei das Empresas Juniores) e do Código Civil Brasileiro. A instituição opera sob gestão exclusiva de estudantes regularmente matriculados no curso de graduação em Sistemas de Informação e veda, por força estatutária, a remuneração de dirigentes ou a distribuição de lucros/surplus financeiro entre os sócios.',
+  ),
+  h2('Formalização e Documentação Societária'),
+  ul(
+    '**Documentos constitutivos mandatórios:** para obtenção de personalidade jurídica e regularidade cadastral perante o Cartório de Registro Civil de Pessoas Jurídicas e a Receita Federal do Brasil, a abertura da BabelStack Júnior requer a formalização de: Edital de Convocação da Assembleia Geral de Fundação; Ata de Fundação e Eleição da Primeira Diretoria; Estatuto Social submetido a visto de advogado; Regimento Interno regulamentando o fluxo de diretorias e quóruns deliberativos; documentação comprobatória de matrícula de todos os fundadores; e emissão do Comprovante de Inscrição e Situação Cadastral no CNPJ.',
+  ),
+  h2('Vínculo Universitário e Licenciamento Operacional'),
+  ul(
+    '**Reconhecimento institucional (IES) e alvará:** a regularidade de funcionamento da Empresa Júnior está condicionada à emissão da Carta de Reconhecimento pela Instituição de Ensino Superior (IES) sediadora, atestando que as atividades realizadas são compatíveis com o projeto pedagógico do curso. Adicionalmente, em virtude do funcionamento em dependências acadêmicas, a associação beneficia-se de isenção ou simplificação para concessão de alvará de funcionamento distrital/municipal, submetendo-se à orientação acadêmica contínua do conselho de professores tutor.',
+  ),
+  h2('Conformidade Normativa em EdTech (LGPD e Propriedade Intelectual)'),
+  ul(
+    '**Conformidade à Lei Geral de Proteção de Dados (Lei nº 13.709/2018):** no desenvolvimento e operação dos sistemas *LingoBoard* e *IntegraSchool*, que processam métricas de rendimento pedagógico e chamadas escolares, a BabelStack Júnior aplica a metodologia de `Privacy by Design` e `Privacy by Default`. Os dados de discentes (muitas vezes menores de idade nas escolas públicas e privadas atendidas) são estritamente minimizados, armazenados sob criptografia e anonimizados em dashboards gerenciais, impedindo qualquer vazamento ou uso não autorizado de dados pessoais ou sensíveis.',
+    '**Licenciamento de software e propriedade intelectual:** os códigos-fonte desenvolvidos no âmbito dos projetos sociais ("Código Fluente") e de extensão são publicados sob licenças open-source abertas (como MIT ou GNU GPLv3), promovendo transparência técnica e reutilização por outras instituições públicas. Nos contratos de prestação de serviços para clientes privados, os direitos patrimoniais sobre as customizações específicas e regras de negócio proprietárias são integralmente transferidos à escola contratante, mantendo a BabelStack Júnior a titularidade sobre suas bibliotecas de base e componentes modulares de UX/UI.',
   ),
 ]},
 
 { n:13, slug:'13_sustentabilidade', title:'Sustentabilidade e Responsabilidade Social', body:[
+  p('A BabelStack Júnior adota o compromisso de integrar sustentabilidade ambiental, responsabilidade social e governança inclusiva em todas as suas atividades operacionais e no desenvolvimento de software, alinhando inovação educacional ao impacto positivo na comunidade do Distrito Federal.'),
+  h2('1. Ações Ambientais e Política Zero Papel'),
   ul(
-    '**Ações ambientais:** política Paperless (Zero Papel) — contratos, requisitos e relatórios 100% digitais.',
-    '**Projetos sociais — programa "Código Fluente":** a cada 3 projetos pagos vendidos ao setor privado, a BabelStack implementa 1 sistema gratuito (LingoBoard ou IntegraSchool) em uma escola pública do DF.',
-    '**Inclusão e acessibilidade:** interfaces seguindo as diretrizes WCAG, com contraste e legibilidade adequados.',
-    '**Impacto social esperado:** redução do hiato tecnológico entre escolas públicas e privadas, democratizando ferramentas educacionais de alto nível.',
+    '**Política Paperless (Zero Papel):** digitalização integral de contratos de prestação de serviços, levantamento de requisitos, relatórios técnicos e entregas operacionais, eliminando o consumo de papel e reduzindo a pegada de carbono da empresa [estimativa].',
+    '**Infraestrutura Verde e Custo-Zero:** preferência por tecnologias de baixo consumo de recursos e servidores de nuvem de alta eficiência energética (como GitHub Pages para deploys estáticos e Streamlit Community Cloud para dashboards BI).'
   ),
+  h2('2. Responsabilidade Social: Programa "Código Fluente"'),
+  ul(
+    '**Compromisso 3 para 1:** a cada 3 contratos comerciais pagos fechados com escolas de idiomas privadas, a BabelStack Júnior se compromete a implementar, de forma gratuita e integral, 1 sistema educacional (o dashboard LingoBoard ou a automação IntegraSchool) em uma escola pública ou Centro Interescolar de Línguas (CIL) do DF [estimativa].',
+    '**Democratização da Tecnologia Educacional:** combate direto ao hiato tecnológico (`digital divide`) entre o setor privado e a rede pública de ensino, oferecendo ferramentas de Business Intelligence e automação para apoiar o corpo docente público.'
+  ),
+  h2('3. Inclusão, Acessibilidade Digital e Governança'),
+  ul(
+    '**Conformidade WCAG 2.1 AA:** todas as interfaces e produtos web (VocabDeck, EduLanding, BabelUX e site institucional) são projetados com contraste de cores rigoroso (`tokens.css`), tipografia legível (Inter e Space Grotesk) e suporte a leitores de tela para alunos com deficiência visual ou neurodivergências.',
+    '**Usabilidade Inclusiva:** design centrado no usuário (BabelUX) visando reduzir a carga cognitiva, garantindo que professores com diferentes níveis de letramento digital possam operar os sistemas sem barreiras.'
+  ),
+  h2('4. Impacto Social Esperado'),
+  ul(
+    '**Redução da Evasão Escolar:** monitoramento contínuo da frequência e notas pelo LingoBoard permite intervenções pedagógicas precoces, salvaguardando a permanência dos alunos nos cursos de línguas.',
+    '**Formação Cidadã dos Membros:** o modelo de Empresa Júnior proporciona aos estudantes fundadores uma experiência prática orientada à ética e ao retorno social do conhecimento técnico adquirido na universidade.'
+  )
 ]},
 
 { n:14, slug:'14_gestao_qualidade', title:'Gestão da Qualidade', body:[
+  p('A Política da Qualidade da BabelStack Júnior estabelece diretrizes rigorosas para assegurar a excelência técnica dos 5 produtos do portfólio e a máxima satisfação das instituições de ensino contratantes, integrando metodologias ágeis, inspeção contínua de código e métricas centradas no usuário.'),
+  h2('1. Monitoramento da Satisfação dos Clientes'),
   ul(
-    '**Satisfação dos clientes:** formulários NPS (Net Promoter Score) e avaliações qualitativas 30 dias após a entrega.',
-    '**Indicadores de qualidade:** taxa de bugs na primeira semana de uso, cumprimento do cronograma (Lead Time) e aderência da interface (uso real pelos alunos).',
-    '**Melhoria contínua:** Sprint Retrospective a cada 15 dias entre os alunos e o orientador.',
-    '**Tratamento de reclamações:** SLA que garante correção de falhas críticas em até 48 horas úteis, sem custo durante a garantia.',
+    '**Net Promoter Score (NPS):** aplicação sistemática de pesquisas de NPS aos gestores e professores 30 dias após a entrega do projeto, visando manter o índice em zona de excelência (NPS ≥ 75 [estimativa]).',
+    '**Entrevistas Qualitativas de Aderência:** acompanhamento pós-implantação para avaliar a efetividade no dia a dia da escola, coletando feedback sobre facilidade de uso e impacto na produtividade docente.'
   ),
+  h2('2. Indicadores e Metas de Qualidade Técnica (KPIs)'),
+  ul(
+    '**Taxa de Defeitos (Bug Rate):** meta de zero bugs de severidade crítica ou alta na primeira semana de operação contínua [estimativa], assegurada por validação de dados de entrada nos scripts e SPAs.',
+    '**Lead Time de Entrega:** cumprimento rigoroso das 5 Sprints do cronograma técnico (Seção 18), monitorando o tempo desde a concepção do backlog até a publicação no GitHub Pages ou entrega final.',
+    '**Aderência de Interface e Usabilidade:** aplicação de testes de usabilidade baseados nas 10 heurísticas de Nielsen (metodologia do produto BabelUX), medindo o tempo de conclusão de tarefas-chave pelos usuários.'
+  ),
+  h2('3. Ciclos de Melhoria Contínua e Engenharia'),
+  ul(
+    '**Sprint Retrospectives:** reuniões quinzenais (a cada 15 dias) entre a dupla executora (Roger Quinelato, CTO; Raquel Pereira, CPO) e o orientador acadêmico para identificar gargalos de processo, refinamento técnico e ajustes na alocação de esforço ([estimativa] de 16 story points por sprint).',
+    '**Code Review e Padrões Arquiteturais:** revisão obrigatória em dupla de todos os Pull Requests no repositório GitHub antes de integração à branch `main`, garantindo conformidade com o TDD (`tdd_arquitetura.md`), modularidade de scripts Python e uso correto do design system (`tokens.css`).'
+  ),
+  h2('4. Acordo de Nível de Serviço (SLA) e Garantia'),
+  ul(
+    '**Tratamento de Reclamações e Correções (SLA):** garantia formal de 90 dias após a entrega final do sistema [estimativa], com compromisso de atendimento e correção gratuita de falhas críticas que impeçam o funcionamento (ex.: erro na importação de CSV no LingoBoard) em até 48 horas úteis [estimativa].',
+    '**Suporte Evolutivo:** disponibilização de documentação em markdown, guias rápidos e manuais autoexplicativos em cada produto (`README.md`), garantindo autonomia para a instituição de ensino.'
+  )
 ]},
 
 { n:15, slug:'15_gestao_riscos', title:'Gestão de Riscos', body:[
-  tbl(['Risco','Categoria','Mitigação'],[
-    ['Inadimplência de clientes privados','Financeiro','Cobrança de 50% do valor na assinatura do contrato.'],
-    ['Conflito com o calendário acadêmico (provas, TCC)','Operacional','Pausa programada nos contratos no fechamento de semestre.'],
-    ['Resistência tecnológica de professores','Mercado','Manuais em vídeo e foco massivo na simplicidade (UX) das telas.'],
-    ['Perda de código / indisponibilidade de servidores','Tecnológico','Versionamento obrigatório na nuvem (GitHub) e backup semanal do banco (PostgreSQL).'],
+  p('A gestão de riscos da BabelStack Júnior abrange a identificação precoce, monitoramento contínuo e planos de mitigação para as ameaças de negócios, financeiras, operacionais e arquiteturais do projeto. A matriz abaixo consolida os riscos institucionais da Empresa Júnior e os riscos técnicos mapeados no TDD (`tdd_arquitetura.md`).'),
+  tbl(['Risco','Categoria','Impacto / Probab.','Mitigação'],[
+    ['Inadimplência de clientes privados','Financeiro','Alto / Média','Cobrança antecipada de 50% do valor na assinatura do contrato e 50% na homologação da entrega.'],
+    ['Conflito com o calendário acadêmico (provas, TCC)','Operacional','Alto / Alta','Pausa programada nos contratos no fechamento do semestre letivo e planejamento de capacidade conservador ([estimativa] ~75% de ocupação por sprint).'],
+    ['Sobrecarga da dupla executora (2 pessoas)','Operacional / Equipe','Médio / Alta','Divisão rigorosa por trilhas de especialidade (Roger = técnico/dados/deploy; Raquel = produto/design/conteúdo) e escopo de MVP explícito.'],
+    ['Tempo curto para entrega (5 semanas para 5 produtos + site)','Tecnológico / Prazo','Alto / Alta','Priorização estrita dos itens P0 nas Sprints 1 a 5 (ADR-0005); adoção de stack open-source/custo-zero ágil (ADR-0001); critério "demonstrável > completo".'],
+    ['Produtos ficarem apenas como stub incompletos','Tecnológico / Produto','Alto / Média','Definição clara de "Pronto" (Definition of Done) para cada MVP, garantindo execução real de fluxos e validação com dados de exemplo.'],
+    ['Perda de código ou indisponibilidade de infraestrutura','Tecnológico / Infra','Médio / Baixa','Versionamento contínuo no nuvem (GitHub), deploy automatizado via GitHub Actions e backup do modelo de referência PostgreSQL (ADR-0003).'],
+    ['Falta de dados educacionais realistas para demonstração','Tecnológico / Dados','Médio / Média','Geração e validação de massas de dados CSV de exemplo (`dados_exemplo.csv` e `alunos_exemplo.csv`) rigorosamente derivadas do diagrama ERD PostgreSQL.'],
+    ['Privacidade e segurança de dados de alunos (LGPD)','Jurídico / Conformidade','Alto / Baixa','Uso exclusivo de dados fictícios em ambiente de demonstração; execução do IntegraSchool em modo simulação local, sem tráfego de dados sensíveis em redes públicas.'],
+    ['Resistência tecnológica de professores e gestores','Mercado / Adoção','Médio / Alta','Desenvolvimento de interfaces intuitivas e acessíveis (tokens de cores de alto contraste, WCAG 2.1 AA), acompanhadas de manuais em vídeo e relatórios simplificados.']
   ]),
 ]},
 
 { n:16, slug:'16_tecnologia_inovacao', title:'Tecnologia e Inovação', body:[
+  p('A arquitetura tecnológica da BabelStack Júnior é fundamentada em uma stack **100% open-source e custo-zero** (ADR-0001), projetada para permitir a execução ágil por uma equipe compacta de duas pessoas no prazo acadêmico, assegurando alta qualidade, facilidade de demonstração e viabilidade de manutenção por escolas de idiomas públicas e privadas sem ônus com licenças ou servidores pagos [estimativa].'),
+  h2('1. Stack Tecnológica Aberta e Modular'),
   ul(
-    '**Ferramentas utilizadas:** Python, PostgreSQL, HTML/CSS/JS, Figma e ferramentas open-source de deploy.',
-    '**Sistema de gestão:** Trello ou Notion com quadros Kanban para visibilidade das tarefas entre alunos e orientadores.',
-    '**Inovações propostas:** aplicação de Business Intelligence e análise preditiva de dados — práticas do mercado corporativo — adaptadas à rotina de professores da rede pública.',
+    '**Linguagens de Programação:** Python (biblioteca padrão para automação de scripts e processamento de dados) e JavaScript puro (ES6+, para interatividade frontend e lógica client-side sem dependências pesadas).',
+    '**Business Intelligence & Dashboards (LingoBoard):** Python com **Streamlit** e **Pandas** (ADR-0002). O Streamlit viabiliza interfaces analíticas interativas com sliders de limiares de risco configuráveis e filtros dinâmicos, enquanto o Pandas realiza o cálculo de médias, frequências e desvios nas planilhas de notas e chamadas.',
+    '**Automação e Scripts (IntegraSchool):** Python nativo para processamento de arquivos CSV e geração de relatórios administrativos (resumos de aula e lembretes de pendências) em modo simulação com saída em arquivo (`saida/AAAA-MM-DD_Turma/`) e rastreabilidade via log de execução.',
+    '**Frontend & Single Page Applications (VocabDeck, EduLanding e Site):** HTML5 semântico, Vanilla CSS3 estruturado com design tokens (`assets/identidade/tokens.css`) e JavaScript client-side com persistência em `localStorage` (motor Leitner de 5 caixas do VocabDeck), garantindo portabilidade máxima e tempo de carregamento instantâneo.',
+    '**UX/UI Design & Prototipação (BabelUX):** **Figma** (ADR-0004, plano gratuito) utilizado para a criação da identidade visual, diagnóstico heurístico baseado nas 10 heurísticas de Nielsen e prototipação de alta fidelidade do comparativo "Antes/Depois".',
+    '**Hospedagem e CI/CD:** deploy estático automatizado via **GitHub Pages** (com pipeline em GitHub Actions) para o site institucional e aplicações web, e execução local ou em **Streamlit Community Cloud** para os dashboards analíticos.'
+  ),
+  h2('2. Modelo de Dados de Referência (ERD PostgreSQL)'),
+  p('Para garantir consistência semântica e integridade no processamento das informações escolares, a BabelStack Júnior adota o **PostgreSQL** como paradigma e banco de dados relacional de referência (ADR-0003). Embora os MVPs demonstráveis na fase acadêmica consumam arquivos CSV organizados em memória e `localStorage` — eliminando custos operacionais e complexidade de setup durante as apresentações —, todas as estruturas e planilhas derivam estritamente do Diagrama Entidade-Relacionamento (ERD) canônico do domínio de escolas de idiomas.'),
+  ul(
+    '**ALUNO (`id`, `nome`, `email`, `responsavel_contato`, `data_nascimento`):** entidade que armazena os dados cadastrais do estudante. Por privacidade (LGPD), os contatos de responsáveis e e-mails nos ambientes demonstrativos utilizam dados sintéticos fictícios.',
+    '**PROFESSOR (`id`, `nome`, `idioma`):** docente responsável pela condução pedagógica das turmas de inglês, espanhol ou francês.',
+    '**TURMA (`id`, `professor_id FK`, `idioma`, `nivel`, `periodo`):** agrupamento de ensino categorizado por idioma, nível (Ex.: Básico A1, Intermediário B1) e turno letivo, vinculada à chave estrangeira do professor.',
+    '**MATRICULA (`id`, `aluno_id FK`, `turma_id FK`, `data_matricula`, `status`):** entidade associativa central que resolve o relacionamento N:N entre Aluno e Turma, registrando o status de vínculo (`ativo`, `concluido`, `evadido`) e servindo de âncora para avaliações e chamadas.',
+    '**NOTA (`id`, `matricula_id FK`, `avaliacao`, `valor`, `data`):** registro quantitativo de desempenho (Ex.: Prova Oral, Redação, Midterm) vinculado à matrícula, base para os gráficos de evolução por avaliação no LingoBoard.',
+    '**PRESENCA (`id`, `matricula_id FK`, `data`, `presente`):** registro longitudinal de chamadas diárias por matrícula. A agregação de faltas consecutivas e porcentagem de presença alimenta diretamente o algoritmo de alerta precoce de evasão do LingoBoard.'
   ),
   note('[Anexo: diagrama ERD do banco PostgreSQL (aluno, professor, turma, matrícula, nota, presença) — ver diagramas/erd_babelstack.svg (fonte .mmd)]'),
-  p('Documentação técnica de apoio: arquitetura dos 5 produtos e modelo de dados (ERD) em docs/produtos/tdd_arquitetura.md; especificações em docs/produtos/prd_*.md; e as decisões de stack registradas como ADRs em docs/adr/ (0001–0005).'),
+  h2('3. Metodologia de Gestão de Engenharia (Kanban + Jira)'),
+  p('A condução técnica e gerencial do projeto segue o modelo ágil documentado no ADR-0005, combinando as melhores práticas do desenvolvimento de software profissional à rotina acadêmica:'),
+  ul(
+    '**Jira (Projeto EST):** plataforma oficial de rastreamento de issues do time, estruturada em 8 Épicos (`EP-LINGO`, `EP-VOCAB`, `EP-EDU`, `EP-BABELUX`, `EP-INTEGRA`, `EP-PLAT`, `EP-DOCS`, `EP-ENTREGA`) e organizada em 5 Sprints formais de execução (Sprints 1 a 5, cobrindo o período de 30/06 a 31/07/2026). O backlog completo e o status de entrega são mantidos sincronizados com o repositório em `docs/sprints/jira_backlog.csv`.',
+    '**Quadros Kanban Auxiliares (Trello/Notion/Jira):** utilização de fluxos visuais `A Fazer`, `Em Progresso`, `Em Revisão` e `Concluído` para garantir transparência nas reuniões de alinhamento entre a dupla executora (Roger Quinelato, CTO; Raquel Pereira, CPO) e a orientação acadêmica.'
+  ),
+  h2('4. Inovações Propostas e Diferencial Técnico'),
+  ul(
+    '**Democratização do Business Intelligence Educacional:** adaptação de práticas corporativas de análise de dados (BI) e estatística descritiva para a realidade cotidiana de professores e coordenadores de Centros Interescolares de Línguas (CILs) da rede pública, substituindo o preenchimento manual de tabelas dispersas por diagnósticos visuais imediatos.',
+    '**Alerta Preditivo de Risco de Evasão:** lógica analítica no LingoBoard que cruza notas médias (limiar configurável, default `< 6.0`) e acúmulo de faltas (limiar configurável, default `> 8 faltas`) para classificar alunos em faixas de risco (`Crítico`, `Atenção`, `Normal`), possibilitando ações pedagógicas preventivas antes do abandono do curso.',
+    '**Arquitetura Autônoma e Modular (`Portfólio Desacoplado`):** ao contrário de sistemas de gestão monolíticos e complexos que exigem longos períodos de treinamento e migração de dados, os 5 produtos da BabelStack Júnior operam de maneira autônoma e sob demanda. Uma escola pode adotar apenas o VocabDeck para revisão ou o EduLanding para um evento específico, mantendo coesão de dados via modelo PostgreSQL e coesão visual através do design system comum (`tokens.css`).'
+  ),
+  p('Documentação técnica de apoio: arquitetura detalhada dos 5 produtos e modelo de dados em `docs/produtos/tdd_arquitetura.md`; especificações funcionais em `docs/produtos/prd_*.md`; e os registros de decisões arquiteturais em `docs/adr/` (ADRs 0001 a 0005).')
 ]},
 
 { n:17, slug:'17_resultados_esperados', title:'Resultados Esperados', body:[
+  p('A consolidação do plano de negócios e a implementação do portfólio da BabelStack Júnior visam gerar impactos mensuráveis e positivos tanto para o ecossistema educacional de idiomas do Distrito Federal quanto para a formação profissional dos estudantes fundadores da Empresa Júnior.'),
+  h2('1. Impacto Quantitativo e Atendimento (6 Meses)'),
   ul(
-    '**Pessoas atendidas:** 5 a 10 professores/gestores nos primeiros 6 meses [estimativa], impactando indiretamente mais de 300 alunos [estimativa].',
-    '**Impacto na comunidade:** melhoria no engajamento em aulas de idiomas e redução das taxas de abandono nas escolas parceiras.',
-    '**Crescimento previsto:** escalar o quadro de 2 para até 8 estudantes ao final do primeiro ano [estimativa].',
-    '**Benefícios econômicos e sociais:** fundo de caixa para certificação técnica dos alunos e redução dos custos tecnológicos para a educação local.',
+    '**Professores e Gestores Atendidos:** adoção direta das soluções por 5 a 10 professores e gestores educacionais nos primeiros 6 meses de operação [estimativa], em parcerias com Centros Interescolares de Línguas (CILs) e escolas de idiomas da rede privada.',
+    '**Alunos Impactados:** alcance indireto de mais de 300 estudantes de idiomas [estimativa] beneficiados pelas metodologias ativas do VocabDeck, clareza visual do BabelUX e monitoramento pedagógico do LingoBoard.'
   ),
+  h2('2. Retorno Acadêmico e Social na Comunidade'),
+  ul(
+    '**Engajamento e Retenção de Alunos:** melhoria substancial no engajamento dos estudantes na revisão de vocabulário e redução da taxa de evasão escolar em até 15% a 25% [estimativa] nas turmas monitoradas, impulsionada pela identificação precoce de risco educacional.',
+    '**Eficiência Operacional Docente:** economia média de 4 a 6 horas semanais [estimativa] por professor através da automação de relatórios e lembretes com o IntegraSchool e da digitalização de páginas de eventos escolares com o EduLanding.',
+    '**Redução do Custo Tecnológico:** barateamento em até 70% [estimativa] dos custos com software educacional para as escolas parceiras, graças ao modelo de soluções abertas, custo-zero de licença (ADR-0001) e ao programa social "Código Fluente".'
+  ),
+  h2('3. Crescimento e Sustentabilidade da Empresa Júnior'),
+  ul(
+    '**Expansão do Quadro Social:** crescimento planejado para escalar a equipe inicial de 2 integrantes (Roger Quinelato, CTO; Raquel Pereira, CPO) para até 8 estudantes universitários [estimativa] ao final do primeiro ano de funcionamento, abrindo novas diretorias operacionais e de projetos.',
+    '**Reinvestimento e Fundo de Caixa:** direcionamento integral dos superávits financeiros gerados nos contratos de consultoria privada ([estimativa] entre R$ 500 e R$ 3.000 por projeto) para o fundo de reserva da Empresa Júnior, custeando certificações técnicas na nuvem, licenças de ferramentas avançadas e auxílio para congressos acadêmicos dos membros.'
+  )
 ]},
 
 { n:18, slug:'18_cronograma_criacao', title:'Cronograma de Criação', body:[
-  h2('Cronograma semanal'),
-  tbl(['Semana','Foco','Entregáveis'],[
-    ['1 (16–22/06)','Fundação e identidade','Logo, identidade visual, setup das ferramentas, revisão das seções 1–4.'],
-    ['2 (23–29/06)','Mercado, estrutura e portfólio','Organograma, 5 produtos definidos, seções 5–8.'],
-    ['3 (30/06–06/07)','Planos e esqueleto do site','Fluxograma (Bizagi), seções 9–16, estrutura do site no ar.'],
-    ['4 (07–13/07)','Build técnico I','Site publicado, VocabDeck e LingoBoard funcionais.'],
-    ['5 (14–20/07)','Build técnico II e marketing','EduLanding, IntegraSchool, BabelUX, redes sociais, Gantt.'],
-    ['6 (21–24/07)','Montagem e 1ª apresentação','Documento 20+ páginas, ensaio, apresentação 24/07.'],
-    ['7 (25–31/07)','Ajustes e entrega final','Correções pós-feedback, apresentação final 31/07.'],
+  p('O cronograma geral da BabelStack Júnior abrange o período de **16 de junho a 31 de julho de 2026 (7 semanas corridas)**, estruturado em um modelo ágil híbrido: duas semanas iniciais de fundação e planejamento (`Sprint 0`) seguidas por **5 Sprints semanais de execução técnica e montagem documental (Sprints 1 a 5)**, gerenciadas no Jira (Projeto **EST** — ADR-0005) com uma capacidade planejada de [estimativa] 16 story points por sprint para a dupla (Roger Quinelato, CTO; Raquel Pereira, CPO).'),
+  h2('1. Cronograma e Mapeamento de Sprints (Semanas 1 a 7)'),
+  tbl(['Semana / Período','Sprint Jira','Foco e Épicos Prioritários','Entregáveis, Pacotes e Marcos'],[
+    ['Semana 1 (16–22/06)','Sprint 0 (Prep I)','Fundação, Identidade e Setup','Logo oficial (Conceito B), design tokens (`tokens.css`), setup das ferramentas e repositório GitHub, e revisão estrutural das seções 1 a 4.'],
+    ['Semana 2 (23–29/06)','Sprint 0 (Prep II)','Mercado, Estrutura e Portfólio','Organograma oficial da dupla em Draw.io, definição do portfólio de 5 produtos (`EP-LINGO`, `EP-VOCAB`, `EP-EDU`, `EP-BABELUX`, `EP-INTEGRA`) e redação das seções 5 a 8.'],
+    ['Semana 3 (30/06–06/07)','Sprint 1 (Execução)','Planos, Modelagem e Site Base (`EP-DOCS`, `EP-PLAT`)','ERD PostgreSQL referencial (`erd_babelstack.svg`, item `S1-1`), fluxograma de atendimento (`fluxograma_atendimento.svg`, `S1-2`), organograma (`S1-3`), publicação do esqueleto do site no ar (`S1-4`) e revisão das seções 9 a 16 (`S1-5`).'],
+    ['Semana 4 (07–13/07)','Sprint 2 (Execução)','Build Técnico I: BI e Flashcards (`EP-LINGO`, `EP-VOCAB`, `EP-PLAT`)','Publicação do site no GitHub Pages (`S2-5`), **VocabDeck MVP** funcional (`index.html`/`app.js` com motor Leitner em `localStorage`, `S2-3`, `S2-4`) e **LingoBoard MVP** funcional (`app.py` em Streamlit com 4 gráficos via Pandas, `S2-2`), lendo CSV derivado do ERD (`S2-1`) e limiares interativos na sidebar (`S2-6`).'],
+    ['Semana 5 (14–20/07)','Sprint 3 (Execução)','Build Técnico II: Landing, Automação, UX e Gantt (`EP-EDU`, `EP-INTEGRA`, `EP-BABELUX`)','**EduLanding** completo com exemplo "Feira Cultural" (`S3-1`), **IntegraSchool** em modo simulação Python para relatórios de aula (`S3-2`), **BabelUX** com diagnóstico heurístico e protótipo Antes/Depois (`S3-3`, `S3-4`), gráfico de Gantt SVG (`gantt_cronograma.svg`, `S3-5`) e setup de redes sociais (`S3-6`, [estimativa] opcional).'],
+    ['Semana 6 (21–24/07)','Sprint 4 (Execução)','Montagem Documental, Deck e 1ª Apresentação (`EP-DOCS`, `EP-ENTREGA`)','Captura de mockups para seções 8 e 9 (`S4-1`), montagem do documento final e regeneração do `.docx` com 18 seções + anexos (`S4-2`, `S4-3`), deck de apresentação (`S4-4`) e **1ª Apresentação na Banca (Marco em 24/07/2026, `S4-5`)**.'],
+    ['Semana 7 (25–31/07)','Sprint 5 (Fechamento)','Ajustes Pós-Feedback e Entrega Final (`EP-ENTREGA`)','Ajustes finos no relatório técnico e nos códigos do portfólio com base nas considerações da banca avaliadora, ensaio final e **2ª Apresentação e Entrega Definitiva do Projeto (Marco em 31/07/2026)**.']
   ]),
-  p('Data final: 31/07/2026 — conclusão de todos os entregáveis, site online com no mínimo 5 soluções e apresentações nos dias 24/07 e 31/07.'),
+  h2('2. Caminho Crítico e Dependências Interligadas'),
+  ul(
+    '**Caminho Crítico do Build Técnico:** o progresso arquitetural depende estritamente da sequência `ERD PostgreSQL (Sprint 1) → CSVs de Exemplo (Sprint 2) → LingoBoard e IntegraSchool (Sprints 2 e 3) → Anexos e Documento Final (Sprint 4)`. A formalização das 6 entidades em `tdd_arquitetura.md` foi pré-requisito indispensável para validar a lógica analítica em Streamlit e a geração de relatórios administrativos.',
+    '**Independência de Frontend:** VocabDeck, EduLanding e o site institucional seguem trilha paralela baseada no design system compartilhado (`tokens.css`), permitindo à CPO (Raquel) evoluir o front e protótipos Figma simultaneamente aos desenvolvimentos de dados conduzidos pelo CTO (Roger).'
+  ),
   note('[Anexo: gráfico de Gantt do cronograma, com as datas reais (16/06–31/07/2026) e os marcos das apresentações (24/07 e 31/07) — ver diagramas/gantt_cronograma.svg (fonte .mmd)]'),
+  p('**Data final do projeto: 31/07/2026** — conclusão integral de todos os entregáveis acadêmicos, site em produção com os 5 produtos funcionais e apresentações devidamente homologadas nos dias 24/07 e 31/07/2026.')
 ]},
 ];
 
